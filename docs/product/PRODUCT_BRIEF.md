@@ -96,12 +96,15 @@ The cart must support:
 Version one is confirmed as pickup-only, guest-only, and pay-at-pickup. Do not
 select or implement provider-specific production commerce until the user supplies:
 
-- Real pickup location, opening hours, and time-slot rules.
+- Production confirmation or replacement of the three sample pickup branches.
 - Order backend, ecommerce platform, or POS integration.
 - Inventory and availability source.
 - Tax and service-fee rules.
 
 Before those decisions, build provider-neutral interfaces and clearly labeled mock flows.
+
+The current pickup flow uses a fixed 45-minute preparation estimate. It does not
+request customer geolocation or claim a route-time estimate.
 
 ## Out of scope unless requested
 

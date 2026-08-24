@@ -12,6 +12,7 @@ import {
   type ContactErrors,
 } from "@/lib/checkout";
 import { formatPrice } from "@/lib/format";
+import { formatPickupReadyTime, getPickupAvailability } from "@/lib/pickup";
 import type { CustomerContact } from "@/types/commerce";
 import styles from "./checkout.module.css";
 
@@ -40,6 +41,10 @@ export function CheckoutContent() {
   });
   const [contactErrors, setContactErrors] = useState<ContactErrors>({});
   const [isContactValid, setIsContactValid] = useState(false);
+  const [pickupSelection, setPickupSelection] = useState<{
+    locationId: string;
+    selectedAt: Date;
+  } | null>(null);
 
   const setContactField = (field: keyof CustomerContact, value: string) => {
     const nextContact = { ...contact, [field]: value };
@@ -93,6 +98,16 @@ export function CheckoutContent() {
   }
 
   const review = buildCheckoutReview(lines);
+  const selectedLocation = commerceConfig.pickupLocations.find(
+    (location) => location.id === pickupSelection?.locationId,
+  );
+  const selectedAvailability = selectedLocation
+    ? getPickupAvailability(selectedLocation, new Date())
+    : null;
+  const selectedReadyTime =
+    selectedLocation && pickupSelection
+      ? formatPickupReadyTime(selectedLocation, pickupSelection.selectedAt)
+      : null;
 
   return (
     <div className={styles.layout}>
@@ -194,17 +209,84 @@ export function CheckoutContent() {
               <Heading as="h2" id="pickup-title" size="h4">
                 محل و زمان تحویل
               </Heading>
-              <Text size="bodySm">
-                پس از ثبت نشانی و ساعت کاری واقعی فعال می‌شود.
-              </Text>
+              <Text size="bodySm">یکی از سه شعبهٔ نمونه را انتخاب کنید.</Text>
             </div>
           </div>
-          <div className={styles.pendingBox}>
-            <strong>محل تحویل هنوز مشخص نشده است.</strong>
-            <p>
-              برای نمایش زمان‌های معتبر، ابتدا نشانی شعبه و ساعت کاری لازم است.
-            </p>
-          </div>
+          <fieldset className={styles.locationFieldset}>
+            <legend>شعبهٔ تحویل</legend>
+            <div className={styles.locationOptions}>
+              {commerceConfig.pickupLocations.map((location) => {
+                const availability = getPickupAvailability(
+                  location,
+                  new Date(),
+                );
+                const inputId = "pickup-" + location.slug;
+                return (
+                  <div className={styles.locationOption} key={location.id}>
+                    <input
+                      id={inputId}
+                      type="radio"
+                      name="pickupLocationId"
+                      value={location.id}
+                      checked={pickupSelection?.locationId === location.id}
+                      onChange={() =>
+                        setPickupSelection({
+                          locationId: location.id,
+                          selectedAt: new Date(),
+                        })
+                      }
+                    />
+                    <label htmlFor={inputId}>
+                      <span className={styles.locationTitleRow}>
+                        <strong>{location.name}</strong>
+                        <small data-state={availability.state}>
+                          {availability.label}
+                        </small>
+                      </span>
+                      <span>{location.address}</span>
+                      <span className={styles.locationMeta}>
+                        <span dir="ltr">{location.phone}</span>
+                        <span>{location.openingHours.join("، ")}</span>
+                      </span>
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+          </fieldset>
+          {selectedLocation ? (
+            <div className={styles.readyEstimate} aria-live="polite">
+              <strong>
+                زمان آماده‌سازی سفارش:{" "}
+                {selectedLocation.pickupSchedule?.preparationMinutes.toLocaleString(
+                  "fa-IR",
+                )}{" "}
+                دقیقه
+              </strong>
+              {selectedAvailability?.acceptingOrders && selectedReadyTime ? (
+                <p>
+                  اگر سفارش همین حالا ثبت شود، حدود ساعت {selectedReadyTime} از{" "}
+                  {selectedLocation.name} آمادهٔ تحویل است.
+                </p>
+              ) : (
+                <p>
+                  این شعبه در حال حاضر سفارش تحویل حضوری نمی‌پذیرد؛ ساعات کاری
+                  بالا را بررسی کنید.
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className={styles.pendingBox}>
+              <strong>هنوز شعبه‌ای انتخاب نشده است.</strong>
+              <p>
+                برای دیدن زمان تقریبی آماده‌شدن، شعبهٔ تحویل را انتخاب کنید.
+              </p>
+            </div>
+          )}
+          <p className={styles.sampleNotice}>
+            اطلاعات این سه شعبه فعلاً نمونه‌اند و پیش از انتشار نهایی دوباره
+            تأیید می‌شوند.
+          </p>
         </section>
 
         <section className={styles.panel} aria-labelledby="payment-title">

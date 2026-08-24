@@ -33,6 +33,7 @@ describe("CheckoutContent", () => {
     });
     expect(screen.getByText("تحویل حضوری")).toBeInTheDocument();
     expect(screen.getByText("پرداخت هنگام تحویل")).toBeInTheDocument();
+    expect(screen.getByText("شعبهٔ قلهک")).toBeInTheDocument();
     expect(screen.getByText("۲ × اسپرسو")).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: "ثبت سفارش پس از تکمیل تنظیمات" }),
@@ -51,6 +52,28 @@ describe("CheckoutContent", () => {
     expect(screen.getByLabelText("نام و نام خانوادگی")).toHaveValue(
       "سعید رضایی",
     );
+    expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
+  });
+
+  it("lets the guest select a sample pickup branch without persisting it", async () => {
+    const user = userEvent.setup();
+    render(
+      <CartProvider>
+        <CheckoutContent />
+      </CartProvider>,
+    );
+
+    await screen.findByRole("form", { name: "اطلاعات تسویه حساب" });
+    const branch = screen.getByRole("radio", { name: /شعبهٔ قلهک/ });
+    await user.click(screen.getByText("شعبهٔ قلهک"));
+
+    expect(branch).toBeChecked();
+    expect(screen.getByText(/زمان آماده‌سازی سفارش/)).toHaveTextContent(
+      "۴۵ دقیقه",
+    );
+    expect(
+      screen.getByText(/اطلاعات این سه شعبه فعلاً نمونه‌اند/),
+    ).toBeInTheDocument();
     expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
   });
 

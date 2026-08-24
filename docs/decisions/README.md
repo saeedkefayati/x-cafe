@@ -9,3 +9,11 @@ Status values:
 - `Proposed`: not yet locked.
 
 Add a new numbered file when a durable decision changes. Do not silently rewrite the rationale of an accepted decision.
+
+Current records:
+
+- 0001-product-image-style.md
+- 0002-shared-product-images-across-themes.md
+- 0003-initial-product-catalog.md
+- 0004-agent-documentation-governance.md
+- 0005-fixed-pickup-preparation.md

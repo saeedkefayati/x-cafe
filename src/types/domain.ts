@@ -107,6 +107,12 @@ export interface JournalPost {
   seoTitle: string;
   seoDescription: string;
 }
+export interface PickupSchedule {
+  timeZone: string;
+  opensAt: string;
+  closesAt: string;
+  preparationMinutes: number;
+}
 export interface Location {
   id: string;
   slug: string;
@@ -114,9 +120,12 @@ export interface Location {
   address: string;
   coordinates?: { lat: number; lng: number };
   phone?: string;
+  phoneUri?: string;
   openingHours: string[];
+  pickupSchedule?: PickupSchedule;
   services: string[];
   pickupEnabled: boolean;
+  operationalStatus: "sample" | "confirmed";
   image?: MediaAsset;
   description: string;
 }

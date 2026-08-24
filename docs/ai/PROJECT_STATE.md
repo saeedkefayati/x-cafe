@@ -1,6 +1,6 @@
 # Project state
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
 Phase 2 commit: `567dfab` (`feat: complete product configuration and cart`)
@@ -8,12 +8,15 @@ Phase 3 commit: `363765b` (`feat: complete editorial content experience`)
 Phase 4 commit: `a2abecf` (`feat: add responsive motion system`)
 Phase 5 commit: `2c2ddf9` (`feat: add pickup checkout foundation`)
 
+Phase 6 commit: `a837807` (`feat: add guest pickup checkout`)
+
 ## Current phase
 
-Phase 6 guest pickup Checkout is in progress. Version one is guest-only,
-pickup-only, and paid at pickup. Local contact validation is implemented; real
-submission remains blocked on the pickup location, order provider, availability,
-and fee decisions.
+Phase 7 sample branch selection and pickup timing are in progress. Three sample
+Tehran branches feed both the Locations page and Checkout. Every pickup uses a
+fixed 45-minute preparation window; customer geolocation is intentionally
+deferred. Real submission remains blocked on production confirmation, the order
+provider, availability, and fee decisions.
 
 ## Completed
 
@@ -56,6 +59,10 @@ and fee decisions.
 - Guest-only Checkout with no registration, login, session, or customer-account dependency.
 - Pay-at-pickup selected for version one, with no online payment gateway.
 - Accessible inline validation for guest name, phone, and optional email fields.
+- Three explicitly sample Tehran pickup branches shared by the Locations page and Checkout.
+- Accessible, non-persistent branch selection with current acceptance status.
+- Fixed 45-minute pickup preparation and a last-order boundary 45 minutes before closing.
+- No customer geolocation request or inaccurate route-time estimate.
 
 ## Catalog
 
@@ -87,7 +94,7 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Supply the real pickup location name, address, opening hours, and time-slot rules.
+1. Confirm or replace the three sample branch records before production.
 2. Choose the order destination: custom backend, ecommerce provider, or POS.
 3. Define production availability and tax/service-fee rules.
 4. Review and replace provisional brand and operational content when real material is ready.
@@ -98,7 +105,7 @@ See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets
 
 - Final cafe name and logo.
 - Final prices and complete production menu.
-- Real pickup location, opening hours, and time-slot rules.
+- Production confirmation for the sample pickup locations, phones, and hours.
 - Order backend, ecommerce provider, or POS integration.
 - Inventory source and availability rules.
 - Tax and service-fee rules.

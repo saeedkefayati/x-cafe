@@ -400,6 +400,54 @@
   max-width: 54rem;
   gap: var(--space-5);
 }
+.locationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin-block-start: var(--space-12);
+}
+.locationCard {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--color-surface);
+}
+.locationCard > span {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--font-size-label);
+}
+.locationCard address {
+  color: var(--color-text-secondary);
+  font-style: normal;
+  line-height: 1.9;
+}
+.locationCard dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  border-block-start: 1px solid var(--color-border-subtle);
+  padding-block-start: var(--space-4);
+}
+.locationCard dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.locationCard dt {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-body-sm);
+}
+.locationCard dd {
+  margin: 0;
+  text-align: end;
+}
+.locationCard a {
+  color: var(--color-text-primary);
+}
 .infoGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -411,6 +459,12 @@
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-block-start: var(--space-10);
+}
+
+@media (max-width: 64rem) {
+  .locationGrid {
+    grid-template-columns: 1fr;
+  }
 }
 .contactLayout {
   display: grid;

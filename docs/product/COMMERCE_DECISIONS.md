@@ -1,6 +1,6 @@
 # Commerce decisions
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 ## Confirmed for version one
 
@@ -8,16 +8,18 @@ Last updated: 2026-08-24
 - Delivery address, delivery radius, and delivery fee are not part of the first version.
 - Checkout is guest-only. Registration, login, sessions, and customer accounts are not required in version one.
 - Payment is made at pickup; the first version has no online payment gateway.
+- The current implementation uses three explicitly sample Tehran branches: Gholhak, Felestin, and Pasdaran.
+- Every branch uses a fixed 45-minute preparation time. Orders stop being accepted 45 minutes before closing.
+- Customer geolocation and route-time estimation are deferred; Checkout does not request or store location.
 - Checkout remains a low-motion utility flow.
 - The browser cart is never trusted for authoritative price or availability; a future server/provider must resolve the current catalog again before accepting an order.
 
 ## Still required before real order submission
 
-1. Real pickup location name and address.
-2. Opening hours and valid pickup time-slot rules.
-3. Order destination: custom backend, ecommerce provider, or POS.
-4. Production availability source.
-5. Tax and service-fee policy.
+1. Production confirmation or replacement of the sample branch details.
+2. Order destination: custom backend, ecommerce provider, or POS.
+3. Production availability source.
+4. Tax and service-fee policy.
 
 Until these are supplied, Checkout validates customer inputs only in the current
 page: inputs are not transmitted or persisted and no order is created. Payment

@@ -76,15 +76,27 @@ Confirmed scope for version one:
 
 Completed in commit `2c2ddf9` (`feat: add pickup checkout foundation`).
 
-## Phase 6 — Guest pickup Checkout: in progress
+## Phase 6 — Guest pickup Checkout: complete
 
 - Checkout is guest-only; registration and login are intentionally deferred.
 - Payment is made at pickup; the first version has no online gateway.
 - Contact fields use local, accessible validation without browser persistence or transmission.
 - The payment choice is visible in Checkout and is no longer a configuration blocker.
 
-Real submission remains blocked until the pickup location and hours, order
-backend/POS, availability source, and tax/service-fee policy are supplied.
+Completed in commit `a837807` (`feat: add guest pickup checkout`).
+
+## Phase 7 — Sample branches and pickup timing: in progress
+
+- Three explicitly sample Tehran branches with address, phone, and daily hours.
+- Accessible branch selection in Checkout without browser persistence.
+- Fixed 45-minute preparation time for every order and branch.
+- Same-day acceptance stops 45 minutes before closing.
+- Customer geolocation and route-time estimation are intentionally deferred to
+  avoid an inaccurate estimate and an unnecessary permission request.
+
+Real submission remains blocked until the sample branch data is confirmed for
+production and the order backend/POS, availability source, and tax/service-fee
+policy are supplied.
 
 - Checkout integration.
 - Order submission.

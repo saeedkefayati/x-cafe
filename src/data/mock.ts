@@ -2,7 +2,6 @@ import type {
   Category,
   FAQ,
   JournalPost,
-  Location,
   Product,
   ProductOption,
 } from "@/types/domain";
@@ -326,7 +325,6 @@ export const journalPosts: JournalPost[] = [
   },
 ];
 
-export const locations: Location[] = [];
 export const faqs: FAQ[] = [
   {
     id: "faq-customize",
@@ -365,7 +363,7 @@ export const faqs: FAQ[] = [
     category: "تحویل",
     question: "سفارش برای تحویل حضوری است یا ارسال؟",
     answer:
-      "روش تحویل هنوز نهایی نشده است. تا مشخص‌شدن شعبه، محدودهٔ سرویس و فرایند عملیاتی، سایت هیچ روش تحویلی را قطعی اعلام نمی‌کند.",
+      "نسخهٔ اول فقط تحویل حضوری دارد. شعبهٔ تحویل در Checkout انتخاب می‌شود و سفارش حدود ۴۵ دقیقه پس از ثبت موفق آماده خواهد بود. اطلاعات فعلی شعبه‌ها نمونه‌اند.",
     sortOrder: 5,
   },
   {
@@ -373,7 +371,7 @@ export const faqs: FAQ[] = [
     category: "پرداخت",
     question: "پرداخت آنلاین فعال است؟",
     answer:
-      "هنوز نه. درگاه و فرایند ثبت سفارش پس از تصمیم‌گیری دربارهٔ پرداخت و زیرساخت سفارش اضافه می‌شوند.",
+      "خیر. در نسخهٔ اول مبلغ سفارش هنگام تحویل حضوری در شعبه پرداخت می‌شود و درگاه آنلاین وجود ندارد.",
     sortOrder: 6,
   },
 ];

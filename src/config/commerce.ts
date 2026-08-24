@@ -1,7 +1,10 @@
+import { locations } from "@/data/locations";
+import type { Location } from "@/types/domain";
+
 export interface CommerceConfiguration {
   customerMode: "guest";
   fulfillmentMode: "pickup";
-  pickupLocation: { id: string; name: string; address: string } | null;
+  pickupLocations: readonly Location[];
   paymentMethod: "online" | "pay-at-pickup" | null;
   orderProvider: string | null;
   availabilitySource: string | null;
@@ -11,7 +14,7 @@ export interface CommerceConfiguration {
 export const commerceConfig: CommerceConfiguration = {
   customerMode: "guest",
   fulfillmentMode: "pickup",
-  pickupLocation: null,
+  pickupLocations: locations,
   paymentMethod: "pay-at-pickup",
   orderProvider: null,
   availabilitySource: null,
@@ -21,6 +24,7 @@ export const commerceConfig: CommerceConfiguration = {
 export interface CommerceBlocker {
   id:
     | "pickup-location"
+    | "pickup-location-confirmation"
     | "payment-method"
     | "order-provider"
     | "availability-source"
@@ -32,8 +36,17 @@ export function getCommerceBlockers(
   config: CommerceConfiguration,
 ): CommerceBlocker[] {
   const blockers: CommerceBlocker[] = [];
-  if (!config.pickupLocation) {
+  if (config.pickupLocations.length === 0) {
     blockers.push({ id: "pickup-location", label: "نشانی محل تحویل حضوری" });
+  } else if (
+    config.pickupLocations.some(
+      (location) => location.operationalStatus !== "confirmed",
+    )
+  ) {
+    blockers.push({
+      id: "pickup-location-confirmation",
+      label: "تأیید نهایی اطلاعات شعبه‌ها",
+    });
   }
   if (!config.paymentMethod) {
     blockers.push({ id: "payment-method", label: "روش پرداخت" });
