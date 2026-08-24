@@ -18,7 +18,7 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phase 1 is complete. Phase 2 is the next implementation target.
+- Phases 1–5 are complete. Phase 6 is implementing a guest-only, pickup-only Checkout with payment at pickup.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 

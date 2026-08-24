@@ -1,4 +1,5 @@
 export interface CommerceConfiguration {
+  customerMode: "guest";
   fulfillmentMode: "pickup";
   pickupLocation: { id: string; name: string; address: string } | null;
   paymentMethod: "online" | "pay-at-pickup" | null;
@@ -8,9 +9,10 @@ export interface CommerceConfiguration {
 }
 
 export const commerceConfig: CommerceConfiguration = {
+  customerMode: "guest",
   fulfillmentMode: "pickup",
   pickupLocation: null,
-  paymentMethod: null,
+  paymentMethod: "pay-at-pickup",
   orderProvider: null,
   availabilitySource: null,
   feePolicy: null,

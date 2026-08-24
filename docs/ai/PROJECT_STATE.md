@@ -6,10 +6,14 @@ Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
 Phase 2 commit: `567dfab` (`feat: complete product configuration and cart`)
 Phase 3 commit: `363765b` (`feat: complete editorial content experience`)
 Phase 4 commit: `a2abecf` (`feat: add responsive motion system`)
+Phase 5 commit: `2c2ddf9` (`feat: add pickup checkout foundation`)
 
 ## Current phase
 
-Phase 5 commerce integration is in progress with pickup-only confirmed for version one. The provider-neutral contract and safe Checkout preview are implemented; real submission remains blocked on pickup location, payment, order provider, availability, and fee decisions.
+Phase 6 guest pickup Checkout is in progress. Version one is guest-only,
+pickup-only, and paid at pickup. Local contact validation is implemented; real
+submission remains blocked on the pickup location, order provider, availability,
+and fee decisions.
 
 ## Completed
 
@@ -49,6 +53,9 @@ Phase 5 commerce integration is in progress with pickup-only confirmed for versi
 - Generic contact normalization and validation for name, phone, and optional email.
 - Responsive Pickup Checkout preview with contact fields, fulfillment status, payment status, cart review, and disabled real submission.
 - Checkout preview explicitly prevents form transmission and does not persist customer contact data.
+- Guest-only Checkout with no registration, login, session, or customer-account dependency.
+- Pay-at-pickup selected for version one, with no online payment gateway.
+- Accessible inline validation for guest name, phone, and optional email fields.
 
 ## Catalog
 
@@ -80,11 +87,10 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Decide payment method: online payment or payment at pickup.
-2. Supply the real pickup location name, address, opening hours, and time-slot rules.
-3. Choose the order destination: custom backend, ecommerce provider, or POS.
-4. Define production availability and tax/service-fee rules.
-5. Review and replace provisional brand and operational content when real material is ready.
+1. Supply the real pickup location name, address, opening hours, and time-slot rules.
+2. Choose the order destination: custom backend, ecommerce provider, or POS.
+3. Define production availability and tax/service-fee rules.
+4. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
@@ -92,12 +98,13 @@ See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets
 
 - Final cafe name and logo.
 - Final prices and complete production menu.
-- Fulfillment model: pickup, delivery, or both.
-- Country, city, delivery radius, and address rules.
-- Payment gateway.
+- Real pickup location, opening hours, and time-slot rules.
 - Order backend, ecommerce provider, or POS integration.
 - Inventory source and availability rules.
-- Tax, delivery, and service-fee rules.
+- Tax and service-fee rules.
 - Real branches, contact information, legal copy, and privacy details.
+
+Customer accounts and online payment are intentionally outside version one,
+not unresolved requirements.
 
 Do not invent these values. Use explicit mock labeling or abstractions until the user decides them.

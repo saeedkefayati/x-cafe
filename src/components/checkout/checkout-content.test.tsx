@@ -32,6 +32,7 @@ describe("CheckoutContent", () => {
       name: "اطلاعات تسویه حساب",
     });
     expect(screen.getByText("تحویل حضوری")).toBeInTheDocument();
+    expect(screen.getByText("پرداخت هنگام تحویل")).toBeInTheDocument();
     expect(screen.getByText("۲ × اسپرسو")).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: "ثبت سفارش پس از تکمیل تنظیمات" }),
@@ -39,12 +40,48 @@ describe("CheckoutContent", () => {
 
     await user.type(screen.getByLabelText("نام و نام خانوادگی"), "سعید رضایی");
     await user.type(screen.getByLabelText("شمارهٔ تماس"), "۰۹۱۲۱۲۳۴۵۶۷");
-    await user.keyboard("{Enter}");
+    await user.click(
+      screen.getByRole("button", { name: "بررسی اطلاعات تماس" }),
+    );
 
     expect(form).toBeInTheDocument();
+    expect(
+      screen.getByText("اطلاعات تماس برای ادامه آماده است."),
+    ).toBeInTheDocument();
     expect(screen.getByLabelText("نام و نام خانوادگی")).toHaveValue(
       "سعید رضایی",
     );
+    expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
+  });
+
+  it("shows accessible field errors for invalid guest contact data", async () => {
+    const user = userEvent.setup();
+    render(
+      <CartProvider>
+        <CheckoutContent />
+      </CartProvider>,
+    );
+
+    await screen.findByRole("form", { name: "اطلاعات تسویه حساب" });
+    await user.type(screen.getByLabelText("نام و نام خانوادگی"), "س");
+    await user.type(screen.getByLabelText("شمارهٔ تماس"), "۱۲۳");
+    await user.type(screen.getByLabelText("ایمیل"), "invalid");
+    await user.click(
+      screen.getByRole("button", { name: "بررسی اطلاعات تماس" }),
+    );
+
+    expect(
+      screen.getByText("نام باید بین ۲ تا ۸۰ نویسه باشد."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("شمارهٔ تماس باید بین ۸ تا ۱۵ رقم باشد."),
+    ).toBeInTheDocument();
+    expect(screen.getByText("نشانی ایمیل معتبر نیست.")).toBeInTheDocument();
+    expect(screen.getByLabelText("نام و نام خانوادگی")).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(screen.getByLabelText("نام و نام خانوادگی")).toHaveFocus();
     expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
   });
 

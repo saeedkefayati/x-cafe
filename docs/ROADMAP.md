@@ -63,7 +63,7 @@ Definition of done:
 
 Completed in commit `a2abecf` (`feat: add responsive motion system`).
 
-## Phase 5 — Real commerce integration: pickup foundation in progress
+## Phase 5 — Pickup commerce foundation: complete
 
 Confirmed scope for version one:
 
@@ -74,10 +74,20 @@ Confirmed scope for version one:
 - Pickup Checkout preview with contact fields, cart review, and explicit configuration blockers.
 - No contact-data persistence, order creation, or payment until the remaining decisions are configured.
 
-Real submission remains blocked until the pickup location and hours, payment method, order backend/POS, availability source, and tax/service-fee policy are supplied.
+Completed in commit `2c2ddf9` (`feat: add pickup checkout foundation`).
+
+## Phase 6 — Guest pickup Checkout: in progress
+
+- Checkout is guest-only; registration and login are intentionally deferred.
+- Payment is made at pickup; the first version has no online gateway.
+- Contact fields use local, accessible validation without browser persistence or transmission.
+- The payment choice is visible in Checkout and is no longer a configuration blocker.
+
+Real submission remains blocked until the pickup location and hours, order
+backend/POS, availability source, and tax/service-fee policy are supplied.
 
 - Checkout integration.
 - Order submission.
-- Payment.
+- Pay-at-pickup order status.
 - Real availability.
 - Production success-state data.

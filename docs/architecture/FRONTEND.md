@@ -26,7 +26,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/components/shell`: header, navigation, and footer.
 - `src/components/theme`: persistent system/light/dark theme state.
 - `src/data/products.ts`: current fifteen-product catalog.
-- `src/config/commerce.ts`: explicit fulfillment decision and remaining commerce blockers.
+- `src/config/commerce.ts`: explicit guest, pickup, and pay-at-pickup decisions plus remaining commerce blockers.
 - `src/data/mock.ts`: categories and remaining mock content sources.
 - `src/types/domain.ts`: domain contracts.
 - `src/types/commerce.ts`: provider-neutral pickup order request and result contracts.
@@ -58,9 +58,10 @@ This repository uses a version with APIs and conventions that may differ from ge
 ## Commerce boundary
 
 - Version one supports pickup only; delivery-specific fields and fees stay outside the flow.
+- Version one uses guest Checkout and pay-at-pickup; authentication and an online gateway stay outside the flow.
 - Treat browser cart totals as display data only. A server/provider must re-resolve products, options, availability, prices, tax, and fees before accepting an order.
 - Keep customer contact data out of browser persistence.
-- Implement a real Server Action or route only after a pickup location, payment method, order provider, availability source, and fee policy are configured.
+- Implement a real Server Action or route only after a pickup location, order provider, availability source, and fee policy are configured.
 - Do not show the success state until the provider returns a confirmed order id.
 
 ## Images

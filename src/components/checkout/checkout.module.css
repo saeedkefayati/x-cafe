@@ -58,6 +58,20 @@
   grid-column: 1 / -1;
 }
 
+.contactActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.validationSuccess {
+  margin: 0;
+  color: var(--color-success);
+  font-size: var(--font-size-body-sm);
+  font-weight: 650;
+}
+
 .selectedMethod,
 .pendingBox {
   display: flex;

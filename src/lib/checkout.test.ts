@@ -90,10 +90,11 @@ describe("pickup checkout foundation", () => {
   });
 
   it("keeps every real-commerce dependency explicit", () => {
+    expect(commerceConfig.customerMode).toBe("guest");
     expect(commerceConfig.fulfillmentMode).toBe("pickup");
+    expect(commerceConfig.paymentMethod).toBe("pay-at-pickup");
     expect(getCommerceBlockers(commerceConfig).map((item) => item.id)).toEqual([
       "pickup-location",
-      "payment-method",
       "order-provider",
       "availability-source",
       "fee-policy",

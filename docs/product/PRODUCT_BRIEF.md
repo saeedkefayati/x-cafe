@@ -93,14 +93,13 @@ The cart must support:
 
 ## Real-commerce stop conditions
 
-Do not select or implement provider-specific production commerce until the user decides:
+Version one is confirmed as pickup-only, guest-only, and pay-at-pickup. Do not
+select or implement provider-specific production commerce until the user supplies:
 
-- Pickup, delivery, or both.
-- Geography and address rules.
-- Payment gateway.
+- Real pickup location, opening hours, and time-slot rules.
 - Order backend, ecommerce platform, or POS integration.
 - Inventory and availability source.
-- Tax, delivery fee, and service-fee rules.
+- Tax and service-fee rules.
 
 Before those decisions, build provider-neutral interfaces and clearly labeled mock flows.
 

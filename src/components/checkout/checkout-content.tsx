@@ -1,18 +1,82 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { commerceConfig, getCommerceBlockers } from "@/config/commerce";
 import { useCart } from "@/components/cart/cart-provider";
 import { Button, LinkButton } from "@/components/controls/button";
 import { TextField } from "@/components/controls/text-field";
 import { Heading, Text } from "@/components/primitives/typography";
-import { buildCheckoutReview } from "@/lib/checkout";
+import {
+  buildCheckoutReview,
+  validateCustomerContact,
+  type ContactErrors,
+} from "@/lib/checkout";
 import { formatPrice } from "@/lib/format";
+import type { CustomerContact } from "@/types/commerce";
 import styles from "./checkout.module.css";
 
 const blockers = getCommerceBlockers(commerceConfig);
 
+function updateFieldError(
+  errors: ContactErrors,
+  field: keyof CustomerContact,
+  error: string | undefined,
+) {
+  const nextErrors = { ...errors };
+  if (error) {
+    nextErrors[field] = error;
+  } else {
+    delete nextErrors[field];
+  }
+  return nextErrors;
+}
+
 export function CheckoutContent() {
   const { lines, isHydrated } = useCart();
+  const [contact, setContact] = useState<CustomerContact>({
+    name: "",
+    phone: "",
+    email: "",
+  });
+  const [contactErrors, setContactErrors] = useState<ContactErrors>({});
+  const [isContactValid, setIsContactValid] = useState(false);
+
+  const setContactField = (field: keyof CustomerContact, value: string) => {
+    const nextContact = { ...contact, [field]: value };
+    setContact(nextContact);
+    setIsContactValid(false);
+
+    if (contactErrors[field]) {
+      setContactErrors((current) =>
+        updateFieldError(
+          current,
+          field,
+          validateCustomerContact(nextContact)[field],
+        ),
+      );
+    }
+  };
+
+  const validateField = (field: keyof CustomerContact) => {
+    setContactErrors((current) =>
+      updateFieldError(current, field, validateCustomerContact(contact)[field]),
+    );
+  };
+
+  const handleContactCheck = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const errors = validateCustomerContact(contact);
+    setContactErrors(errors);
+    setIsContactValid(Object.keys(errors).length === 0);
+
+    const firstInvalidField = Object.keys(errors)[0];
+    if (firstInvalidField) {
+      const field = event.currentTarget.elements.namedItem(firstInvalidField);
+      if (field instanceof HTMLElement) {
+        field.focus();
+      }
+    }
+  };
 
   if (!isHydrated) {
     return <p role="status">در حال آماده‌سازی سفارش…</p>;
@@ -36,7 +100,8 @@ export function CheckoutContent() {
         className={styles.form}
         aria-label="اطلاعات تسویه حساب"
         aria-describedby="checkout-preview-note"
-        onSubmit={(event) => event.preventDefault()}
+        noValidate
+        onSubmit={handleContactCheck}
       >
         <section className={styles.panel} aria-labelledby="contact-title">
           <div className={styles.stepHeading}>
@@ -57,6 +122,10 @@ export function CheckoutContent() {
               minLength={2}
               maxLength={80}
               required
+              value={contact.name}
+              error={contactErrors.name}
+              onChange={(event) => setContactField("name", event.target.value)}
+              onBlur={() => validateField("name")}
             />
             <TextField
               id="checkout-phone"
@@ -68,6 +137,10 @@ export function CheckoutContent() {
               minLength={8}
               maxLength={20}
               required
+              value={contact.phone}
+              error={contactErrors.phone}
+              onChange={(event) => setContactField("phone", event.target.value)}
+              onBlur={() => validateField("phone")}
             />
             <TextField
               id="checkout-email"
@@ -77,7 +150,21 @@ export function CheckoutContent() {
               type="email"
               inputMode="email"
               autoComplete="email"
+              value={contact.email}
+              error={contactErrors.email}
+              onChange={(event) => setContactField("email", event.target.value)}
+              onBlur={() => validateField("email")}
             />
+          </div>
+          <div className={styles.contactActions}>
+            <Button type="submit" variant="secondary">
+              بررسی اطلاعات تماس
+            </Button>
+            {isContactValid ? (
+              <p className={styles.validationSuccess} role="status">
+                اطلاعات تماس برای ادامه آماده است.
+              </p>
+            ) : null}
           </div>
         </section>
 
@@ -127,19 +214,22 @@ export function CheckoutContent() {
               <Heading as="h2" id="payment-title" size="h4">
                 پرداخت
               </Heading>
-              <Text size="bodySm">روش پرداخت تصمیم بعدی فاز پنجم است.</Text>
+              <Text size="bodySm">نسخهٔ اول درگاه پرداخت آنلاین ندارد.</Text>
             </div>
           </div>
-          <div className={styles.pendingBox}>
-            <strong>هیچ مبلغی دریافت نمی‌شود.</strong>
-            <p>درگاه آنلاین یا پرداخت هنگام تحویل هنوز انتخاب نشده است.</p>
+          <div className={styles.selectedMethod}>
+            <span aria-hidden="true">✓</span>
+            <div>
+              <strong>پرداخت هنگام تحویل</strong>
+              <p>مبلغ سفارش هنگام تحویل حضوری در کافه پرداخت می‌شود.</p>
+            </div>
           </div>
         </section>
 
         <div className={styles.submitArea}>
           <p className={styles.previewNote} id="checkout-preview-note">
-            این صفحه فعلاً پیش‌نمایش امن Checkout است؛ اطلاعات واردشده ارسال یا
-            ذخیره نمی‌شوند.
+            اطلاعات تماس فقط در همین صفحه بررسی می‌شوند؛ ارسال یا ذخیره‌ای انجام
+            نمی‌شود.
           </p>
           <Button type="button" disabled>
             ثبت سفارش پس از تکمیل تنظیمات
