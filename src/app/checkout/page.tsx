@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import { PageIntro } from "@/components/content/page-intro";
+import { Container, Section } from "@/components/primitives/layout";
+import { Heading, Text } from "@/components/primitives/typography";
+import styles from "../site.module.css";
+export const metadata: Metadata = {
+  title: "تسویه حساب",
+  robots: { index: false, follow: false },
+};
+export default function CheckoutPage() {
+  return (
+    <>
+      <PageIntro
+        title="تسویه حساب"
+        description="ساختار این صفحه آماده است؛ اتصال واقعی سفارش پس از انتخاب Provider انجام می‌شود."
+      />
+      <Section spacing="compact">
+        <Container>
+          <div className={styles.emptyState}>
+            <span className={styles.mockNotice}>Integration deferred</span>
+            <Heading size="h3">پرداخت واقعی هنوز فعال نیست.</Heading>
+            <Text>
+              مدل تحویل، درگاه پرداخت و Backend سفارش از تصمیم‌های باز کسب‌وکار
+              هستند.
+            </Text>
+          </div>
+        </Container>
+      </Section>
+    </>
+  );
+}

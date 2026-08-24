@@ -1,0 +1,101 @@
+:root {
+  color-scheme: light;
+
+  --color-canvas: #f5f1e8;
+  --color-surface: #fbf9f4;
+  --color-surface-muted: #ece5d8;
+  --color-surface-elevated: #ffffff;
+  --color-surface-inverse: #191713;
+  --color-text-primary: #171612;
+  --color-text-secondary: #6f6a61;
+  --color-text-muted: #8c867c;
+  --color-text-inverse: #f6f1e8;
+  --color-border-subtle: #d9d1c3;
+  --color-border-default: #bdb4a6;
+  --color-border-strong: #766f64;
+  --color-brand-primary: #3b2418;
+  --color-brand-secondary: #d8c7ae;
+  --color-accent: #b8773a;
+  --color-theme-matcha: #78855c;
+  --color-theme-berry: #a65e63;
+  --color-theme-cold: #d8e5e3;
+  --color-success: #55735d;
+  --color-warning: #9d681f;
+  --color-danger: #9b413f;
+  --color-info: #486b73;
+
+  --font-sans: var(--font-vazirmatn), system-ui, sans-serif;
+  --font-display:
+    var(--font-manrope), var(--font-vazirmatn), system-ui, sans-serif;
+  --font-size-display-xl: clamp(3rem, 7vw, 7rem);
+  --font-size-display-lg: clamp(2.625rem, 5.4vw, 5rem);
+  --font-size-h1: clamp(2.25rem, 4.5vw, 4rem);
+  --font-size-h2: clamp(1.875rem, 3.5vw, 3rem);
+  --font-size-h3: clamp(1.5rem, 2.3vw, 2rem);
+  --font-size-h4: clamp(1.25rem, 1.8vw, 1.5rem);
+  --font-size-body-lg: clamp(1.125rem, 1.2vw, 1.25rem);
+  --font-size-body: 1rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-label: 0.8125rem;
+  --font-size-caption: 0.75rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+
+  --content-max-width: 76rem;
+  --wide-max-width: 90rem;
+  --reading-max-width: 42rem;
+  --page-gutter: clamp(1rem, 4vw, 4rem);
+  --header-height: 4.75rem;
+  --section-space-compact: clamp(3rem, 6vw, 5rem);
+  --section-space-default: clamp(5rem, 9vw, 8rem);
+  --section-space-large: clamp(7rem, 12vw, 11rem);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999px;
+  --shadow-subtle: 0 1px 2px rgb(23 22 18 / 0.05);
+  --shadow-floating: 0 16px 48px rgb(59 36 24 / 0.12);
+  --shadow-overlay: 0 24px 80px rgb(23 22 18 / 0.22);
+  --shadow-focus: 0 0 0 3px rgb(184 119 58 / 0.24);
+
+  --motion-instant: 80ms;
+  --motion-fast: 160ms;
+  --motion-base: 260ms;
+  --motion-slow: 480ms;
+  --motion-page: 620ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-header: 20;
+  --z-drawer: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-transition: 70;
+  --z-critical-overlay: 100;
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --header-height: 4.125rem;
+    --page-gutter: 1rem;
+  }
+}

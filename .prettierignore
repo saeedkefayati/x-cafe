@@ -1,0 +1,5 @@
+.next
+node_modules
+public/images
+cafe-commerce-pre-codex-pack
+pnpm-lock.yaml

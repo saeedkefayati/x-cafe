@@ -1,0 +1,12 @@
+{
+  "status": "calibration-approved",
+  "styleBible": "premium editorial, eye-level, subtle 70mm lens, upper-left soft key, warm paper-cream backdrop, matte pale limestone surface",
+  "assets": [
+    { "filename": "product-iced-caramel-latte-card-v1.png", "product": "Iced Caramel Latte", "usage": "card", "aspectRatio": "4:5", "promptVersion": "19-calibration-v1", "approved": false, "alt": "یک لیوان لاتهٔ کارامل سرد روی سطح تراورتن روشن" },
+    { "filename": "product-strawberry-matcha-latte-card-v1.png", "product": "Strawberry Matcha Latte", "usage": "card", "aspectRatio": "4:5", "promptVersion": "19-calibration-v1", "approved": false, "alt": "یک لیوان ماچا لاته توت‌فرنگی سرد با لایه‌های طبیعی" },
+    { "filename": "product-burnt-basque-cheesecake-card-v1.png", "product": "Burnt Basque Cheesecake", "usage": "card", "aspectRatio": "4:5", "promptVersion": "19-calibration-v1", "approved": false, "alt": "یک برش چیزکیک باسک با رویهٔ کاراملی تیره" },
+    { "filename": "product-iced-caramel-latte-card-v2.png", "product": "Iced Caramel Latte", "usage": "card", "aspectRatio": "4:5", "promptVersion": "shared-studio-v2", "approved": true, "alt": "یک لیوان لاتهٔ کارامل سرد در استودیوی کرم کاغذی و سنگ آهکی روشن" },
+    { "filename": "product-strawberry-matcha-latte-card-v2.png", "product": "Strawberry Matcha Latte", "usage": "card", "aspectRatio": "4:5", "promptVersion": "shared-studio-v2", "approved": true, "alt": "یک لیوان ماچا لاته توت فرنگی در استودیوی کرم کاغذی و سنگ آهکی روشن" },
+    { "filename": "product-burnt-basque-cheesecake-card-v2.png", "product": "Burnt Basque Cheesecake", "usage": "card", "aspectRatio": "4:5", "promptVersion": "shared-studio-v2", "approved": true, "alt": "یک برش چیزکیک باسک در استودیوی کرم کاغذی و سنگ آهکی روشن" }
+  ]
+}

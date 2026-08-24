@@ -1,0 +1,24 @@
+{
+  "status": "catalog-generated",
+  "generator": "built-in GPT Image",
+  "promptVersion": "shared-studio-v2",
+  "contactSheet": "contact-sheet-v1.png",
+  "styleBible": "photorealistic premium editorial, portrait 4:5, warm paper-cream backdrop, matte pale-limestone surface, upper-left diffused key, warm-white right bounce, subtle 70mm lens feel, no props or text",
+  "assets": [
+    { "productId": "espresso", "filename": "product-espresso-card-v1.png" },
+    { "productId": "americano", "filename": "product-americano-card-v1.png" },
+    { "productId": "cappuccino", "filename": "product-cappuccino-card-v1.png" },
+    { "productId": "cafe-latte", "filename": "product-cafe-latte-card-v1.png" },
+    { "productId": "flat-white", "filename": "product-flat-white-card-v1.png" },
+    { "productId": "iced-americano", "filename": "product-iced-americano-card-v1.png" },
+    { "productId": "iced-latte", "filename": "product-iced-latte-card-v1.png" },
+    { "productId": "iced-caramel-latte", "filename": "product-iced-caramel-latte-card-v1.png" },
+    { "productId": "cold-brew", "filename": "product-cold-brew-card-v1.png" },
+    { "productId": "espresso-tonic", "filename": "product-espresso-tonic-card-v1.png" },
+    { "productId": "burnt-basque-cheesecake", "filename": "product-burnt-basque-cheesecake-card-v1.png" },
+    { "productId": "carrot-walnut-cake", "filename": "product-carrot-walnut-cake-card-v1.png" },
+    { "productId": "chocolate-fudge-cake", "filename": "product-chocolate-fudge-cake-card-v1.png" },
+    { "productId": "lemon-poppy-seed-cake", "filename": "product-lemon-poppy-seed-cake-card-v1.png" },
+    { "productId": "red-velvet-cake", "filename": "product-red-velvet-cake-card-v1.png" }
+  ]
+}
