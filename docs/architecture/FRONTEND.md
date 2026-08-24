@@ -21,12 +21,15 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/components/content`: reusable page-intro and editorial journal-card compositions.
 - `src/components/controls`: reusable interactive controls.
 - `src/components/cart`: cart provider, drawer, cart lines, and full-page cart composition.
+- `src/components/checkout`: pickup Checkout preview and order-review presentation.
 - `src/components/product`: product and menu presentation.
 - `src/components/shell`: header, navigation, and footer.
 - `src/components/theme`: persistent system/light/dark theme state.
 - `src/data/products.ts`: current fifteen-product catalog.
+- `src/config/commerce.ts`: explicit fulfillment decision and remaining commerce blockers.
 - `src/data/mock.ts`: categories and remaining mock content sources.
 - `src/types/domain.ts`: domain contracts.
+- `src/types/commerce.ts`: provider-neutral pickup order request and result contracts.
 - `src/styles/tokens.css`: semantic design tokens.
 - `src/styles/globals.css`: root styling, theme baselines, and accessibility behavior.
 - `src/styles/motion.css`: shared progressive motion, View Transition timing, and reduced-motion fallback.
@@ -51,6 +54,14 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Keep provider-specific checkout and order submission behind interfaces until business decisions exist.
 - Keep the cart and theme providers in the root layout so their state survives route navigation.
 - Resolve theme preference from `system`, `light`, or `dark`, apply it on the root element before paint, and persist the preference locally.
+
+## Commerce boundary
+
+- Version one supports pickup only; delivery-specific fields and fees stay outside the flow.
+- Treat browser cart totals as display data only. A server/provider must re-resolve products, options, availability, prices, tax, and fees before accepting an order.
+- Keep customer contact data out of browser persistence.
+- Implement a real Server Action or route only after a pickup location, payment method, order provider, availability source, and fee policy are configured.
+- Do not show the success state until the provider returns a confirmed order id.
 
 ## Images
 

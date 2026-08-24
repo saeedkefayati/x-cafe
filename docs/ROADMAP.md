@@ -44,7 +44,7 @@ Definition of done:
 
 Completed in commit `363765b` (`feat: complete editorial content experience`).
 
-## Phase 4 — Motion: complete, approval pending
+## Phase 4 — Motion: complete
 
 - Route-entry motion built on the App Router template lifecycle.
 - Scroll-linked reveals for Home, About, Product Detail, and Journal content sections.
@@ -61,9 +61,20 @@ Definition of done:
 - Reduced-motion removes page, scroll, hero, card, and shared-element movement.
 - Desktop and mobile light/dark browser checks pass without overflow, broken images, or console issues.
 
-## Phase 5 — Real commerce integration
+Completed in commit `a2abecf` (`feat: add responsive motion system`).
 
-Blocked until fulfillment, geography, payment, order backend/POS, inventory, tax, and fee decisions are supplied.
+## Phase 5 — Real commerce integration: pickup foundation in progress
+
+Confirmed scope for version one:
+
+- Pickup-only fulfillment.
+- No customer delivery address, delivery radius, or delivery fee.
+- Provider-neutral order request and typed result contracts.
+- Authoritative server/provider boundary: browser totals are review-only.
+- Pickup Checkout preview with contact fields, cart review, and explicit configuration blockers.
+- No contact-data persistence, order creation, or payment until the remaining decisions are configured.
+
+Real submission remains blocked until the pickup location and hours, payment method, order backend/POS, availability source, and tax/service-fee policy are supplied.
 
 - Checkout integration.
 - Order submission.

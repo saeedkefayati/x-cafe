@@ -5,10 +5,11 @@ Last updated: 2026-08-24
 Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
 Phase 2 commit: `567dfab` (`feat: complete product configuration and cart`)
 Phase 3 commit: `363765b` (`feat: complete editorial content experience`)
+Phase 4 commit: `a2abecf` (`feat: add responsive motion system`)
 
 ## Current phase
 
-Phase 4 motion implementation is complete and awaiting approval. The next implementation phase is real commerce integration, which remains blocked on operational and provider decisions.
+Phase 5 commerce integration is in progress with pickup-only confirmed for version one. The provider-neutral contract and safe Checkout preview are implemented; real submission remains blocked on pickup location, payment, order provider, availability, and fee decisions.
 
 ## Completed
 
@@ -42,6 +43,12 @@ Phase 4 motion implementation is complete and awaiting approval. The next implem
 - Subtle card lift, media emphasis, option selection, and quantity feedback.
 - Explicit reduced-motion rules that keep every piece of content immediately visible and remove positional motion.
 - Responsive light/dark browser verification for Home and Product Detail at desktop and mobile sizes, with no overflow, broken images, or console issues.
+- Pickup-only fulfillment scope for version one, with delivery address and fee removed from the initial flow.
+- Provider-neutral pickup order request/result contracts and explicit commerce configuration blockers.
+- Checkout review derived from the current resolved catalog while excluding browser price snapshots from future authoritative order input.
+- Generic contact normalization and validation for name, phone, and optional email.
+- Responsive Pickup Checkout preview with contact fields, fulfillment status, payment status, cart review, and disabled real submission.
+- Checkout preview explicitly prevents form transmission and does not persist customer contact data.
 
 ## Catalog
 
@@ -73,11 +80,11 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Review and approve the Phase 4 motion behavior.
-2. Review and replace the provisional Home and About copy when real brand material is ready.
-3. Confirm the real cafe name, logo, voice, founder story, and city.
-4. Supply real location, opening hours, contact routes, and social links.
-5. Keep checkout informational until fulfillment, geography, payment, and backend choices are supplied.
+1. Decide payment method: online payment or payment at pickup.
+2. Supply the real pickup location name, address, opening hours, and time-slot rules.
+3. Choose the order destination: custom backend, ecommerce provider, or POS.
+4. Define production availability and tax/service-fee rules.
+5. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
