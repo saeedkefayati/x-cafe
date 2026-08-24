@@ -1,0 +1,41 @@
+{
+  "package": "cafe-commerce-pre-codex-pack",
+  "version": 2.1,
+  "purpose": "final pre-coding design, UX, image, motion and Codex handoff specification",
+  "language": [
+    "fa",
+    "en"
+  ],
+  "files": [
+    "00_README.md",
+    "01_brand_visual_direction.md",
+    "02_image_art_direction.md",
+    "03_image_prompt_templates.md",
+    "04_sitemap_and_information_architecture.md",
+    "05_ux_flows.md",
+    "06_product_and_content_architecture.md",
+    "07_design_system_spec.md",
+    "08_motion_system_spec.md",
+    "09_home_scroll_storyboard.md",
+    "10_product_detail_storyboard.md",
+    "11_component_inventory.md",
+    "12_responsive_behavior.md",
+    "13_accessibility_and_performance.md",
+    "14_content_structure.md",
+    "15_acceptance_criteria.md",
+    "16_codex_master_spec.md",
+    "17_execution_order_checklist.md",
+    "18_visual_identity_lock.md",
+    "19_calibration_image_set.md",
+    "20_home_experience_blueprint.md",
+    "21_page_blueprints.md",
+    "22_motion_transition_matrix.md",
+    "23_asset_inventory.md",
+    "24_pre_codex_decision_log.md",
+    "25_codex_handoff_instructions.md",
+    "26_pre_codex_ready_checklist.md",
+    "27_codex_phase1_prompt.md",
+    "START_HERE.md",
+    "manifest.json"
+  ]
+}

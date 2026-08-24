@@ -1,0 +1,10 @@
+---
+description: Canonical Cafe Commerce context and implementation rules
+alwaysApply: true
+---
+
+Follow @AGENTS.md as the canonical repository instructions.
+
+Before coding, read @docs/ai/START_HERE.md and @docs/ai/PROJECT_STATE.md, then use @docs/ai/CONTEXT_MAP.md to load only task-relevant documents.
+
+Do not use @docs/archive/pre-codex-pack as current requirements.
