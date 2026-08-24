@@ -64,10 +64,16 @@ Use the same product image assets in both themes.
 - Utility pages remain fast and low-motion.
 - Respect `prefers-reduced-motion` and provide equivalent non-animated meaning.
 - Avoid autoplay motion that interferes with reading, selection, or checkout.
+- Use the shared contract in `src/styles/motion.css` for page entry, section reveal, shared-media timing, and accessibility fallback.
+- Home and Product Detail may use controlled opacity, small translation, crop, and scale; never loop their hero motion automatically.
+- Product and journal media may use React View Transitions for continuity, but navigation and content must remain complete without browser support.
+- Keep scroll-linked effects progressive: unsupported browsers receive the final visible state without JavaScript or a loading gate.
+- Prefer transform and opacity; avoid manual scroll listeners, layout animation, large blur, and heavy shadow animation.
 
 ## Responsive behavior
 
 - Mobile composition is intentional, not a scaled desktop layout.
 - Simplify heavy motion and layered scenes on small screens.
+- Reduce reveal distance on compact screens and never pin a mobile reading or shopping section.
 - Preserve tap-target size, readable line length, and clear content order.
 - Product cards and configuration controls must remain usable at narrow widths and high text zoom.

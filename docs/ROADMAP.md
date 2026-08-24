@@ -34,7 +34,7 @@ Definition of done:
 - Keyboard, screen-reader names, focus, RTL, mobile layout, and reduced-motion behavior are verified.
 - Format, lint, typecheck, tests, and production build pass.
 
-## Phase 3 — Content pages: structure complete, approval pending
+## Phase 3 — Content pages: complete
 
 - Refined Home composition with category discovery, featured products, brand approach, journal, and visit status.
 - Expanded About, Journal, Locations, Contact, and FAQ content structure.
@@ -42,14 +42,24 @@ Definition of done:
 - Removed customer-facing development copy and avoided publishing fabricated operational details.
 - Final replacement of the provisional brand story, name, locations, contact routes, and operational FAQ remains pending until real information is supplied and approved.
 
-## Phase 4 — Motion: next after content approval
+Completed in commit `363765b` (`feat: complete editorial content experience`).
 
-- Experience-mode hero and product storytelling.
-- Page and section transitions.
-- Reduced-motion equivalents.
-- Mobile simplification.
+## Phase 4 — Motion: complete, approval pending
 
-Do not add heavy motion before Phase 2 utility flows are correct.
+- Route-entry motion built on the App Router template lifecycle.
+- Scroll-linked reveals for Home, About, Product Detail, and Journal content sections.
+- Controlled Home and Product hero entrances with subtle scroll depth.
+- Shared product and journal media continuity on supporting browsers, with a complete static fallback.
+- Card, option, quantity, and button feedback kept short and interruptible.
+- Explicit reduced-motion equivalents and shorter mobile movement.
+
+Definition of done:
+
+- Experience pages use a consistent motion vocabulary without delaying reading or shopping actions.
+- Menu, cart, checkout, and other utility flows remain low-motion.
+- Content is immediately available when enhanced motion or View Transitions are unsupported.
+- Reduced-motion removes page, scroll, hero, card, and shared-element movement.
+- Desktop and mobile light/dark browser checks pass without overflow, broken images, or console issues.
 
 ## Phase 5 — Real commerce integration
 

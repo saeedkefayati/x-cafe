@@ -75,7 +75,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <Section spacing="compact">
+      <Section data-reveal="" spacing="compact">
         <Container>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionHeaderText}>
@@ -114,7 +114,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section>
+      <Section data-reveal="">
         <Container>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionHeaderText}>
@@ -132,7 +132,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section spacing="large">
+      <Section data-reveal="" spacing="large">
         <Container>
           <div className={styles.editorialBand}>
             <Stack gap="md">
@@ -166,7 +166,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section>
+      <Section data-reveal="">
         <Container>
           <div className={styles.sectionHeader}>
             <div className={styles.sectionHeaderText}>
@@ -185,7 +185,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section spacing="large">
+      <Section data-reveal="" spacing="large">
         <Container>
           <div className={styles.visitBand}>
             <div>

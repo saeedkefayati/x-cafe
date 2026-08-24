@@ -46,7 +46,7 @@ export default function AboutPage() {
         title="قهوهٔ خوب، فقط بخشی از ماجراست."
         description="این کافه قرار است جایی برای انتخاب‌های روشن، طعم‌های خوانا و مکث‌های کوتاهی باشد که ارزش تکرار دارند."
       />
-      <Section spacing="compact">
+      <Section data-reveal="" spacing="compact">
         <Container>
           <div className={styles.storyGrid}>
             <div className={styles.storyMediaTall}>
@@ -76,7 +76,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section>
+      <Section data-reveal="">
         <Container>
           <div className={styles.sectionHeaderText}>
             <Eyebrow>Principles</Eyebrow>
@@ -96,7 +96,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section spacing="large">
+      <Section data-reveal="" spacing="large">
         <Container>
           <div className={styles.storyGridReverse}>
             <Stack className={styles.storyCopy} gap="lg">

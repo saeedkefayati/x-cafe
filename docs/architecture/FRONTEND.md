@@ -16,6 +16,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 ## Application map
 
 - `src/app`: routes, layouts, metadata, and route-level composition.
+- `src/app/template.tsx`: route-segment remount boundary for lightweight page entry.
 - `src/components/primitives`: business-agnostic layout and typography primitives.
 - `src/components/content`: reusable page-intro and editorial journal-card compositions.
 - `src/components/controls`: reusable interactive controls.
@@ -28,6 +29,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/types/domain.ts`: domain contracts.
 - `src/styles/tokens.css`: semantic design tokens.
 - `src/styles/globals.css`: root styling, theme baselines, and accessibility behavior.
+- `src/styles/motion.css`: shared progressive motion, View Transition timing, and reduced-motion fallback.
 - `public/images/products`: production-bound product-card assets and manifest.
 - `public/images/calibration`: preserved image-calibration history.
 
@@ -37,6 +39,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Add a Client Component boundary only for actual browser state, events, effects, or client-only APIs.
 - Keep business logic out of layout and typography primitives.
 - Keep motion orchestration separate from presentational components when possible.
+- Prefer native CSS and React View Transitions over a client-side motion dependency; enhanced behavior must degrade to the final static layout.
 - Keep category, product, option, and cart behavior data-driven.
 - Avoid route components that combine data modeling, state orchestration, and detailed presentation in one file.
 

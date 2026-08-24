@@ -14,6 +14,7 @@
 .heroCopy {
   position: relative;
   z-index: 1;
+  animation: home-copy-enter var(--motion-page) var(--ease-enter) both;
 }
 .heroText {
   max-width: 34rem;
@@ -30,6 +31,7 @@
   overflow: hidden;
   border-radius: var(--radius-xl);
   background: var(--color-brand-secondary);
+  animation: home-media-enter 760ms var(--ease-emphasized) 80ms both;
 }
 .heroImage {
   object-fit: cover;
@@ -46,6 +48,7 @@
   color: var(--color-text-inverse);
   padding: var(--space-4);
   backdrop-filter: blur(12px);
+  animation: home-caption-enter var(--motion-slow) var(--ease-enter) 360ms both;
 }
 .heroCaption span {
   max-width: 30rem;
@@ -78,6 +81,10 @@
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-base) var(--ease-standard),
+    transform var(--motion-base) var(--ease-emphasized);
 }
 .categoryMedia {
   position: relative;
@@ -91,6 +98,11 @@
 }
 .categoryFeature:hover .categoryMedia img {
   transform: scale(1.025);
+}
+.categoryFeature:hover {
+  border-color: var(--color-border-default);
+  box-shadow: var(--shadow-floating);
+  transform: translateY(-0.25rem);
 }
 .categoryContent {
   display: grid;
@@ -276,6 +288,88 @@
 .postCover img {
   object-fit: cover;
 }
+
+@keyframes home-copy-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-media-enter {
+  from {
+    opacity: 0;
+    clip-path: inset(7% 0 7% 0 round var(--radius-xl));
+    transform: scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 round var(--radius-xl));
+    transform: scale(1);
+  }
+}
+
+@keyframes home-caption-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-copy-enter-compact {
+  from {
+    opacity: 0;
+    transform: translateY(0.625rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-media-enter-compact {
+  from {
+    opacity: 0;
+    clip-path: inset(3% 0 3% 0 round var(--radius-xl));
+    transform: scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 round var(--radius-xl));
+    transform: scale(1);
+  }
+}
+
+@keyframes home-image-depth {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.055);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .heroImage {
+    animation: home-image-depth linear both;
+    animation-timeline: view();
+    animation-range: exit 0% exit 100%;
+  }
+}
 .storyCopy {
   max-width: 36rem;
 }
@@ -387,6 +481,18 @@
   }
 }
 @media (max-width: 42rem) {
+  .heroCopy {
+    animation-name: home-copy-enter-compact;
+    animation-duration: var(--motion-slow);
+  }
+  .heroMedia {
+    animation-name: home-media-enter-compact;
+    animation-duration: var(--motion-slow);
+    animation-delay: 40ms;
+  }
+  .heroCaption {
+    animation-delay: 200ms;
+  }
   .sectionHeader {
     align-items: start;
     flex-direction: column;
@@ -413,8 +519,24 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .heroCopy,
+  .heroMedia,
+  .heroCaption,
+  .heroImage {
+    animation: none;
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+  .categoryFeature {
+    transition: none;
+  }
   .categoryMedia img {
     transition: none;
+  }
+  .categoryFeature:hover {
+    box-shadow: none;
+    transform: none;
   }
   .categoryFeature:hover .categoryMedia img {
     transform: none;

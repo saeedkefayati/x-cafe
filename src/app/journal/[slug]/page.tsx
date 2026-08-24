@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import { LinkButton } from "@/components/controls/button";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
@@ -48,15 +49,21 @@ export default async function PostPage({
               <span>{post.tags.join("، ")}</span>
             </div>
             {post.coverImage ? (
-              <div className={styles.postCover}>
-                <Image
-                  src={post.coverImage.src}
-                  alt={post.coverImage.alt}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 672px"
-                />
-              </div>
+              <ViewTransition
+                name={`journal-${post.id}`}
+                share="journal-morph"
+                default="none"
+              >
+                <div className={styles.postCover}>
+                  <Image
+                    src={post.coverImage.src}
+                    alt={post.coverImage.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 672px"
+                  />
+                </div>
+              </ViewTransition>
             ) : null}
             {post.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>

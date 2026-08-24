@@ -133,6 +133,10 @@
   border-radius: var(--radius-pill);
   background: var(--color-surface);
   cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
 }
 .segmentNote {
   opacity: 0.72;
@@ -146,4 +150,25 @@
 .segmentInput:focus-visible + .segmentLabel {
   border-color: var(--color-accent);
   box-shadow: var(--shadow-focus);
+}
+
+.quantityButton:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .linkButton,
+  .iconButton,
+  .input,
+  .segmentLabel {
+    transition: none;
+  }
+
+  .button:hover:not(:disabled),
+  .linkButton:hover,
+  .iconButton:hover:not(:disabled),
+  .quantityButton:active:not(:disabled) {
+    transform: none;
+  }
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { Heading, Text } from "@/components/primitives/typography";
 import { formatDate } from "@/lib/format";
 import type { JournalPost } from "@/types/domain";
@@ -22,16 +23,22 @@ export function JournalCard({
           href={`/journal/${post.slug}`}
           aria-label={`خواندن ${post.title}`}
         >
-          <Image
-            src={post.coverImage.src}
-            alt={post.coverImage.alt}
-            fill
-            sizes={
-              featured
-                ? "(max-width: 768px) 100vw, 58vw"
-                : "(max-width: 768px) 100vw, 33vw"
-            }
-          />
+          <ViewTransition
+            name={`journal-${post.id}`}
+            share="journal-morph"
+            default="none"
+          >
+            <Image
+              src={post.coverImage.src}
+              alt={post.coverImage.alt}
+              fill
+              sizes={
+                featured
+                  ? "(max-width: 768px) 100vw, 58vw"
+                  : "(max-width: 768px) 100vw, 33vw"
+              }
+            />
+          </ViewTransition>
         </Link>
       ) : null}
       <div className={styles.content}>

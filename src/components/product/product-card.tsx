@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { formatPrice } from "@/lib/format";
 import type { Product } from "@/types/domain";
 import styles from "./product.module.css";
@@ -20,15 +21,21 @@ export function ProductCard({ product }: { product: Product }) {
         href={`/product/${product.slug}`}
         aria-label={`مشاهده ${product.name}`}
       >
-        <div className={styles.media}>
-          <Image
-            className={styles.image}
-            src={product.cardImage.src}
-            alt={product.cardImage.alt}
-            fill
-            sizes="(max-width: 576px) 100vw, (max-width: 928px) 50vw, 33vw"
-          />
-        </div>
+        <ViewTransition
+          name={`product-${product.id}`}
+          share="product-morph"
+          default="none"
+        >
+          <div className={styles.media}>
+            <Image
+              className={styles.image}
+              src={product.cardImage.src}
+              alt={product.cardImage.alt}
+              fill
+              sizes="(max-width: 576px) 100vw, (max-width: 928px) 50vw, 33vw"
+            />
+          </div>
+        </ViewTransition>
       </Link>
       <div className={styles.content}>
         <div className={styles.topline}>

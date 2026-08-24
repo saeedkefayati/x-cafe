@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { ProductConfigurator } from "@/components/product/product-configurator";
@@ -30,19 +31,25 @@ export default async function ProductPage({
     <>
       <Section spacing="compact">
         <Container className={productStyles.heroGrid} size="wide">
-          <div className={productStyles.heroMedia}>
-            <Image
-              className={productStyles.heroImage}
-              src={product.heroImage.src}
-              alt={product.heroImage.alt}
-              width={product.heroImage.width}
-              height={product.heroImage.height}
-              loading="eager"
-              fetchPriority="high"
-              sizes="(max-width: 928px) 100vw, 50vw"
-            />
-          </div>
-          <Stack gap="lg">
+          <ViewTransition
+            name={`product-${product.id}`}
+            share="product-morph"
+            default="none"
+          >
+            <div className={productStyles.heroMedia}>
+              <Image
+                className={productStyles.heroImage}
+                src={product.heroImage.src}
+                alt={product.heroImage.alt}
+                width={product.heroImage.width}
+                height={product.heroImage.height}
+                loading="eager"
+                fetchPriority="high"
+                sizes="(max-width: 928px) 100vw, 50vw"
+              />
+            </div>
+          </ViewTransition>
+          <Stack className={productStyles.heroContent} gap="lg">
             <Stack gap="sm">
               <Eyebrow>Product</Eyebrow>
               <Heading as="h1" size="displayLg" className="latin">
@@ -63,7 +70,7 @@ export default async function ProductPage({
           </Stack>
         </Container>
       </Section>
-      <Section>
+      <Section data-reveal="">
         <Container size="reading">
           <Stack gap="md">
             <Heading>مواد اصلی</Heading>

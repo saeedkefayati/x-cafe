@@ -17,7 +17,7 @@ export default function JournalPage() {
         title="از پیشخوان."
         description="یادداشت‌هایی دربارهٔ مواد، فرایند و چیزهایی که ارزش تکرار دارند."
       />
-      <Section spacing="compact">
+      <Section data-reveal="" spacing="compact">
         <Container>
           <div className={styles.journalGrid}>
             {journalPosts.map((post, index) => (
