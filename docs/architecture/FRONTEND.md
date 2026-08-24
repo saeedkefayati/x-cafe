@@ -17,6 +17,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 
 - `src/app`: routes, layouts, metadata, and route-level composition.
 - `src/components/primitives`: business-agnostic layout and typography primitives.
+- `src/components/content`: reusable page-intro and editorial journal-card compositions.
 - `src/components/controls`: reusable interactive controls.
 - `src/components/cart`: cart provider, drawer, cart lines, and full-page cart composition.
 - `src/components/product`: product and menu presentation.

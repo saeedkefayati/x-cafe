@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { JournalCard } from "@/components/content/journal-card";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
-import { Heading, Text } from "@/components/primitives/typography";
 import { journalPosts } from "@/data/mock";
 import styles from "../site.module.css";
 
@@ -21,15 +20,8 @@ export default function JournalPage() {
       <Section spacing="compact">
         <Container>
           <div className={styles.journalGrid}>
-            {journalPosts.map((post) => (
-              <article className={styles.journalCard} key={post.id}>
-                <Text size="label">{post.tags.join("، ")}</Text>
-                <Heading size="h3">
-                  <Link href={`/journal/${post.slug}`}>{post.title}</Link>
-                </Heading>
-                <Text>{post.excerpt}</Text>
-                <Link href={`/journal/${post.slug}`}>خواندن یادداشت ←</Link>
-              </article>
+            {journalPosts.map((post, index) => (
+              <JournalCard post={post} featured={index === 0} key={post.id} />
             ))}
           </div>
         </Container>

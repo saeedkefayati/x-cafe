@@ -8,14 +8,18 @@ export default function FAQPage() {
   return (
     <>
       <PageIntro
+        eyebrow="Help"
         title="پرسش‌های رایج"
-        description="پاسخ‌های نهایی با سیاست واقعی سفارش، تحویل و آلرژن‌ها تکمیل می‌شوند."
+        description="آنچه اکنون مشخص است و تصمیم‌هایی که هنوز باید پیش از شروع سفارش واقعی گرفته شوند."
       />
       <Section spacing="compact">
         <Container size="reading">
           {faqs.map((faq) => (
             <details className={styles.faq} key={faq.id}>
-              <summary>{faq.question}</summary>
+              <summary>
+                <span>{faq.question}</span>
+                <small>{faq.category}</small>
+              </summary>
               <p>{faq.answer}</p>
             </details>
           ))}

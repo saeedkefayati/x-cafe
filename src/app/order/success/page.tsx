@@ -13,15 +13,15 @@ export default function SuccessPage() {
     <>
       <PageIntro
         eyebrow="Order"
-        title="سفارش ثبت شد."
-        description="این صفحه فعلاً نمونهٔ رابط موفقیت سفارش است."
+        title="هنوز سفارشی ثبت نشده است."
+        description="این صفحه پس از فعال‌شدن ثبت و پرداخت واقعی، فقط برای سفارش‌های تأییدشده نمایش داده می‌شود."
       />
       <Section spacing="compact">
         <Container>
           <div className={styles.emptyState}>
             <Text>
-              شماره و زمان تحویل پس از اتصال Backend در این بخش نمایش داده
-              می‌شود.
+              اکنون شماره سفارش یا زمان تحویلی وجود ندارد. می‌توانید منو و سبد
+              آزمایشی را بدون ایجاد سفارش واقعی بررسی کنید.
             </Text>
             <LinkButton href="/menu">بازگشت به منو</LinkButton>
           </div>

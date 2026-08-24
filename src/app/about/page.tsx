@@ -1,30 +1,125 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { LinkButton } from "@/components/controls/button";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section, Stack } from "@/components/primitives/layout";
-import { Heading, Text } from "@/components/primitives/typography";
+import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
+import { products } from "@/data/mock";
+import styles from "../site.module.css";
 
-export const metadata: Metadata = { title: "دربارهٔ ما" };
+export const metadata: Metadata = {
+  title: "دربارهٔ ما",
+  description: "روایت، اصول و رویکرد کافه به محصول و مهمان‌نوازی.",
+};
+
+const principles = [
+  {
+    number: "۰۱",
+    title: "دقت بدون نمایش",
+    description:
+      "جزئیات باید در نتیجه حس شوند؛ نه اینکه تجربه را شلوغ یا توضیح را سنگین کنند.",
+  },
+  {
+    number: "۰۲",
+    title: "سادگیِ انتخاب",
+    description:
+      "منوی خوب باید مسیر تصمیم را کوتاه کند و تفاوت هر محصول را روشن نشان دهد.",
+  },
+  {
+    number: "۰۳",
+    title: "تکرار قابل‌اعتماد",
+    description:
+      "کیفیت وقتی معنا پیدا می‌کند که در مراجعهٔ بعدی هم بتوان به آن برگشت.",
+  },
+];
+
 export default function AboutPage() {
+  const espresso = products.find((product) => product.id === "espresso")!;
+  const cake = products.find(
+    (product) => product.id === "burnt-basque-cheesecake",
+  )!;
+
   return (
     <>
       <PageIntro
         eyebrow="About"
         title="قهوهٔ خوب، فقط بخشی از ماجراست."
-        description="این صفحه ساختار محتوایی برند را نگه می‌دارد تا روایت واقعی کافه جایگزین متن آزمایشی شود."
+        description="این کافه قرار است جایی برای انتخاب‌های روشن، طعم‌های خوانا و مکث‌های کوتاهی باشد که ارزش تکرار دارند."
       />
-      <Section>
-        <Container size="reading">
-          <Stack gap="lg">
-            <Heading size="h3">دقت، مهمان‌نوازی و تکرار خوب.</Heading>
-            <Text size="bodyLg">
-              هدف این تجربه، انتقال آرامش و کیفیت یک کافهٔ مستقل به فضای دیجیتال
-              است؛ بدون تقلید از فروشگاه‌های عمومی و بدون ادعای بزرگ.
-            </Text>
-            <div>
-              <LinkButton href="/locations">دیدن شعبه‌ها</LinkButton>
+      <Section spacing="compact">
+        <Container>
+          <div className={styles.storyGrid}>
+            <div className={styles.storyMediaTall}>
+              <Image
+                src={espresso.heroImage.src}
+                alt={espresso.heroImage.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 48vw"
+                priority
+              />
             </div>
-          </Stack>
+            <Stack className={styles.storyCopy} gap="lg">
+              <Eyebrow>A working story</Eyebrow>
+              <Heading size="h2">روایتی که از خود محصول شروع می‌شود.</Heading>
+              <Text size="bodyLg">
+                هویت نهایی برند هنوز نام و جزئیات کامل خود را پیدا نکرده، اما
+                جهت آن روشن است: یک تجربهٔ گرم و معاصر که به‌جای تزئین اضافه،
+                روی محصول، ریتم و مهمان‌نوازی تمرکز می‌کند.
+              </Text>
+              <Text>
+                متن فعلی یک روایت موقت و قابل‌ویرایش است. وقتی داستان واقعی
+                بنیان‌گذار، شهر و شیوهٔ کار مشخص شود، همین ساختار بدون تغییر
+                مسیر تجربه، با صدای واقعی برند تکمیل خواهد شد.
+              </Text>
+            </Stack>
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className={styles.sectionHeaderText}>
+            <Eyebrow>Principles</Eyebrow>
+            <Heading>سه اصل برای تصمیم‌های بعدی.</Heading>
+          </div>
+          <ol className={styles.principleGrid}>
+            {principles.map((principle) => (
+              <li key={principle.number}>
+                <span>{principle.number}</span>
+                <Heading as="h2" size="h4">
+                  {principle.title}
+                </Heading>
+                <Text>{principle.description}</Text>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </Section>
+
+      <Section spacing="large">
+        <Container>
+          <div className={styles.storyGridReverse}>
+            <Stack className={styles.storyCopy} gap="lg">
+              <Eyebrow>Product first</Eyebrow>
+              <Heading size="h2">منوی کوتاه، فضای بیشتر برای توجه.</Heading>
+              <Text size="bodyLg">
+                پانزده محصول اولیه عمداً در سه گروه روشن شکل گرفته‌اند: قهوهٔ
+                گرم، قهوهٔ سرد و کیک. این مرزبندی کمک می‌کند هر محصول دقیق‌تر
+                معرفی شود و انتخاب، سریع‌تر و مطمئن‌تر بماند.
+              </Text>
+              <div>
+                <LinkButton href="/menu">دیدن منوی کامل</LinkButton>
+              </div>
+            </Stack>
+            <div className={styles.storyMediaWide}>
+              <Image
+                src={cake.heroImage.src}
+                alt={cake.heroImage.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 48vw"
+              />
+            </div>
+          </div>
         </Container>
       </Section>
     </>

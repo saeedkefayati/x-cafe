@@ -12,16 +12,16 @@ export default function CheckoutPage() {
     <>
       <PageIntro
         title="تسویه حساب"
-        description="ساختار این صفحه آماده است؛ اتصال واقعی سفارش پس از انتخاب Provider انجام می‌شود."
+        description="ثبت و پرداخت سفارش پس از مشخص‌شدن روش تحویل و زیرساخت واقعی فعال می‌شود."
       />
       <Section spacing="compact">
         <Container>
           <div className={styles.emptyState}>
-            <span className={styles.mockNotice}>Integration deferred</span>
+            <span className={styles.mockNotice}>ثبت سفارش غیرفعال است</span>
             <Heading size="h3">پرداخت واقعی هنوز فعال نیست.</Heading>
             <Text>
-              مدل تحویل، درگاه پرداخت و Backend سفارش از تصمیم‌های باز کسب‌وکار
-              هستند.
+              روش تحویل، محدودهٔ سرویس، درگاه پرداخت و سامانهٔ سفارش هنوز از
+              تصمیم‌های باز کسب‌وکار هستند.
             </Text>
           </div>
         </Container>

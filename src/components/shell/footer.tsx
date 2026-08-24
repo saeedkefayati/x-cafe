@@ -39,8 +39,7 @@ export function Footer() {
             <div>
               <strong className="latin">CAFE</strong>
               <p>
-                یک نام موقت برای ساخت Foundation؛ هویت رسمی پیش از انتشار
-                جایگزین می‌شود.
+                قهوه‌های کلاسیک، نوشیدنی‌های سرد و کیک‌هایی برای یک مکث کوتاه.
               </p>
             </div>
             {groups.map((group) => (
@@ -59,8 +58,8 @@ export function Footer() {
             ))}
           </div>
           <div className={styles.footerBottom}>
-            <span>© ۲۰۲۶ کافه — نسخهٔ Foundation</span>
-            <span>ساخته‌شده برای سفارش آرام و روشن.</span>
+            <span>© ۲۰۲۶ کافه — نام و هویت نهایی در انتظار تأیید</span>
+            <span>ساخته‌شده برای انتخابی آرام و روشن.</span>
           </div>
         </Container>
       </Section>

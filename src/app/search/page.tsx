@@ -3,29 +3,72 @@ import { Button } from "@/components/controls/button";
 import { TextField } from "@/components/controls/text-field";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
+import { Heading, Text } from "@/components/primitives/typography";
+import { MenuGrid } from "@/components/product/menu-grid";
+import { products } from "@/data/mock";
+import { searchProducts } from "@/lib/search";
 import styles from "../site.module.css";
-export const metadata: Metadata = { title: "جست‌وجو" };
-export default function SearchPage() {
+export const metadata: Metadata = {
+  title: "جست‌وجو",
+  robots: { index: false, follow: true },
+};
+export default async function SearchPage({
+  searchParams,
+}: PageProps<"/search">) {
+  const rawQuery = (await searchParams).q;
+  const query =
+    (Array.isArray(rawQuery) ? rawQuery[0] : rawQuery)?.trim() ?? "";
+  const results = searchProducts(products, query);
+
   return (
     <>
       <PageIntro
+        eyebrow="Search"
         title="جست‌وجو"
-        description="در Phase 2 محصولات در اولویت نتایج قرار می‌گیرند."
+        description="نام، توضیح یا طعمی را که در ذهن دارید میان محصولات فعلی پیدا کنید."
       />
       <Section spacing="compact">
         <Container>
-          <form className={styles.formShell} role="search">
+          <form className={styles.searchForm} role="search">
             <TextField
               id="search-query"
               label="جست‌وجوی منو"
               name="q"
               type="search"
-              placeholder="مثلاً ماچا یا چیزکیک"
+              placeholder="مثلاً لاته، شکلات یا چیزکیک"
+              defaultValue={query}
             />
             <Button type="submit">جست‌وجو</Button>
           </form>
         </Container>
       </Section>
+      {query ? (
+        <Section spacing="compact">
+          <Container>
+            {results.length > 0 ? (
+              <>
+                <div className={styles.sectionHeaderText}>
+                  <Heading size="h3">
+                    {results.length.toLocaleString("fa-IR")} نتیجه برای «{query}
+                    »
+                  </Heading>
+                </div>
+                <div className={styles.searchResults}>
+                  <MenuGrid products={results} />
+                </div>
+              </>
+            ) : (
+              <div className={styles.emptyState}>
+                <Heading size="h3">محصولی پیدا نشد.</Heading>
+                <Text>
+                  عبارت کوتاه‌تری مثل «قهوه»، «لاته»، «شکلات» یا «کیک» را امتحان
+                  کنید.
+                </Text>
+              </div>
+            )}
+          </Container>
+        </Section>
+      ) : null}
     </>
   );
 }

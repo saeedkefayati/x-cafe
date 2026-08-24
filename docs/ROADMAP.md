@@ -34,13 +34,15 @@ Definition of done:
 - Keyboard, screen-reader names, focus, RTL, mobile layout, and reduced-motion behavior are verified.
 - Format, lint, typecheck, tests, and production build pass.
 
-## Phase 3 — Content pages: next
+## Phase 3 — Content pages: structure complete, approval pending
 
-- Refine Home static composition.
-- About, Journal, Locations, Contact, and FAQ content structure.
-- Replace mock content when real brand information is supplied.
+- Refined Home composition with category discovery, featured products, brand approach, journal, and visit status.
+- Expanded About, Journal, Locations, Contact, and FAQ content structure.
+- Added three editorial journal entries with cover images and related products.
+- Removed customer-facing development copy and avoided publishing fabricated operational details.
+- Final replacement of the provisional brand story, name, locations, contact routes, and operational FAQ remains pending until real information is supplied and approved.
 
-## Phase 4 — Motion
+## Phase 4 — Motion: next after content approval
 
 - Experience-mode hero and product storytelling.
 - Page and section transitions.

@@ -9,3 +9,11 @@ export function formatPrice(
     maximumFractionDigits: 0,
   }).format(amount);
 }
+
+export function formatDate(date: string, locale = "fa-IR") {
+  return new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(new Date(`${date}T12:00:00Z`));
+}

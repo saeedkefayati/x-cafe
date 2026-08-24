@@ -3,10 +3,11 @@
 Last updated: 2026-08-24
 
 Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
+Phase 2 commit: `567dfab` (`feat: complete product configuration and cart`)
 
 ## Current phase
 
-Phase 2 is complete. The project is ready for Phase 3: refining the static content pages with real brand content when available.
+Phase 3 content structure is complete and awaiting approval. The site is ready for real brand and operational content, followed by Phase 4 motion work.
 
 ## Completed
 
@@ -26,6 +27,13 @@ Phase 2 is complete. The project is ready for Phase 3: refining the static conte
 - Versioned, validated browser persistence with cross-tab synchronization.
 - Persistent system/light/dark theme infrastructure using the same approved product images in both themes.
 - Cart, pricing, persistence, theme, keyboard, RTL, mobile, and desktop verification.
+- Refined Home composition with category paths, six featured products, editorial principles, journal previews, and an honest branch-status callout.
+- Expanded About page with a provisional brand narrative, product-led imagery, and reusable principles.
+- Three complete journal entries with cover images, publication dates, long-form bodies, and related catalog products.
+- Locations and Contact pages that explicitly avoid fabricated addresses, hours, contact routes, or nonfunctional submission claims.
+- Expanded FAQ covering configuration, allergens, mock prices, cart persistence, fulfillment, and payment status.
+- Functional product search across names, descriptions, and flavor notes with Persian character normalization.
+- Responsive light/dark browser verification for Home, About, Journal, Locations, Contact, and FAQ.
 
 ## Catalog
 
@@ -57,10 +65,11 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Confirm the real cafe name, logo, voice, and core brand story.
-2. Refine Home composition and replace visible foundation labels.
-3. Replace mock About, Journal, Locations, Contact, and FAQ content as real information becomes available.
-4. Keep checkout informational until fulfillment, geography, payment, and backend choices are supplied.
+1. Review and approve the provisional Home and About copy.
+2. Confirm the real cafe name, logo, voice, founder story, and city.
+3. Supply real location, opening hours, contact routes, and social links.
+4. Decide whether Phase 4 motion should begin before or after those content replacements.
+5. Keep checkout informational until fulfillment, geography, payment, and backend choices are supplied.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
