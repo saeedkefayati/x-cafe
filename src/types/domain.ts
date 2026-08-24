@@ -74,19 +74,24 @@ export interface Category {
   sortOrder: number;
   enabled: boolean;
 }
-export interface CartItem {
+export interface ProductSelection {
+  sizeId?: string;
+  temperatureId?: string;
+  milkId?: string;
+  sweetnessId?: string;
+  extraIds: string[];
+}
+export interface CartLineRecord {
   id: string;
   productId: string;
-  productName: string;
+  selection: ProductSelection;
   quantity: number;
-  selectedSize?: string;
-  selectedTemperature?: string;
-  selectedMilk?: string;
-  selectedSweetness?: string;
-  extras: string[];
+}
+export interface ResolvedCartLine extends CartLineRecord {
+  product: Product;
+  optionLabels: string[];
   unitPrice: number;
   totalPrice: number;
-  displayImage: MediaAsset;
 }
 export interface JournalPost {
   id: string;

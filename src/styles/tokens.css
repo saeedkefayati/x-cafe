@@ -93,6 +93,35 @@
   --z-critical-overlay: 100;
 }
 
+:root[data-theme="dark"] {
+  --color-canvas: #171512;
+  --color-surface: #211e1a;
+  --color-surface-muted: #2c2822;
+  --color-surface-elevated: #302b25;
+  --color-surface-inverse: #0e0d0b;
+  --color-text-primary: #f2ede4;
+  --color-text-secondary: #c5bdb1;
+  --color-text-muted: #9c9489;
+  --color-text-inverse: #f6f1e8;
+  --color-border-subtle: #3f3931;
+  --color-border-default: #665e53;
+  --color-border-strong: #a69b8d;
+  --color-brand-primary: #9b6337;
+  --color-brand-secondary: #4a3828;
+  --color-accent: #d39a63;
+  --color-theme-matcha: #9ca779;
+  --color-theme-berry: #c87b81;
+  --color-theme-cold: #3c5354;
+  --color-success: #83aa8c;
+  --color-warning: #d09a4e;
+  --color-danger: #df8580;
+  --color-info: #7caab3;
+  --shadow-subtle: 0 1px 2px rgb(0 0 0 / 0.18);
+  --shadow-floating: 0 16px 48px rgb(0 0 0 / 0.24);
+  --shadow-overlay: 0 24px 80px rgb(0 0 0 / 0.44);
+  --shadow-focus: 0 0 0 3px rgb(211 154 99 / 0.3);
+}
+
 @media (max-width: 48rem) {
   :root {
     --header-height: 4.125rem;

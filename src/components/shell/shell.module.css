@@ -3,8 +3,8 @@
   inset-block-start: 0;
   z-index: var(--z-header);
   height: var(--header-height);
-  border-bottom: 1px solid rgb(217 209 195 / 0.72);
-  background: rgb(245 241 232 / 0.92);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-canvas) 92%, transparent);
   backdrop-filter: blur(14px);
 }
 .headerInner {
@@ -45,6 +45,12 @@
   color: var(--color-text-secondary);
   font-size: var(--font-size-body-sm);
   font-weight: 600;
+}
+.utilityButton {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
 }
 .navLink::after {
   position: absolute;

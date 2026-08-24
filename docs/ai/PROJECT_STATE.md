@@ -2,11 +2,11 @@
 
 Last updated: 2026-08-24
 
-Baseline commit: `1d692fe` (`feat: build cafe commerce foundation`)
+Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
 
 ## Current phase
 
-Phase 1 is complete. The project is ready for Phase 2: functional product configuration and cart flow.
+Phase 2 is complete. The project is ready for Phase 3: refining the static content pages with real brand content when available.
 
 ## Completed
 
@@ -19,6 +19,13 @@ Phase 1 is complete. The project is ready for Phase 2: functional product config
 - Fifteen catalog products: five hot coffees, five cold coffees, and five cakes.
 - Fifteen product-card images at 1122×1402 using the approved shared studio art direction.
 - Automated lint, type, component, data-integrity, and production-build checks.
+- Product configurator for available size, milk, sweetness, temperature, and extra options.
+- Price totals derived from the current product catalog and selected option deltas.
+- Cart identity based on product id plus the normalized full customization.
+- Accessible cart drawer and full cart page with quantity, removal, subtotal, and empty states.
+- Versioned, validated browser persistence with cross-tab synchronization.
+- Persistent system/light/dark theme infrastructure using the same approved product images in both themes.
+- Cart, pricing, persistence, theme, keyboard, RTL, mobile, and desktop verification.
 
 ## Catalog
 
@@ -50,13 +57,10 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Product configurator with size, milk, sweetness, temperature, and extras.
-2. Correct price-delta calculation.
-3. Cart state keyed by the full customization combination.
-4. Add, remove, quantity update, subtotal, and empty state.
-5. Cart persistence across browser sessions.
-6. Accessible cart drawer and responsive product add-to-cart flow.
-7. Light/dark theme infrastructure using shared product images.
+1. Confirm the real cafe name, logo, voice, and core brand story.
+2. Refine Home composition and replace visible foundation labels.
+3. Replace mock About, Journal, Locations, Contact, and FAQ content as real information becomes available.
+4. Keep checkout informational until fulfillment, geography, payment, and backend choices are supplied.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 

@@ -4,12 +4,19 @@ export function SegmentedControl({
   legend,
   name,
   options,
-  defaultValue,
+  value,
+  onChange,
 }: {
   legend: string;
   name: string;
-  options: Array<{ label: string; value: string; disabled?: boolean }>;
-  defaultValue?: string;
+  options: Array<{
+    label: string;
+    value: string;
+    note?: string;
+    disabled?: boolean;
+  }>;
+  value?: string;
+  onChange: (value: string) => void;
 }) {
   return (
     <fieldset className={styles.segmented}>
@@ -21,10 +28,16 @@ export function SegmentedControl({
             type="radio"
             name={name}
             value={option.value}
-            defaultChecked={option.value === defaultValue}
+            checked={option.value === value}
             disabled={option.disabled}
+            onChange={() => onChange(option.value)}
           />
-          <span className={styles.segmentLabel}>{option.label}</span>
+          <span className={styles.segmentLabel}>
+            {option.label}
+            {option.note ? (
+              <small className={styles.segmentNote}>{option.note}</small>
+            ) : null}
+          </span>
         </label>
       ))}
     </fieldset>

@@ -124,13 +124,19 @@
   pointer-events: none;
 }
 .segmentLabel {
-  display: block;
+  display: flex;
   min-height: 2.75rem;
+  align-items: center;
+  gap: var(--space-2);
   padding: 0.75rem 1rem;
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-pill);
   background: var(--color-surface);
   cursor: pointer;
+}
+.segmentNote {
+  opacity: 0.72;
+  font-size: var(--font-size-caption);
 }
 .segmentInput:checked + .segmentLabel {
   border-color: var(--color-brand-primary);

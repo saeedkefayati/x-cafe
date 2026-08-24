@@ -3,8 +3,10 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { useEffect, useRef, useState } from "react";
+import { useCart } from "@/components/cart/cart-provider";
 import { IconButton } from "@/components/controls/button";
 import { Container } from "@/components/primitives/layout";
+import { useTheme } from "@/components/theme/theme-provider";
 import styles from "./shell.module.css";
 
 const links: Array<{ href: Route; label: string }> = [
@@ -15,6 +17,8 @@ const links: Array<{ href: Route; label: string }> = [
 ];
 
 export function Header() {
+  const { itemCount, openCart } = useCart();
+  const { resolvedTheme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -56,12 +60,32 @@ export function Header() {
             <Link className={styles.utilityLink} href="/search">
               جست‌وجو
             </Link>
-            <Link className={styles.utilityLink} href="/cart">
+            <button
+              className={`${styles.utilityLink} ${styles.utilityButton}`}
+              type="button"
+              aria-haspopup="dialog"
+              onClick={openCart}
+            >
               سبد{" "}
-              <span className={styles.cartCount} aria-label="سبد خرید خالی">
-                ۰
+              <span
+                className={styles.cartCount}
+                aria-label={`${itemCount.toLocaleString("fa-IR")} محصول در سبد`}
+              >
+                {itemCount.toLocaleString("fa-IR")}
               </span>
-            </Link>
+            </button>
+            <IconButton
+              label={
+                resolvedTheme === "dark"
+                  ? "فعال‌کردن حالت روشن"
+                  : "فعال‌کردن حالت تیره"
+              }
+              onClick={toggleTheme}
+            >
+              <span aria-hidden="true">
+                {resolvedTheme === "dark" ? "☀" : "☾"}
+              </span>
+            </IconButton>
             <span className={styles.mobileTrigger}>
               <IconButton
                 ref={triggerRef}

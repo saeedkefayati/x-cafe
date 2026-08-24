@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { LinkButton } from "@/components/controls/button";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
+import { ProductConfigurator } from "@/components/product/product-configurator";
 import { products, getProduct } from "@/data/mock";
 import { formatPrice } from "@/lib/format";
 import productStyles from "@/components/product/product.module.css";
@@ -49,9 +49,9 @@ export default async function ProductPage({
                 {product.name}
               </Heading>
               <Text size="bodyLg">{product.shortDescription}</Text>
-              <Heading as="p" size="h3">
-                {formatPrice(product.basePrice, product.currency)}
-              </Heading>
+              <Text size="bodySm">
+                شروع قیمت از {formatPrice(product.basePrice, product.currency)}
+              </Text>
             </Stack>
             <ul className={productStyles.flavors}>
               {product.flavorNotes.map((note) => (
@@ -59,9 +59,7 @@ export default async function ProductPage({
               ))}
             </ul>
             <Text>{product.fullDescription}</Text>
-            <div>
-              <LinkButton href="/cart">شروع سفارش</LinkButton>
-            </div>
+            <ProductConfigurator product={product} />
           </Stack>
         </Container>
       </Section>
@@ -75,9 +73,6 @@ export default async function ProductPage({
                 {ingredient.allergen ? ` — آلرژن: ${ingredient.allergen}` : ""}
               </Text>
             ))}
-            <Text size="bodySm">
-              تنظیمات کامل محصول و افزودن به سبد در Phase 2 تکمیل می‌شود.
-            </Text>
           </Stack>
         </Container>
       </Section>

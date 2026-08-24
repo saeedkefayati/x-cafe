@@ -11,7 +11,7 @@
 - Fifteen-product catalog and cohesive product imagery.
 - Lint, type, test, build, and responsive browser baseline.
 
-## Phase 2 — Product configuration and cart: next
+## Phase 2 — Product configuration and cart: complete
 
 - Complete static Product Detail composition.
 - Product option groups and defaults.
@@ -23,13 +23,18 @@
 - Responsive and accessibility verification.
 - Light/dark theme infrastructure with shared product images.
 
+Completed with normalized product selections, derived pricing, a versioned
+browser cart, accessible drawer and cart page, and persistent light/dark theme
+preference. The same approved product images are used without filters in both
+themes.
+
 Definition of done:
 
 - A customer can configure any product, add it to the cart, distinguish different configurations, edit quantity, remove lines, and retain a valid cart after reload.
 - Keyboard, screen-reader names, focus, RTL, mobile layout, and reduced-motion behavior are verified.
 - Format, lint, typecheck, tests, and production build pass.
 
-## Phase 3 — Content pages
+## Phase 3 — Content pages: next
 
 - Refine Home static composition.
 - About, Journal, Locations, Contact, and FAQ content structure.

@@ -18,8 +18,10 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/app`: routes, layouts, metadata, and route-level composition.
 - `src/components/primitives`: business-agnostic layout and typography primitives.
 - `src/components/controls`: reusable interactive controls.
+- `src/components/cart`: cart provider, drawer, cart lines, and full-page cart composition.
 - `src/components/product`: product and menu presentation.
 - `src/components/shell`: header, navigation, and footer.
+- `src/components/theme`: persistent system/light/dark theme state.
 - `src/data/products.ts`: current fifteen-product catalog.
 - `src/data/mock.ts`: categories and remaining mock content sources.
 - `src/types/domain.ts`: domain contracts.
@@ -37,12 +39,14 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Keep category, product, option, and cart behavior data-driven.
 - Avoid route components that combine data modeling, state orchestration, and detailed presentation in one file.
 
-## State direction for Phase 2
+## Cart and theme state
 
 - Represent a cart line by product id plus the normalized full option selection.
 - Derive prices from base price and selected option deltas; do not store independently editable totals.
 - Persist only validated cart data and version the persisted shape.
 - Keep provider-specific checkout and order submission behind interfaces until business decisions exist.
+- Keep the cart and theme providers in the root layout so their state survives route navigation.
+- Resolve theme preference from `system`, `light`, or `dark`, apply it on the root element before paint, and persist the preference locally.
 
 ## Images
 
