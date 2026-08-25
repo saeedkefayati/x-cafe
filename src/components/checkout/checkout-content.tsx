@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useActionState, useState, type FormEvent } from "react";
+import { submitDemoOrder } from "@/app/checkout/actions";
 import { commerceConfig, getCommerceBlockers } from "@/config/commerce";
 import { useCart } from "@/components/cart/cart-provider";
 import { Button, LinkButton } from "@/components/controls/button";
@@ -8,15 +9,18 @@ import { TextField } from "@/components/controls/text-field";
 import { Heading, Text } from "@/components/primitives/typography";
 import {
   buildCheckoutReview,
+  createAuthoritativeCartInput,
   validateCustomerContact,
   type ContactErrors,
 } from "@/lib/checkout";
+import { serializeCartSnapshot } from "@/lib/cart";
 import { formatPrice } from "@/lib/format";
 import { formatPickupReadyTime, getPickupAvailability } from "@/lib/pickup";
-import type { CustomerContact } from "@/types/commerce";
+import type { CheckoutActionState, CustomerContact } from "@/types/commerce";
 import styles from "./checkout.module.css";
 
 const blockers = getCommerceBlockers(commerceConfig);
+const initialActionState: CheckoutActionState = { message: "" };
 
 function updateFieldError(
   errors: ContactErrors,
@@ -32,8 +36,13 @@ function updateFieldError(
   return nextErrors;
 }
 
-export function CheckoutContent() {
+export function CheckoutContent({ now }: { now?: Date } = {}) {
   const { lines, isHydrated } = useCart();
+  const observedAt = now ?? new Date();
+  const [actionState, formAction, isSubmitting] = useActionState(
+    submitDemoOrder,
+    initialActionState,
+  );
   const [contact, setContact] = useState<CustomerContact>({
     name: "",
     phone: "",
@@ -68,19 +77,17 @@ export function CheckoutContent() {
     );
   };
 
-  const handleContactCheck = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleContactCheck = () => {
     const errors = validateCustomerContact(contact);
     setContactErrors(errors);
-    setIsContactValid(Object.keys(errors).length === 0);
+    const isValid = Object.keys(errors).length === 0;
+    setIsContactValid(isValid);
 
     const firstInvalidField = Object.keys(errors)[0];
     if (firstInvalidField) {
-      const field = event.currentTarget.elements.namedItem(firstInvalidField);
-      if (field instanceof HTMLElement) {
-        field.focus();
-      }
+      document.getElementById("checkout-" + firstInvalidField)?.focus();
     }
+    return isValid;
   };
 
   if (!isHydrated) {
@@ -102,22 +109,42 @@ export function CheckoutContent() {
     (location) => location.id === pickupSelection?.locationId,
   );
   const selectedAvailability = selectedLocation
-    ? getPickupAvailability(selectedLocation, new Date())
+    ? getPickupAvailability(selectedLocation, observedAt)
     : null;
   const selectedReadyTime =
     selectedLocation && pickupSelection
       ? formatPickupReadyTime(selectedLocation, pickupSelection.selectedAt)
       : null;
+  const cartSnapshot = serializeCartSnapshot(
+    createAuthoritativeCartInput(lines),
+  );
+  const canSubmitDemoOrder =
+    isContactValid &&
+    Boolean(selectedLocation) &&
+    Boolean(selectedAvailability?.acceptingOrders);
+
+  const handleOrderSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const contactIsValid = handleContactCheck();
+    if (!contactIsValid || !canSubmitDemoOrder) {
+      event.preventDefault();
+    }
+  };
 
   return (
     <div className={styles.layout}>
       <form
         className={styles.form}
         aria-label="اطلاعات تسویه حساب"
-        aria-describedby="checkout-preview-note"
+        aria-describedby={
+          actionState.message
+            ? "checkout-preview-note checkout-action-message"
+            : "checkout-preview-note"
+        }
+        action={formAction}
         noValidate
-        onSubmit={handleContactCheck}
+        onSubmit={handleOrderSubmit}
       >
+        <input type="hidden" name="cartSnapshot" value={cartSnapshot} />
         <section className={styles.panel} aria-labelledby="contact-title">
           <div className={styles.stepHeading}>
             <span>۱</span>
@@ -138,7 +165,7 @@ export function CheckoutContent() {
               maxLength={80}
               required
               value={contact.name}
-              error={contactErrors.name}
+              error={contactErrors.name ?? actionState.fieldErrors?.name}
               onChange={(event) => setContactField("name", event.target.value)}
               onBlur={() => validateField("name")}
             />
@@ -153,7 +180,7 @@ export function CheckoutContent() {
               maxLength={20}
               required
               value={contact.phone}
-              error={contactErrors.phone}
+              error={contactErrors.phone ?? actionState.fieldErrors?.phone}
               onChange={(event) => setContactField("phone", event.target.value)}
               onBlur={() => validateField("phone")}
             />
@@ -166,13 +193,17 @@ export function CheckoutContent() {
               inputMode="email"
               autoComplete="email"
               value={contact.email}
-              error={contactErrors.email}
+              error={contactErrors.email ?? actionState.fieldErrors?.email}
               onChange={(event) => setContactField("email", event.target.value)}
               onBlur={() => validateField("email")}
             />
           </div>
           <div className={styles.contactActions}>
-            <Button type="submit" variant="secondary">
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={handleContactCheck}
+            >
               بررسی اطلاعات تماس
             </Button>
             {isContactValid ? (
@@ -218,7 +249,7 @@ export function CheckoutContent() {
               {commerceConfig.pickupLocations.map((location) => {
                 const availability = getPickupAvailability(
                   location,
-                  new Date(),
+                  observedAt,
                 );
                 const inputId = "pickup-" + location.slug;
                 return (
@@ -232,7 +263,7 @@ export function CheckoutContent() {
                       onChange={() =>
                         setPickupSelection({
                           locationId: location.id,
-                          selectedAt: new Date(),
+                          selectedAt: observedAt,
                         })
                       }
                     />
@@ -287,6 +318,11 @@ export function CheckoutContent() {
             اطلاعات این سه شعبه فعلاً نمونه‌اند و پیش از انتشار نهایی دوباره
             تأیید می‌شوند.
           </p>
+          {actionState.fieldErrors?.pickupLocationId ? (
+            <p className={styles.actionError} role="alert">
+              {actionState.fieldErrors.pickupLocationId}
+            </p>
+          ) : null}
         </section>
 
         <section className={styles.panel} aria-labelledby="payment-title">
@@ -310,11 +346,20 @@ export function CheckoutContent() {
 
         <div className={styles.submitArea}>
           <p className={styles.previewNote} id="checkout-preview-note">
-            اطلاعات تماس فقط در همین صفحه بررسی می‌شوند؛ ارسال یا ذخیره‌ای انجام
-            نمی‌شود.
+            با ثبت سفارش آزمایشی، اطلاعات تماس برای اعتبارسنجی به سرور ارسال
+            می‌شوند اما در دیتابیس ذخیره نمی‌شوند.
           </p>
-          <Button type="button" disabled>
-            ثبت سفارش پس از تکمیل تنظیمات
+          {actionState.message ? (
+            <p
+              className={styles.actionError}
+              id="checkout-action-message"
+              role="alert"
+            >
+              {actionState.message}
+            </p>
+          ) : null}
+          <Button type="submit" disabled={!canSubmitDemoOrder || isSubmitting}>
+            {isSubmitting ? "در حال بررسی سفارش…" : "ثبت سفارش آزمایشی"}
           </Button>
         </div>
       </form>
@@ -353,7 +398,7 @@ export function CheckoutContent() {
           ویرایش سبد
         </LinkButton>
         <div className={styles.blockers}>
-          <strong>موارد لازم برای فعال‌شدن سفارش</strong>
+          <strong>موارد لازم برای اتصال سفارش واقعی</strong>
           <ul>
             {blockers.map((blocker) => (
               <li key={blocker.id}>{blocker.label}</li>

@@ -85,7 +85,7 @@ Completed in commit `2c2ddf9` (`feat: add pickup checkout foundation`).
 
 Completed in commit `a837807` (`feat: add guest pickup checkout`).
 
-## Phase 7 — Sample branches and pickup timing: in progress
+## Phase 7 — Sample branches and pickup timing: complete
 
 - Three explicitly sample Tehran branches with address, phone, and daily hours.
 - Accessible branch selection in Checkout without browser persistence.
@@ -98,8 +98,24 @@ Real submission remains blocked until the sample branch data is confirmed for
 production and the order backend/POS, availability source, and tax/service-fee
 policy are supplied.
 
-- Checkout integration.
-- Order submission.
-- Pay-at-pickup order status.
-- Real availability.
-- Production success-state data.
+Completed in commit `8dea80c` (`feat: add pickup branches and timing`).
+
+## Phase 8 — Server-confirmed demo order: complete
+
+- Guest checkout submits through a Next.js Server Action.
+- Contact, cart shape, product availability, price, branch, and opening hours
+  are validated again on the server.
+- Accepted demo orders receive a short tracking code and a signed, 24-hour
+  confirmation token.
+- The success route renders only a valid server-signed confirmation and clears
+  the browser cart.
+- Customer contact is not placed in the token or persisted in a database.
+- No order is dispatched to a real branch, POS, or external provider.
+
+Before real order submission can replace this demo boundary:
+
+- confirm production branch data and menu prices;
+- connect an order backend, ecommerce provider, or POS;
+- connect authoritative inventory/availability;
+- define taxes and service fees;
+- persist idempotent orders and expose real order status.

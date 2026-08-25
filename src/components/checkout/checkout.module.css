@@ -72,6 +72,12 @@
   font-weight: 650;
 }
 
+.actionError {
+  margin: 0;
+  color: var(--color-danger);
+  font-size: var(--font-size-body-sm);
+}
+
 .selectedMethod,
 .pendingBox {
   display: flex;

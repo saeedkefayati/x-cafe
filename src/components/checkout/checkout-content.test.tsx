@@ -36,7 +36,7 @@ describe("CheckoutContent", () => {
     expect(screen.getByText("شعبهٔ قلهک")).toBeInTheDocument();
     expect(screen.getByText("۲ × اسپرسو")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "ثبت سفارش پس از تکمیل تنظیمات" }),
+      screen.getByRole("button", { name: "ثبت سفارش آزمایشی" }),
     ).toBeDisabled();
 
     await user.type(screen.getByLabelText("نام و نام خانوادگی"), "سعید رضایی");
@@ -75,6 +75,27 @@ describe("CheckoutContent", () => {
       screen.getByText(/اطلاعات این سه شعبه فعلاً نمونه‌اند/),
     ).toBeInTheDocument();
     expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
+  });
+
+  it("enables the demo order only after valid contact and an open branch", async () => {
+    const user = userEvent.setup();
+    render(
+      <CartProvider>
+        <CheckoutContent now={new Date("2026-08-25T09:00:00.000Z")} />
+      </CartProvider>,
+    );
+
+    await screen.findByRole("form", { name: "اطلاعات تسویه حساب" });
+    await user.type(screen.getByLabelText("نام و نام خانوادگی"), "سعید رضایی");
+    await user.type(screen.getByLabelText("شمارهٔ تماس"), "۰۹۱۲۱۲۳۴۵۶۷");
+    await user.click(
+      screen.getByRole("button", { name: "بررسی اطلاعات تماس" }),
+    );
+    await user.click(screen.getByText("شعبهٔ قلهک"));
+
+    expect(
+      screen.getByRole("button", { name: "ثبت سفارش آزمایشی" }),
+    ).toBeEnabled();
   });
 
   it("shows accessible field errors for invalid guest contact data", async () => {

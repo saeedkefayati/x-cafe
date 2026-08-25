@@ -12,7 +12,12 @@ Last updated: 2026-08-25
 - Every branch uses a fixed 45-minute preparation time. Orders stop being accepted 45 minutes before closing.
 - Customer geolocation and route-time estimation are deferred; Checkout does not request or store location.
 - Checkout remains a low-motion utility flow.
-- The browser cart is never trusted for authoritative price or availability; a future server/provider must resolve the current catalog again before accepting an order.
+- The browser cart is never trusted for price or availability; the demo Server
+  Action resolves the current catalog again before issuing a confirmation.
+- The current end-to-end submission is explicitly a demo: it does not persist
+  customer contact or dispatch an order to a branch, POS, or external provider.
+- A demo success page requires a server-signed confirmation that expires after
+  24 hours and contains no customer contact data.
 
 ## Still required before real order submission
 
@@ -21,9 +26,10 @@ Last updated: 2026-08-25
 3. Production availability source.
 4. Tax and service-fee policy.
 
-Until these are supplied, Checkout validates customer inputs only in the current
-page: inputs are not transmitted or persisted and no order is created. Payment
-will happen at pickup only after a real order can be accepted.
+Until these are supplied, Checkout transmits inputs only to the application
+server for validation and a demo confirmation. Inputs are not persisted, no real
+order is created, and nothing is sent to a branch or third party. Payment at
+pickup becomes operational only after a real order can be accepted.
 
 ## Provider boundary
 

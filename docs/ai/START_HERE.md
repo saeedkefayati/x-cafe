@@ -18,7 +18,8 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phases 1–6 are complete. Phase 7 is implementing three sample pickup branches and a fixed 45-minute preparation estimate.
+- Phases 1–7 are committed. Phase 8 adds a server-confirmed demo-order flow with
+  signed success data and is awaiting review and commit.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 
@@ -32,6 +33,8 @@ Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending
 - Accessibility and reduced-motion behavior are baseline requirements.
 - Product, option, category, and cart behavior must be data-driven.
 - Prices and business information remain mock until the user supplies final values.
+- Demo orders never claim real branch dispatch: contact is server-validated but
+  not persisted, and success requires an expiring signed confirmation.
 
 ## Before making changes
 

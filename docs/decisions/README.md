@@ -17,3 +17,4 @@ Current records:
 - 0003-initial-product-catalog.md
 - 0004-agent-documentation-governance.md
 - 0005-fixed-pickup-preparation.md
+- 0006-server-confirmed-demo-orders.md

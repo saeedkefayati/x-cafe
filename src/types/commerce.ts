@@ -33,3 +33,23 @@ export interface CommerceProvider {
     request: PickupOrderRequest,
   ): Promise<OrderSubmissionResult>;
 }
+
+export interface DemoOrderConfirmation {
+  schemaVersion: 1;
+  mode: "demo";
+  orderId: string;
+  issuedAt: string;
+  expiresAt: string;
+  readyAt: string;
+  locationId: string;
+  itemCount: number;
+  subtotal: number;
+  currency: string;
+}
+
+export interface CheckoutActionState {
+  message: string;
+  fieldErrors?: Partial<
+    Record<"name" | "phone" | "email" | "pickupLocationId" | "cart", string>
+  >;
+}

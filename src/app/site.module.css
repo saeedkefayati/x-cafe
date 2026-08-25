@@ -191,6 +191,36 @@
   background: var(--color-surface);
   padding: clamp(1.5rem, 5vw, 3.5rem);
 }
+.orderConfirmation {
+  display: grid;
+  max-width: 48rem;
+  gap: var(--space-6);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+}
+.orderConfirmation dl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-block-start: 1px solid var(--color-border-subtle);
+}
+.orderConfirmation dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-5);
+  border-block-end: 1px solid var(--color-border-subtle);
+  padding-block: var(--space-4);
+}
+.orderConfirmation dt {
+  color: var(--color-text-secondary);
+}
+.orderConfirmation dd {
+  margin: 0;
+  text-align: end;
+  font-weight: 700;
+}
 .formShell {
   display: grid;
   max-width: 42rem;

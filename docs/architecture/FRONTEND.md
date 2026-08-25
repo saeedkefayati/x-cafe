@@ -21,13 +21,15 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/components/content`: reusable page-intro and editorial journal-card compositions.
 - `src/components/controls`: reusable interactive controls.
 - `src/components/cart`: cart provider, drawer, cart lines, and full-page cart composition.
-- `src/components/checkout`: pickup Checkout preview and order-review presentation.
+- `src/components/checkout`: pickup Checkout, demo submission, and order-review presentation.
 - `src/components/product`: product and menu presentation.
 - `src/components/shell`: header, navigation, and footer.
 - `src/components/theme`: persistent system/light/dark theme state.
 - `src/data/products.ts`: current fifteen-product catalog.
 - `src/data/locations.ts`: three sample pickup branches and structured operating schedules.
 - `src/config/commerce.ts`: explicit guest, pickup, and pay-at-pickup decisions plus remaining commerce blockers.
+- `src/app/checkout/actions.ts`: Server Action boundary for the demo order flow.
+- `src/lib/demo-order.ts`: server-side demo validation and signed confirmation logic.
 - `src/data/mock.ts`: categories and remaining mock content sources.
 - `src/types/domain.ts`: domain contracts.
 - `src/types/commerce.ts`: provider-neutral pickup order request and result contracts.
@@ -52,7 +54,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Represent a cart line by product id plus the normalized full option selection.
 - Derive prices from base price and selected option deltas; do not store independently editable totals.
 - Persist only validated cart data and version the persisted shape.
-- Keep provider-specific checkout and order submission behind interfaces until business decisions exist.
+- Keep provider-specific real order submission behind interfaces until business decisions exist.
 - Keep the cart and theme providers in the root layout so their state survives route navigation.
 - Resolve theme preference from `system`, `light`, or `dark`, apply it on the root element before paint, and persist the preference locally.
 
@@ -64,8 +66,14 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Customer geolocation is not requested or persisted; route-time estimation requires a future routing-provider decision.
 - Treat browser cart totals as display data only. A server/provider must re-resolve products, options, availability, prices, tax, and fees before accepting an order.
 - Keep customer contact data out of browser persistence.
-- Implement a real Server Action or route only after sample branch data is production-confirmed and an order provider, availability source, and fee policy are configured.
-- Do not show the success state until the provider returns a confirmed order id.
+- The current Server Action may issue only a signed demo confirmation after
+  server-side revalidation; it must not persist contact or dispatch an order.
+- Require `DEMO_ORDER_CONFIRMATION_SECRET` in production and never commit its
+  real value.
+- Replace the demo boundary with an idempotent provider adapter only after sample
+  branch data is production-confirmed and an order provider, availability
+  source, and fee policy are configured.
+- Do not show a real success claim until the provider returns a confirmed order id.
 
 ## Images
 

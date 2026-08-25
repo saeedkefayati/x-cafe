@@ -9,14 +9,16 @@ Phase 4 commit: `a2abecf` (`feat: add responsive motion system`)
 Phase 5 commit: `2c2ddf9` (`feat: add pickup checkout foundation`)
 
 Phase 6 commit: `a837807` (`feat: add guest pickup checkout`)
+Phase 7 commit: `8dea80c` (`feat: add pickup branches and timing`)
 
 ## Current phase
 
-Phase 7 sample branch selection and pickup timing are in progress. Three sample
-Tehran branches feed both the Locations page and Checkout. Every pickup uses a
-fixed 45-minute preparation window; customer geolocation is intentionally
-deferred. Real submission remains blocked on production confirmation, the order
-provider, availability, and fee decisions.
+Phase 8 server-confirmed demo ordering is implemented and awaiting review and
+commit. Checkout can validate a guest order through a Server Action and issue a
+signed, expiring demo confirmation. It does not persist contact data or send an
+order to a branch, POS, or external provider. Real ordering remains blocked on
+production confirmation, an order provider, authoritative availability, and fee
+decisions.
 
 ## Completed
 
@@ -63,6 +65,13 @@ provider, availability, and fee decisions.
 - Accessible, non-persistent branch selection with current acceptance status.
 - Fixed 45-minute pickup preparation and a last-order boundary 45 minutes before closing.
 - No customer geolocation request or inaccurate route-time estimate.
+- Server-side revalidation of guest contact, cart, current product data, branch,
+  and acceptance hours for demo submissions.
+- Signed, 24-hour demo confirmations containing no customer contact data.
+- Success-state rendering only after server confirmation, followed by browser
+  cart cleanup.
+- Explicit separation between a testable end-to-end demo and real branch/POS
+  dispatch.
 
 ## Catalog
 
