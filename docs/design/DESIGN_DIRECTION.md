@@ -77,6 +77,16 @@ Use the same product image assets in both themes.
 - Product and journal media may use React View Transitions for continuity, but navigation and content must remain complete without browser support.
 - Keep scroll-linked effects progressive: unsupported browsers receive the final visible state without JavaScript or a loading gate.
 - Prefer transform and opacity; avoid manual scroll listeners, layout animation, large blur, and heavy shadow animation.
+- Keep one high-motion signature sequence on Home. Its desktop pinning is a
+  progressive enhancement built with native CSS view timelines; all semantic
+  states exist in the server-rendered document before animation.
+- The Home signature sequence uses existing approved product images and changes
+  the surrounding surface tone rather than filtering or replacing product media.
+- Product Detail flavor storytelling is limited to selected signature products,
+  sits after the configurator and Add to Cart action, and uses catalog data rather
+  than invented ingredient claims.
+- Do not add a JavaScript animation runtime unless a future approved sequence
+  cannot meet its interaction contract with the native progressive layer.
 
 ## Responsive behavior
 

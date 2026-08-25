@@ -18,9 +18,9 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phases 1–10 are complete. Phase 11 is the signature scroll-storytelling layer
-  carried forward from the archived Pre-Codex Phase 4 motion plan. Production
-  data and a real order provider are still unavailable.
+- Phases 1–11 are implemented. Phase 11 completes the signature
+  scroll-storytelling layer carried forward from the archived Pre-Codex Phase 4
+  motion plan. Production data and a real order provider are still unavailable.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 
@@ -38,6 +38,9 @@ Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending
   not persisted, and success requires an expiring signed confirmation.
 - Search indexing is disabled by default and requires both a valid `SITE_URL`
   and the explicit `SITE_INDEXING_ENABLED=true` release decision.
+- Signature storytelling uses progressive native CSS scroll timelines: one
+  bounded desktop Home scene, normal-flow mobile and fallback content, and no
+  motion-dependent access to information or shopping actions.
 
 ## Before making changes
 

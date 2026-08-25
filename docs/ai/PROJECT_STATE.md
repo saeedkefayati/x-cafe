@@ -12,17 +12,18 @@ Phase 6 commit: `a837807` (`feat: add guest pickup checkout`)
 Phase 7 commit: `8dea80c` (`feat: add pickup branches and timing`)
 Phase 8 commit: `bbb0f2c` (`feat: add server-confirmed demo orders`)
 Phase 9 commit: `93d80c6` (`feat: add safe publishing metadata`)
+Phase 10 commit: `e095762` (`feat: complete interaction polish`)
 
 ## Current phase
 
-Phase 10 interaction and quality polish is complete. Product-card interaction
-is media-focused and fine-pointer-only, shared control hover behavior no longer
-leaks into touch layouts, desktop Product Detail media remains visible while
-configuring, and likely LCP images use the Next.js 16 preload contract. Phase 11
-is planned as the signature scroll-storytelling layer carried forward from the
-archived Pre-Codex Phase 4 motion plan. Real ordering remains blocked on
-production confirmation, an order provider, authoritative availability, and fee
-decisions.
+Phase 11 signature scroll storytelling is complete in the current working tree
+and awaiting review/commit. Home now carries one progressive three-state
+Espresso-to-Latte transformation; desktop uses a bounded native scroll timeline,
+while mobile, unsupported browsers, and reduced-motion users keep a complete
+normal-flow composition. Espresso, Café Latte, and Iced Caramel Latte Product
+Detail pages add a restrained flavor narrative only after configuration and Add
+to Cart. Real ordering remains blocked on production confirmation, an order
+provider, authoritative availability, and fee decisions.
 
 ## Completed
 
@@ -100,6 +101,14 @@ decisions.
   fallbacks.
 - Browser verification at 390px, 768px, and 1440px in light and dark themes,
   with no horizontal overflow or console errors.
+- A semantic three-state Home signature story using Espresso, Café Latte, and
+  Iced Caramel Latte from the approved catalog and image set.
+- Progressive desktop pinning and crossfades driven by native CSS view timelines
+  without a client component, manual scroll listener, or animation dependency.
+- Complete non-pinned mobile, unsupported-browser, and reduced-motion versions
+  with every state immediately available in document order.
+- A restrained, accessible flavor-profile narrative after the configurator on
+  the three signature Product Detail pages, with no impact on utility routes.
 
 ## Catalog
 
@@ -131,14 +140,11 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Implement Phase 11 signature scroll storytelling from the archived motion
-   specifications, beginning with the Home hero-to-product transformation.
-2. Add the selected Product Detail ingredient/flavor narrative with a static
-   mobile and reduced-motion equivalent.
-3. Confirm or replace the three sample branch records before production.
-4. Choose the order destination: custom backend, ecommerce provider, or POS.
-5. Define production availability and tax/service-fee rules.
-6. Review and replace provisional brand and operational content when real material is ready.
+1. Review and commit the completed Phase 11 storytelling experience.
+2. Confirm or replace the three sample branch records before production.
+3. Choose the order destination: custom backend, ecommerce provider, or POS.
+4. Define production availability and tax/service-fee rules.
+5. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 

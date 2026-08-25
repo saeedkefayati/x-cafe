@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata, Route } from "next";
 import { JournalCard } from "@/components/content/journal-card";
 import { LinkButton } from "@/components/controls/button";
+import { SignatureStory } from "@/components/home/signature-story";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { MenuGrid } from "@/components/product/menu-grid";
@@ -18,6 +19,11 @@ const representativeProductIds = [
   "iced-caramel-latte",
   "burnt-basque-cheesecake",
 ];
+const signatureStoryProductIds = [
+  "espresso",
+  "cafe-latte",
+  "iced-caramel-latte",
+];
 
 export default function Home() {
   const signature =
@@ -27,6 +33,10 @@ export default function Home() {
     .filter((product) => product.featured || product.bestSeller)
     .slice(0, 6);
   const signatureHref = `/product/${signature.slug}` as Route;
+  const signatureStoryProducts = signatureStoryProductIds.flatMap((id) => {
+    const product = products.find((candidate) => candidate.id === id);
+    return product ? [product] : [];
+  });
   const categoryHighlights = categories.map((category, index) => ({
     category,
     product:
@@ -77,6 +87,8 @@ export default function Home() {
           </Link>
         </Container>
       </section>
+
+      <SignatureStory products={signatureStoryProducts} />
 
       <Section data-reveal="" spacing="compact">
         <Container>
@@ -140,10 +152,10 @@ export default function Home() {
           <div className={styles.editorialBand}>
             <Stack gap="md">
               <Eyebrow>Our approach</Eyebrow>
-              <Heading size="displayLg" tone="inverse">
+              <Heading size="h2" tone="inverse">
                 ساده به نظر می‌رسد، چون جزئیاتش جدی گرفته شده.
               </Heading>
-              <Text size="bodyLg" tone="inverse">
+              <Text size="body" tone="inverse">
                 نسبت دقیق، مواد روشن و فضایی که اجازه می‌دهد خود محصول حرف بزند؛
                 این سه اصل، جهت موقت اما مشخص این کافه‌اند.
               </Text>

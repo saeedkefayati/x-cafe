@@ -5,10 +5,17 @@ import { ViewTransition } from "react";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { ProductConfigurator } from "@/components/product/product-configurator";
+import { FlavorStory } from "@/components/product/flavor-story";
 import { products, getProduct } from "@/data/mock";
 import { formatPrice } from "@/lib/format";
 import { createPageMetadata } from "@/lib/metadata";
 import productStyles from "@/components/product/product.module.css";
+
+const signatureStoryProductIds = new Set([
+  "espresso",
+  "cafe-latte",
+  "iced-caramel-latte",
+]);
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -75,6 +82,9 @@ export default async function ProductPage({
           </Stack>
         </Container>
       </Section>
+      {signatureStoryProductIds.has(product.id) ? (
+        <FlavorStory product={product} />
+      ) : null}
       <Section data-reveal="">
         <Container size="reading">
           <Stack gap="md">

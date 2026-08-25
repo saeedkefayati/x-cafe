@@ -1,0 +1,161 @@
+.story {
+  border-block: 1px solid var(--color-border-subtle);
+  background: var(--color-surface-muted);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-10);
+  padding-block: var(--section-space-default);
+}
+
+.intro {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.eyebrow,
+.intro h2,
+.intro p,
+.note h3 {
+  margin: 0;
+}
+
+.eyebrow,
+.noteMeta {
+  color: var(--color-accent);
+  font-size: var(--font-size-label);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intro h2 {
+  max-width: 32rem;
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.intro > p:last-child {
+  max-width: 32rem;
+  color: var(--color-text-secondary);
+}
+
+.notes {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.note {
+  display: grid;
+  min-height: min(44svh, 27rem);
+  align-content: center;
+  gap: var(--space-5);
+  border-block-start: 1px solid var(--color-border-default);
+  padding-block: var(--space-10);
+}
+
+.note:last-child {
+  border-block-end: 1px solid var(--color-border-default);
+}
+
+.noteMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.note h3 {
+  font-family: var(--font-display);
+  font-size: var(--font-size-display-lg);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.intensity {
+  display: grid;
+  width: min(100%, 22rem);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-2);
+}
+
+.intensity span {
+  height: 0.3rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-default);
+}
+
+.intensity .active {
+  background: var(--color-brand-primary);
+}
+
+@media (min-width: 64rem) {
+  .layout {
+    grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(4rem, 10vw, 10rem);
+  }
+
+  .intro {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + var(--space-10));
+    align-self: start;
+  }
+
+  @supports (animation-timeline: view()) {
+    .note {
+      view-timeline-name: --flavor-note;
+      view-timeline-axis: block;
+      animation-name: flavor-note-reveal;
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-timeline: --flavor-note;
+      animation-range: entry 10% cover 36%;
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  .layout {
+    gap: var(--space-8);
+  }
+
+  .note {
+    min-height: auto;
+    padding-block: var(--space-8);
+  }
+
+  .note h3 {
+    font-size: var(--font-size-h1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    position: static;
+  }
+
+  .note {
+    min-height: auto;
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}
+
+@keyframes flavor-note-reveal {
+  from {
+    opacity: 0.3;
+    transform: translateY(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

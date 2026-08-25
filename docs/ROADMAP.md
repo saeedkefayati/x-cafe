@@ -171,7 +171,7 @@ branches, contact routes, and legal text are approved.
 - Automated interaction contracts cover fine-pointer and reduced-motion rules;
   format, lint, typecheck, tests, and production build pass.
 
-## Phase 11 — Signature scroll storytelling: planned
+## Phase 11 — Signature scroll storytelling: complete
 
 This phase completes the cinematic portion of Phase 4 from
 `docs/archive/pre-codex-pack` while preserving the stable functional layer.
@@ -192,6 +192,30 @@ This phase completes the cinematic portion of Phase 4 from
   content hidden behind animation.
 - Generate versioned isolated ingredient assets only after the exact signature
   sequence and art direction are approved; never overwrite catalog images.
+
+Completed with a progressively enhanced, CSS-native Home sequence that moves
+from Espresso to Café Latte and Iced Caramel Latte. Supporting desktop browsers
+receive one controlled sticky scene driven by the page scroll; unsupported
+browsers, mobile layouts, and reduced-motion users receive the same three states
+in readable document flow. No JavaScript timeline dependency or new image asset
+was added.
+
+Selected Product Detail pages now add a restrained flavor-profile narrative
+after the complete configurator and Add to Cart action. It uses current catalog
+flavor notes and accessible intensity labels, remains static on mobile and under
+reduced motion, and does not appear on non-signature products.
+
+Definition of done:
+
+- The Home story has three complete semantic states before enhancement and exits
+  naturally into the existing menu gateway.
+- Desktop pinning is progressive, bounded, and free of manual scroll listeners.
+- Mobile and reduced-motion layouts never pin or hide story content.
+- Product configuration and Add to Cart precede any Product Detail narrative.
+- Menu, Cart, Checkout, Search, FAQ, Contact, and order confirmation remain
+  unchanged low-motion utility flows.
+- Responsive browser checks pass without horizontal overflow, missing content,
+  or a scroll trap; format, lint, types, tests, and production build pass.
 
 Primary historical references:
 

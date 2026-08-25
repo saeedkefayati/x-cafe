@@ -385,7 +385,31 @@
   }
 }
 
+@keyframes home-copy-handoff {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0.35;
+    transform: translateY(-1rem);
+  }
+}
+
 @supports (animation-timeline: view()) {
+  .hero {
+    view-timeline-name: --home-hero;
+    view-timeline-axis: block;
+  }
+
+  .heroText,
+  .heroActions {
+    animation: home-copy-handoff linear both;
+    animation-timeline: --home-hero;
+    animation-range: exit 0% exit 75%;
+  }
+
   .heroImage {
     animation: home-image-depth linear both;
     animation-timeline: view();
@@ -606,6 +630,8 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .heroCopy,
+  .heroText,
+  .heroActions,
   .heroMedia,
   .heroCaption,
   .heroImage {
