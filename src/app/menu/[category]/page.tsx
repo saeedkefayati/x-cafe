@@ -45,7 +45,7 @@ export default async function CategoryPage({
           <Stack gap="lg">
             <CategoryNav categories={categories} />
             {items.length ? (
-              <MenuGrid products={items} />
+              <MenuGrid products={items} eagerCount={3} />
             ) : (
               <p>محصولی در این دسته ثبت نشده است.</p>
             )}

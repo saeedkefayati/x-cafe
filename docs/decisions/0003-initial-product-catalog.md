@@ -22,4 +22,6 @@ Fifteen products provide enough variation to validate menu navigation, product c
 
 ## Constraint
 
-Current prices and business details are mock data. Do not treat them as launch-approved.
+This catalog started with mock prices and business details. ADR 0009 now governs
+price provenance: direct source matches may be labeled as reference prices,
+while unmatched products and configuration deltas remain temporary.

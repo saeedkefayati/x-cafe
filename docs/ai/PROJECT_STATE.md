@@ -1,6 +1,6 @@
 # Project state
 
-Last updated: 2026-08-25
+Last updated: 2026-08-26
 
 Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
 Phase 2 commit: `567dfab` (`feat: complete product configuration and cart`)
@@ -15,16 +15,14 @@ Phase 9 commit: `93d80c6` (`feat: add safe publishing metadata`)
 Phase 10 commit: `e095762` (`feat: complete interaction polish`)
 Phase 11 commit: `a57de34` (`feat: add signature scroll storytelling`)
 
+Phase 12 brand and operational reference integration is complete.
+
 ## Current phase
 
-Phase 11 signature scroll storytelling and its product-centered visual
-refinement are complete. The desktop Home scene uses one stable central product
-axis, masked copy changes, synchronized pastel surface shifts, and quieter
-supporting flavor notes. Mobile, unsupported browsers, and reduced-motion users
-keep complete normal-flow cards; decorative product dots are omitted on phone
-layouts. Espresso, Café Latte, and Iced Caramel Latte Product Detail pages retain
-their restrained flavor narrative after configuration and Add to Cart. Real
-ordering remains blocked on production confirmation, an order provider,
+Phase 12 establishes «ایکس کافه», its original vector mark, user-confirmed
+Tehran branch data, and explicit price provenance. Direct catalog matches use
+the live Felestin reference price; five unmatched products and all option deltas
+stay visibly temporary. Real ordering remains blocked on an order provider,
 authoritative availability, and fee decisions.
 
 ## Completed
@@ -98,7 +96,7 @@ authoritative availability, and fee decisions.
   removed from global font loading.
 - A quieter Home display heading and sticky desktop Product Detail media with a
   normal-flow mobile fallback.
-- Explicit preloading for the Home and Product Detail LCP images.
+- Explicit eager loading for the Home and Product Detail LCP images.
 - Interaction contract tests for pointer capability and reduced-motion
   fallbacks.
 - Browser verification at 390px, 768px, and 1440px in light and dark themes,
@@ -115,6 +113,12 @@ authoritative availability, and fee decisions.
   stable visual axis, short supporting copy, synchronized background tones,
   rounded playful surfaces, and masked state transitions that avoid noisy text
   overlap.
+- Approved «ایکس کافه» name across shell, metadata, content, and web manifest.
+- Original theme-aware vector logo combining an X intersection and coffee bean.
+- Confirmed Gholhak, Felestin, and Pasdaran branch addresses, phones, and hours
+  from the user-approved VCafe reference site.
+- Toman display backed by IRR storage, with ten direct product price matches and
+  five visibly temporary catalog prices.
 
 ## Catalog
 
@@ -146,18 +150,17 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Confirm or replace the three sample branch records before production.
+1. Decide whether to replace the five unmatched products with source-menu items;
+   generate approved-style images before exposing any replacement.
 2. Choose the order destination: custom backend, ecommerce provider, or POS.
 3. Define production availability and tax/service-fee rules.
-4. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
 ## Mock or unresolved
 
-- Final cafe name and logo.
-- Final prices and complete production menu.
-- Production confirmation for the sample pickup locations, phones, and hours.
+- Five unmatched product prices and all configuration price deltas.
+- Complete production menu beyond the current fifteen-product contract.
 - Order backend, ecommerce provider, or POS integration.
 - Inventory source and availability rules.
 - Tax and service-fee rules.

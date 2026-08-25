@@ -164,7 +164,7 @@ branches, contact routes, and legal text are approved.
 - The Home hero is visually quieter, display typography uses one Vazirmatn
   family, and Product Detail media stays visible while configuring on desktop
   without pinning the mobile layout.
-- Home and Product Detail LCP images use the Next.js 16 preload contract, and an
+- Home and Product Detail LCP images use the Next.js 16 eager-loading contract, and an
   unused second font download was removed.
 - Responsive browser checks passed at 390px, 768px, and 1440px in light and dark
   themes with no horizontal overflow or console errors.
@@ -223,6 +223,19 @@ Definition of done:
   unchanged low-motion utility flows.
 - Responsive browser checks pass without horizontal overflow, missing content,
   or a scroll trap; format, lint, types, tests, and production build pass.
+
+## Phase 12 — Brand and operational reference data: complete
+
+- Establish «ایکس کافه» as the customer-facing name.
+- Add an original responsive vector mark and app icon.
+- Confirm the three Tehran branch records from the user-approved reference.
+- Apply current reference prices only to products with a direct source match.
+- Keep unmatched products and configuration deltas visibly temporary.
+- Refresh Home, About, Locations, Contact, shell, metadata, FAQ, and commerce
+  blockers to reflect the settled identity and branch data.
+
+Real order dispatch remains outside this phase because the provider, inventory
+source, and fee policy are still unresolved.
 
 Primary historical references:
 

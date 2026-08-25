@@ -13,7 +13,13 @@ const statusLabel: Record<Product["availability"], string> = {
   "coming-soon": "به‌زودی",
 };
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  eager = false,
+}: {
+  product: Product;
+  eager?: boolean;
+}) {
   return (
     <article className={styles.card}>
       <Link
@@ -32,6 +38,7 @@ export function ProductCard({ product }: { product: Product }) {
               src={product.cardImage.src}
               alt={product.cardImage.alt}
               fill
+              loading={eager ? "eager" : "lazy"}
               sizes="(max-width: 576px) 100vw, (max-width: 928px) 50vw, 33vw"
             />
           </div>
@@ -54,6 +61,11 @@ export function ProductCard({ product }: { product: Product }) {
           {product.bestSeller ? (
             <span className={styles.status}>محبوب</span>
           ) : null}
+          <span className={styles.status}>
+            {product.pricingStatus === "source-matched"
+              ? "قیمت مرجع"
+              : "قیمت موقت"}
+          </span>
         </div>
       </div>
     </article>

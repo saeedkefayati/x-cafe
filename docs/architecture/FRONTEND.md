@@ -26,7 +26,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/components/shell`: header, navigation, and footer.
 - `src/components/theme`: persistent system/light/dark theme state.
 - `src/data/products.ts`: current fifteen-product catalog.
-- `src/data/locations.ts`: three sample pickup branches and structured operating schedules.
+- `src/data/locations.ts`: three user-confirmed pickup branches and structured operating schedules.
 - `src/config/commerce.ts`: explicit guest, pickup, and pay-at-pickup decisions plus remaining commerce blockers.
 - `src/config/site.ts`: public origin, publishing state, locale, and site-level metadata values.
 - `src/app/checkout/actions.ts`: Server Action boundary for the demo order flow.
@@ -72,9 +72,8 @@ This repository uses a version with APIs and conventions that may differ from ge
   server-side revalidation; it must not persist contact or dispatch an order.
 - Require `DEMO_ORDER_CONFIRMATION_SECRET` in production and never commit its
   real value.
-- Replace the demo boundary with an idempotent provider adapter only after sample
-  branch data is production-confirmed and an order provider, availability
-  source, and fee policy are configured.
+- Replace the demo boundary with an idempotent provider adapter only after an
+  order provider, availability source, and fee policy are configured.
 - Do not show a real success claim until the provider returns a confirmed order id.
 
 ## Images

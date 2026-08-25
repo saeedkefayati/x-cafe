@@ -4,7 +4,7 @@ import type { MediaAsset } from "@/types/domain";
 
 export const defaultSocialImage: MediaAsset = {
   src: "/images/products/contact-sheet-v1.png",
-  alt: "مجموعهٔ قهوه‌های گرم، نوشیدنی‌های سرد و کیک‌های منوی کافه",
+  alt: "مجموعهٔ قهوه‌های گرم، نوشیدنی‌های سرد و کیک‌های منوی ایکس کافه",
   width: 1240,
   height: 912,
 };

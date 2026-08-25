@@ -3,6 +3,13 @@ export function formatPrice(
   currency = "IRR",
   locale = "fa-IR",
 ) {
+  if (currency === "IRR") {
+    const toman = amount / 10;
+    return `${new Intl.NumberFormat(locale, {
+      maximumFractionDigits: 0,
+    }).format(toman)} تومان`;
+  }
+
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency,

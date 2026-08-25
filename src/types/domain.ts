@@ -49,6 +49,7 @@ export interface Product {
   basePrice: number;
   compareAtPrice?: number;
   currency: string;
+  pricingStatus?: "source-matched" | "mock";
   featured: boolean;
   bestSeller: boolean;
   cardImage: MediaAsset;

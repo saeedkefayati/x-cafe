@@ -43,9 +43,10 @@ export function resolveSiteConfig(environment: SiteEnvironment): SiteConfig {
   const isDomainConfigured = Boolean(origin);
 
   return {
-    name: "کافه",
-    title: "کافه — ساخته‌شده برای مکث",
-    description: "تجربه‌ای آرام برای کشف منو و سفارش از یک کافهٔ مستقل.",
+    name: "ایکس کافه",
+    title: "ایکس کافه — نقطهٔ تلاقی طعم و مکث",
+    description:
+      "منوی گرم و سرد قهوه و کیک‌های ایکس کافه، همراه با انتخاب شعبه و تحویل حضوری.",
     language: "fa",
     locale: "fa_IR",
     origin: origin ?? DEFAULT_SITE_ORIGIN,

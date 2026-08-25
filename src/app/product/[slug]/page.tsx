@@ -56,7 +56,7 @@ export default async function ProductPage({
                 alt={product.heroImage.alt}
                 width={product.heroImage.width}
                 height={product.heroImage.height}
-                preload
+                loading="eager"
                 sizes="(max-width: 928px) 100vw, 50vw"
               />
             </div>
@@ -70,6 +70,9 @@ export default async function ProductPage({
               <Text size="bodyLg">{product.shortDescription}</Text>
               <Text size="bodySm">
                 شروع قیمت از {formatPrice(product.basePrice, product.currency)}
+                {product.pricingStatus === "source-matched"
+                  ? " — قیمت مرجع"
+                  : " — قیمت موقت"}
               </Text>
             </Stack>
             <ul className={productStyles.flavors}>

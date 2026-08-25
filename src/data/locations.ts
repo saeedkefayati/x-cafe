@@ -18,7 +18,7 @@ export const locations: Location[] = [
     pickupSchedule: { ...sharedPickupSchedule, opensAt: "08:30" },
     services: ["تحویل حضوری"],
     pickupEnabled: true,
-    operationalStatus: "sample",
+    operationalStatus: "confirmed",
     description: "تحویل سفارش از شعبهٔ قلهک پس از آماده‌سازی انجام می‌شود.",
   },
   {
@@ -33,7 +33,7 @@ export const locations: Location[] = [
     pickupSchedule: { ...sharedPickupSchedule, opensAt: "09:00" },
     services: ["تحویل حضوری"],
     pickupEnabled: true,
-    operationalStatus: "sample",
+    operationalStatus: "confirmed",
     description: "تحویل سفارش از شعبهٔ فلسطین پس از آماده‌سازی انجام می‌شود.",
   },
   {
@@ -47,7 +47,7 @@ export const locations: Location[] = [
     pickupSchedule: { ...sharedPickupSchedule, opensAt: "09:00" },
     services: ["تحویل حضوری"],
     pickupEnabled: true,
-    operationalStatus: "sample",
+    operationalStatus: "confirmed",
     description: "تحویل سفارش از شعبهٔ پاسداران پس از آماده‌سازی انجام می‌شود.",
   },
 ];

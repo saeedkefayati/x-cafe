@@ -9,7 +9,7 @@ import styles from "../site.module.css";
 
 export const metadata: Metadata = createPageMetadata({
   title: "شعبه‌ها",
-  description: "نشانی، ساعت کاری و وضعیت سه شعبهٔ نمونهٔ تحویل حضوری کافه.",
+  description: "نشانی، تلفن و ساعت کاری سه شعبهٔ ایکس کافه در تهران.",
   path: "/locations",
 });
 export default function LocationsPage() {
@@ -18,12 +18,14 @@ export default function LocationsPage() {
       <PageIntro
         eyebrow="Visit"
         title="سه نقطه برای یک مکث کوتاه."
-        description="سه شعبهٔ نمونه در تهران برای تحویل حضوری سفارش در نظر گرفته شده‌اند؛ اطلاعات نهایی پیش از انتشار دوباره تأیید می‌شود."
+        description="قلهک، فلسطین و پاسداران؛ سه شعبه در تهران برای تحویل حضوری سفارش."
       />
       <Section spacing="compact">
         <Container>
           <div className={styles.locationStatus}>
-            <span className={styles.mockNotice}>اطلاعات نمونه</span>
+            <span className={styles.mockNotice}>
+              اطلاعات شعبه‌ها به‌روز شده
+            </span>
             <Heading size="h2">شعبهٔ مناسب خودتان را انتخاب کنید.</Heading>
             <Text size="bodyLg">
               زمان آماده‌سازی سفارش در هر سه شعبه ۴۵ دقیقه است و تحویل فقط از

@@ -80,7 +80,7 @@ export const calibrationCategories: Category[] = [
 
 const commonSizes = [
   option("size-regular", "معمولی", "regular", 0, 1, true),
-  option("size-large", "بزرگ", "large", 45000, 2),
+  option("size-large", "بزرگ", "large", 450000, 2),
 ];
 const temperatures = [
   option("temp-iced", "سرد", "iced", 0, 1, true),
@@ -111,8 +111,9 @@ export const calibrationProducts: Product[] = [
       { label: "متعادل", type: "taste" },
     ],
     dietaryTags: [],
-    basePrice: 245000,
+    basePrice: 2450000,
     currency: "IRR",
+    pricingStatus: "mock",
     featured: true,
     bestSeller: true,
     cardImage: image(
@@ -129,13 +130,13 @@ export const calibrationProducts: Product[] = [
     temperatures,
     milkOptions: [
       option("milk-whole", "شیر کامل", "whole", 0, 1, true),
-      option("milk-oat", "شیر جو دوسر", "oat", 35000, 2),
+      option("milk-oat", "شیر جو دوسر", "oat", 350000, 2),
     ],
     sweetnessOptions: [
       option("sweet-regular", "معمولی", "regular", 0, 1, true),
       option("sweet-less", "کم‌شیرین", "less", 0, 2),
     ],
-    extras: [option("extra-shot", "شات اضافه", "extra-shot", 55000, 1)],
+    extras: [option("extra-shot", "شات اضافه", "extra-shot", 550000, 1)],
     seoTitle: "لاته کارامل سرد",
     seoDescription: "اسپرسوی دوبل، شیر سرد، یخ و کارامل با شیرینی متعادل.",
   },
@@ -161,8 +162,9 @@ export const calibrationProducts: Product[] = [
       { label: "خامه‌ای", type: "texture" },
     ],
     dietaryTags: ["فصلی"],
-    basePrice: 275000,
+    basePrice: 2750000,
     currency: "IRR",
+    pricingStatus: "mock",
     featured: true,
     bestSeller: true,
     cardImage: image(
@@ -179,7 +181,7 @@ export const calibrationProducts: Product[] = [
     temperatures: [temperatures[0]],
     milkOptions: [
       option("milk-whole-matcha", "شیر کامل", "whole", 0, 1, true),
-      option("milk-oat-matcha", "شیر جو دوسر", "oat", 35000, 2),
+      option("milk-oat-matcha", "شیر جو دوسر", "oat", 350000, 2),
     ],
     sweetnessOptions: [
       option("sweet-regular-matcha", "معمولی", "regular", 0, 1, true),
@@ -210,8 +212,9 @@ export const calibrationProducts: Product[] = [
       { label: "ملایم", type: "taste" },
     ],
     dietaryTags: [],
-    basePrice: 225000,
+    basePrice: 2250000,
     currency: "IRR",
+    pricingStatus: "mock",
     featured: true,
     bestSeller: true,
     cardImage: image(
@@ -345,9 +348,9 @@ export const faqs: FAQ[] = [
   {
     id: "faq-prices",
     category: "سفارش",
-    question: "آیا قیمت‌های فعلی نهایی هستند؟",
+    question: "قیمت‌های منو از چه مرجعی آمده‌اند؟",
     answer:
-      "خیر. قیمت‌ها برای تکمیل و آزمایش تجربهٔ سفارش وارد شده‌اند و تا زمان تأیید منوی نهایی نباید قیمت رسمی در نظر گرفته شوند.",
+      "قیمت محصولاتی که تطبیق مستقیم دارند از منوی آنلاین شعبهٔ فلسطین در ۴ شهریور ۱۴۰۵ برداشته شده‌اند و با نشان «قیمت مرجع» دیده می‌شوند. پنج محصول بدون معادل دقیق همچنان «قیمت موقت» دارند.",
     sortOrder: 3,
   },
   {
@@ -363,7 +366,7 @@ export const faqs: FAQ[] = [
     category: "تحویل",
     question: "سفارش برای تحویل حضوری است یا ارسال؟",
     answer:
-      "نسخهٔ اول فقط تحویل حضوری دارد. شعبهٔ تحویل در Checkout انتخاب می‌شود و سفارش حدود ۴۵ دقیقه پس از ثبت موفق آماده خواهد بود. اطلاعات فعلی شعبه‌ها نمونه‌اند.",
+      "نسخهٔ اول فقط تحویل حضوری دارد. شعبهٔ تحویل در Checkout انتخاب می‌شود و سفارش حدود ۴۵ دقیقه پس از ثبت موفق آماده خواهد بود. نشانی، تلفن و ساعات سه شعبه از مرجع اعلام‌شده به‌روز شده‌اند.",
     sortOrder: 5,
   },
   {

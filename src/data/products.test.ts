@@ -35,4 +35,18 @@ describe("catalog products", () => {
       new Set(catalogProducts.map((product) => product.cardImage.src)).size,
     ).toBe(15);
   });
+
+  it("keeps price provenance explicit", () => {
+    expect(
+      catalogProducts.filter(
+        (product) => product.pricingStatus === "source-matched",
+      ),
+    ).toHaveLength(10);
+    expect(
+      catalogProducts.filter((product) => product.pricingStatus === "mock"),
+    ).toHaveLength(5);
+    expect(catalogProducts.every((product) => product.currency === "IRR")).toBe(
+      true,
+    );
+  });
 });

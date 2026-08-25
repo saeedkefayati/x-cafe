@@ -11,7 +11,9 @@ The experience should feel warm, crafted, contemporary, calm, sensory, and disti
 - Customer-facing content is Persian.
 - The document direction is RTL.
 - Product names may retain familiar English names while descriptions and controls remain Persian.
-- Prices are currently mock IRR values and must not be presented as final business data.
+- Catalog amounts are stored in IRR and displayed in toman. Directly matched
+  products use the user-approved VCafe reference menu; unmatched products stay
+  visibly marked as temporary.
 
 ## Experience modes
 
@@ -96,7 +98,6 @@ The cart must support:
 Version one is confirmed as pickup-only, guest-only, and pay-at-pickup. Do not
 select or implement provider-specific production commerce until the user supplies:
 
-- Production confirmation or replacement of the three sample pickup branches.
 - Order backend, ecommerce platform, or POS integration.
 - Inventory and availability source.
 - Tax and service-fee rules.

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { useEffect, useRef, useState } from "react";
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { useCart } from "@/components/cart/cart-provider";
 import { IconButton } from "@/components/controls/button";
 import { Container } from "@/components/primitives/layout";
@@ -44,11 +45,7 @@ export function Header() {
     <>
       <header className={styles.header}>
         <Container className={styles.headerInner}>
-          <Link className={styles.brand} href="/" aria-label="کافه، صفحهٔ اصلی">
-            <span className={styles.brandMark}>
-              کافه <span className={styles.brandNote}>نام موقت</span>
-            </span>
-          </Link>
+          <BrandLogo size="compact" />
           <nav className={styles.desktopNav} aria-label="ناوبری اصلی">
             {links.map((link) => (
               <Link className={styles.navLink} href={link.href} key={link.href}>

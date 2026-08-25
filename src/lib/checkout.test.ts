@@ -95,7 +95,6 @@ describe("pickup checkout foundation", () => {
     expect(commerceConfig.paymentMethod).toBe("pay-at-pickup");
     expect(commerceConfig.pickupLocations).toHaveLength(3);
     expect(getCommerceBlockers(commerceConfig).map((item) => item.id)).toEqual([
-      "pickup-location-confirmation",
       "order-provider",
       "availability-source",
       "fee-policy",

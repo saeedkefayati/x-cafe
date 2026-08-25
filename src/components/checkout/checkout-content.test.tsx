@@ -55,7 +55,7 @@ describe("CheckoutContent", () => {
     expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
   });
 
-  it("lets the guest select a sample pickup branch without persisting it", async () => {
+  it("lets the guest select a pickup branch without persisting it", async () => {
     const user = userEvent.setup();
     render(
       <CartProvider>
@@ -72,7 +72,7 @@ describe("CheckoutContent", () => {
       "۴۵ دقیقه",
     );
     expect(
-      screen.getByText(/اطلاعات این سه شعبه فعلاً نمونه‌اند/),
+      screen.getByText(/اطلاعات شعبه‌ها از مرجع اعلام‌شده به‌روز شده است/),
     ).toBeInTheDocument();
     expect(Object.keys(window.localStorage)).toEqual([CART_STORAGE_KEY]);
   });

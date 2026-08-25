@@ -240,7 +240,7 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
               <Heading as="h2" id="pickup-title" size="h4">
                 محل و زمان تحویل
               </Heading>
-              <Text size="bodySm">یکی از سه شعبهٔ نمونه را انتخاب کنید.</Text>
+              <Text size="bodySm">یکی از سه شعبهٔ تهران را انتخاب کنید.</Text>
             </div>
           </div>
           <fieldset className={styles.locationFieldset}>
@@ -315,8 +315,8 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
             </div>
           )}
           <p className={styles.sampleNotice}>
-            اطلاعات این سه شعبه فعلاً نمونه‌اند و پیش از انتشار نهایی دوباره
-            تأیید می‌شوند.
+            اطلاعات شعبه‌ها از مرجع اعلام‌شده به‌روز شده است؛ ثبت سفارش همچنان
+            آزمایشی است و به شعبه ارسال نمی‌شود.
           </p>
           {actionState.fieldErrors?.pickupLocationId ? (
             <p className={styles.actionError} role="alert">

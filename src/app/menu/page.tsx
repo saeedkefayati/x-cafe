@@ -10,7 +10,7 @@ import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "منو",
   description:
-    "منوی آزمایشی کافه؛ محصولات و قیمت‌ها پیش از انتشار نهایی می‌شوند.",
+    "منوی ایکس کافه؛ قیمت‌های منطبق با مرجع و موارد موقت به‌صورت شفاف مشخص شده‌اند.",
   path: "/menu",
 });
 export default function MenuPage() {
@@ -25,10 +25,10 @@ export default function MenuPage() {
         <Container>
           <Stack gap="lg">
             <span className={styles.mockNotice}>
-              داده‌ها و قیمت‌ها آزمایشی‌اند
+              قیمت‌های مرجع از منوی شعبهٔ فلسطین؛ سایر قیمت‌ها موقت‌اند
             </span>
             <CategoryNav categories={categories} />
-            <MenuGrid products={products} />
+            <MenuGrid products={products} eagerCount={3} />
           </Stack>
         </Container>
       </Section>

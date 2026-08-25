@@ -32,12 +32,12 @@ const option = (
 
 const regularLarge = [
   option("size-regular", "معمولی", "regular", 0, 1, true),
-  option("size-large", "بزرگ", "large", 45000, 2),
+  option("size-large", "بزرگ", "large", 450000, 2),
 ];
 
 const singleDouble = [
   option("size-single", "تک‌شات", "single", 0, 1, true),
-  option("size-double", "دبل‌شات", "double", 55000, 2),
+  option("size-double", "دبل‌شات", "double", 550000, 2),
 ];
 
 const hotOnly = [option("temp-hot", "گرم", "hot", 0, 1, true)];
@@ -46,7 +46,7 @@ const icedOnly = [option("temp-iced", "سرد", "iced", 0, 1, true)];
 const milkOptions = [
   option("milk-whole", "شیر کامل", "whole", 0, 1, true),
   option("milk-low-fat", "شیر کم‌چرب", "low-fat", 0, 2),
-  option("milk-oat", "شیر جو دوسر", "oat", 35000, 3),
+  option("milk-oat", "شیر جو دوسر", "oat", 350000, 3),
 ];
 
 const sweetnessOptions = [
@@ -56,12 +56,12 @@ const sweetnessOptions = [
 ];
 
 const coffeeExtras = [
-  option("extra-shot", "شات اسپرسو اضافه", "extra-shot", 55000, 1),
+  option("extra-shot", "شات اسپرسو اضافه", "extra-shot", 550000, 1),
 ];
 
 const flavoredCoffeeExtras = [
   ...coffeeExtras,
-  option("extra-caramel", "کارامل اضافه", "extra-caramel", 30000, 2),
+  option("extra-caramel", "کارامل اضافه", "extra-caramel", 300000, 2),
 ];
 
 interface ProductSeed {
@@ -77,6 +77,7 @@ interface ProductSeed {
   flavorNotes: FlavorNote[];
   dietaryTags?: string[];
   basePrice: number;
+  pricingStatus?: Product["pricingStatus"];
   featured?: boolean;
   bestSeller?: boolean;
   sizes?: ProductOption[];
@@ -109,6 +110,7 @@ const createProduct = (seed: ProductSeed): Product => {
     dietaryTags: seed.dietaryTags ?? [],
     basePrice: seed.basePrice,
     currency: "IRR",
+    pricingStatus: seed.pricingStatus ?? "mock",
     featured: seed.featured ?? false,
     bestSeller: seed.bestSeller ?? false,
     cardImage: media,
@@ -120,7 +122,7 @@ const createProduct = (seed: ProductSeed): Product => {
     milkOptions: seed.milkOptions ?? [],
     sweetnessOptions: seed.sweetnessOptions ?? [],
     extras: seed.extras ?? [],
-    seoTitle: `${seed.name} | منوی کافه`,
+    seoTitle: `${seed.name} | منوی ایکس کافه`,
     seoDescription: seed.shortDescription,
   };
 };
@@ -140,7 +142,8 @@ export const catalogProducts: Product[] = [
       { label: "آجیلی", type: "aroma", intensity: 3 },
       { label: "غلیظ", type: "texture", intensity: 5 },
     ],
-    basePrice: 125000,
+    basePrice: 2100000,
+    pricingStatus: "source-matched",
     featured: true,
     sizes: singleDouble,
     temperatures: hotOnly,
@@ -162,7 +165,8 @@ export const catalogProducts: Product[] = [
       { label: "شفاف", type: "texture", intensity: 2 },
       { label: "برشته", type: "aroma", intensity: 3 },
     ],
-    basePrice: 145000,
+    basePrice: 2100000,
+    pricingStatus: "source-matched",
     sizes: regularLarge,
     temperatures: hotOnly,
     extras: coffeeExtras,
@@ -185,7 +189,8 @@ export const catalogProducts: Product[] = [
       { label: "شکلات شیری", type: "taste", intensity: 3 },
       { label: "گرم", type: "aroma", intensity: 3 },
     ],
-    basePrice: 185000,
+    basePrice: 2900000,
+    pricingStatus: "source-matched",
     featured: true,
     bestSeller: true,
     sizes: regularLarge,
@@ -211,7 +216,8 @@ export const catalogProducts: Product[] = [
       { label: "کارامل ملایم", type: "taste", intensity: 2 },
       { label: "شیرین طبیعی", type: "taste", intensity: 2 },
     ],
-    basePrice: 205000,
+    basePrice: 2900000,
+    pricingStatus: "source-matched",
     bestSeller: true,
     sizes: regularLarge,
     temperatures: hotOnly,
@@ -236,7 +242,8 @@ export const catalogProducts: Product[] = [
       { label: "ابریشمی", type: "texture", intensity: 4 },
       { label: "آجیلی", type: "aroma", intensity: 3 },
     ],
-    basePrice: 215000,
+    basePrice: 2900000,
+    pricingStatus: "source-matched",
     sizes: [regularLarge[0]],
     temperatures: hotOnly,
     milkOptions,
@@ -260,7 +267,8 @@ export const catalogProducts: Product[] = [
       { label: "برشته", type: "aroma", intensity: 4 },
       { label: "تلخی متعادل", type: "taste", intensity: 3 },
     ],
-    basePrice: 165000,
+    basePrice: 2100000,
+    pricingStatus: "source-matched",
     sizes: regularLarge,
     temperatures: icedOnly,
     extras: coffeeExtras,
@@ -284,7 +292,8 @@ export const catalogProducts: Product[] = [
       { label: "کاکائویی", type: "taste", intensity: 2 },
       { label: "خنک", type: "aroma", intensity: 2 },
     ],
-    basePrice: 215000,
+    basePrice: 2900000,
+    pricingStatus: "source-matched",
     bestSeller: true,
     sizes: regularLarge,
     temperatures: icedOnly,
@@ -312,7 +321,7 @@ export const catalogProducts: Product[] = [
       { label: "خامه‌ای", type: "texture", intensity: 4 },
       { label: "اسپرسوی متعادل", type: "aroma", intensity: 3 },
     ],
-    basePrice: 245000,
+    basePrice: 2450000,
     featured: true,
     bestSeller: true,
     sizes: regularLarge,
@@ -338,7 +347,7 @@ export const catalogProducts: Product[] = [
       { label: "میوه خشک", type: "aroma", intensity: 2 },
       { label: "صاف", type: "texture", intensity: 4 },
     ],
-    basePrice: 225000,
+    basePrice: 2250000,
     featured: true,
     sizes: regularLarge,
     temperatures: icedOnly,
@@ -361,7 +370,7 @@ export const catalogProducts: Product[] = [
       { label: "گازدار", type: "texture", intensity: 4 },
       { label: "تلخ و خشک", type: "taste", intensity: 3 },
     ],
-    basePrice: 235000,
+    basePrice: 2350000,
     sizes: [regularLarge[0]],
     temperatures: icedOnly,
     extras: coffeeExtras,
@@ -386,7 +395,8 @@ export const catalogProducts: Product[] = [
       { label: "کاراملی", type: "taste", intensity: 4 },
       { label: "وانیلی ملایم", type: "aroma", intensity: 2 },
     ],
-    basePrice: 225000,
+    basePrice: 2900000,
+    pricingStatus: "source-matched",
     featured: true,
     bestSeller: true,
   }),
@@ -412,7 +422,8 @@ export const catalogProducts: Product[] = [
       { label: "مرطوب", type: "texture", intensity: 4 },
       { label: "آجیلی", type: "taste", intensity: 4 },
     ],
-    basePrice: 195000,
+    basePrice: 2700000,
+    pricingStatus: "source-matched",
     bestSeller: true,
   }),
   createProduct({
@@ -436,7 +447,8 @@ export const catalogProducts: Product[] = [
       { label: "فاجی", type: "texture", intensity: 5 },
       { label: "شکلات تلخ", type: "aroma", intensity: 4 },
     ],
-    basePrice: 215000,
+    basePrice: 2900000,
+    pricingStatus: "source-matched",
     featured: true,
   }),
   createProduct({
@@ -460,7 +472,7 @@ export const catalogProducts: Product[] = [
       { label: "ترش‌وشیرین", type: "taste", intensity: 4 },
       { label: "سبک", type: "texture", intensity: 3 },
     ],
-    basePrice: 185000,
+    basePrice: 1850000,
   }),
   createProduct({
     id: "red-velvet-cake",
@@ -483,6 +495,6 @@ export const catalogProducts: Product[] = [
       { label: "کاکائوی ملایم", type: "taste", intensity: 2 },
       { label: "کرم پنیر", type: "aroma", intensity: 3 },
     ],
-    basePrice: 205000,
+    basePrice: 2050000,
   }),
 ];

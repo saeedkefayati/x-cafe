@@ -23,14 +23,14 @@ describe("editorial content", () => {
     }
   });
 
-  it("keeps FAQ entries unique and explicitly honest about sample commerce data", () => {
+  it("keeps FAQ entries unique and explicit about reference and temporary data", () => {
     expect(faqs.length).toBeGreaterThanOrEqual(6);
     expect(new Set(faqs.map((faq) => faq.id)).size).toBe(faqs.length);
-    expect(faqs.some((faq) => faq.answer.includes("نمونه"))).toBe(true);
-    expect(faqs.some((faq) => faq.answer.includes("نهایی"))).toBe(true);
+    expect(faqs.some((faq) => faq.answer.includes("قیمت مرجع"))).toBe(true);
+    expect(faqs.some((faq) => faq.answer.includes("قیمت موقت"))).toBe(true);
   });
 
-  it("keeps three sample pickup branches complete and uniquely addressable", () => {
+  it("keeps three confirmed pickup branches complete and uniquely addressable", () => {
     expect(locations).toHaveLength(3);
     expect(new Set(locations.map((location) => location.id)).size).toBe(3);
     expect(new Set(locations.map((location) => location.slug)).size).toBe(3);
@@ -38,7 +38,7 @@ describe("editorial content", () => {
       locations.every(
         (location) =>
           location.pickupEnabled &&
-          location.operationalStatus === "sample" &&
+          location.operationalStatus === "confirmed" &&
           location.pickupSchedule?.preparationMinutes === 45 &&
           location.address &&
           location.phone,

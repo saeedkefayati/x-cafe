@@ -3,11 +3,12 @@ import { LinkButton } from "@/components/controls/button";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading, Text } from "@/components/primitives/typography";
+import { locations } from "@/data/locations";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "تماس",
-  description: "وضعیت راه‌های ارتباطی و پشتیبانی کافه.",
+  description: "شماره تماس، نشانی و ساعت کاری شعبه‌های ایکس کافه.",
   path: "/contact",
 });
 export default function ContactPage() {
@@ -15,22 +16,19 @@ export default function ContactPage() {
     <>
       <PageIntro
         eyebrow="Contact"
-        title="راه ارتباط باید واقعی و پاسخ‌گو باشد."
-        description="ایمیل، تلفن و شبکه‌های اجتماعی هنوز برای انتشار تأیید نشده‌اند؛ بنابراین هیچ مسیر ساختگی یا فرم بدون مقصدی نمایش داده نمی‌شود."
+        title="با نزدیک‌ترین شعبه در تماس باشید."
+        description="شمارهٔ مستقیم، نشانی و ساعت کاری هر سه شعبه در یک نگاه."
       />
       <Section spacing="compact">
         <Container>
           <div className={styles.contactLayout}>
             <div className={styles.contactStatus}>
-              <span className={styles.mockNotice}>
-                ارسال آنلاین غیرفعال است
-              </span>
-              <Heading size="h2">
-                پیام شما نباید در یک فرم آزمایشی گم شود.
-              </Heading>
+              <span className={styles.mockNotice}>سه شعبه در تهران</span>
+              <Heading size="h2">برای هماهنگی، مستقیم تماس بگیرید.</Heading>
               <Text size="bodyLg">
-                به‌محض مشخص‌شدن صندوق پاسخ‌گویی واقعی، فرم تماس به آن متصل و
-                زمان تقریبی پاسخ نیز همین‌جا اعلام می‌شود.
+                برای پرسش دربارهٔ ساعت حضور، موجودی روز یا تحویل سفارش، شمارهٔ
+                همان شعبه را انتخاب کنید. فرم پیام آنلاین تا زمان اتصال به یک
+                صندوق پاسخ‌گویی واقعی نمایش داده نمی‌شود.
               </Text>
               <div className={styles.inlineActions}>
                 <LinkButton href="/faq">پرسش‌های رایج</LinkButton>
@@ -40,21 +38,20 @@ export default function ContactPage() {
               </div>
             </div>
             <dl className={styles.contactChecklist}>
-              <div>
-                <dt>پرسش دربارهٔ محصول</dt>
-                <dd>مواد، آلرژن و گزینه‌ها در صفحهٔ هر محصول قرار دارند.</dd>
-              </div>
-              <div>
-                <dt>پیگیری سفارش</dt>
-                <dd>
-                  کد فعلی فقط تأیید یک سفارش آزمایشی است؛ سفارش واقعی یا مسیر
-                  پشتیبانی شعبه هنوز ایجاد نمی‌شود.
-                </dd>
-              </div>
-              <div>
-                <dt>همکاری و پیشنهاد</dt>
-                <dd>نشانی رسمی همکاری پس از تأیید هویت برند اضافه خواهد شد.</dd>
-              </div>
+              {locations.map((location) => (
+                <div key={location.id}>
+                  <dt>{location.name}</dt>
+                  <dd>
+                    <a href={location.phoneUri} dir="ltr">
+                      {location.phone}
+                    </a>
+                    <br />
+                    {location.openingHours.join("، ")}
+                    <br />
+                    {location.address}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
         </Container>

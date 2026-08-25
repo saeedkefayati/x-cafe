@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Route } from "next";
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { Container, Section } from "@/components/primitives/layout";
 import styles from "./shell.module.css";
 
@@ -37,7 +38,7 @@ export function Footer() {
         <Container>
           <div className={styles.footerGrid}>
             <div>
-              <strong className="latin">CAFE</strong>
+              <BrandLogo inverse />
               <p>
                 قهوه‌های کلاسیک، نوشیدنی‌های سرد و کیک‌هایی برای یک مکث کوتاه.
               </p>
@@ -58,7 +59,7 @@ export function Footer() {
             ))}
           </div>
           <div className={styles.footerBottom}>
-            <span>© ۲۰۲۶ کافه — نام و هویت نهایی در انتظار تأیید</span>
+            <span>© ۲۰۲۶ ایکس کافه</span>
             <span>ساخته‌شده برای انتخابی آرام و روشن.</span>
           </div>
         </Container>

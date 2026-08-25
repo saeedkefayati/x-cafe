@@ -77,7 +77,7 @@ export default function Home() {
               src={signature.heroImage.src}
               alt={signature.heroImage.alt}
               fill
-              preload
+              loading="eager"
               sizes="(max-width: 928px) 100vw, 52vw"
             />
             <span className={styles.heroCaption}>
@@ -157,7 +157,7 @@ export default function Home() {
               </Heading>
               <Text size="body" tone="inverse">
                 نسبت دقیق، مواد روشن و فضایی که اجازه می‌دهد خود محصول حرف بزند؛
-                این سه اصل، جهت موقت اما مشخص این کافه‌اند.
+                این سه اصل، مسیر ایکس کافه را روشن نگه می‌دارند.
               </Text>
             </Stack>
             <ol className={styles.approachList}>
@@ -206,12 +206,12 @@ export default function Home() {
             <div>
               <Eyebrow>Visit</Eyebrow>
               <Heading size="h2">
-                جای واقعی این مکث، هنوز در حال مشخص‌شدن است.
+                این مکث را در سه نقطهٔ تهران پیدا کنید.
               </Heading>
             </div>
             <Text>
-              نشانی، ساعت کاری و روش تحویل پس از نهایی‌شدن اطلاعات عملیاتی در
-              سایت قرار می‌گیرند.
+              قلهک، فلسطین یا پاسداران را برای تحویل حضوری انتخاب کنید؛ سفارش
+              حدود ۴۵ دقیقه بعد آماده می‌شود.
             </Text>
             <LinkButton href="/locations" variant="secondary">
               وضعیت شعبه‌ها

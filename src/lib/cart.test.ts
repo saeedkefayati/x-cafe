@@ -38,7 +38,7 @@ describe("cart domain", () => {
       extraIds: ["extra-shot"],
     });
 
-    expect(calculateUnitPrice(latte, selection)).toBe(340000);
+    expect(calculateUnitPrice(latte, selection)).toBe(4250000);
   });
 
   it("uses the full normalized customization as cart identity", () => {

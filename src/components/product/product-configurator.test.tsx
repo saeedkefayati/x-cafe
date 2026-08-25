@@ -23,7 +23,7 @@ describe("ProductConfigurator", () => {
     await user.click(screen.getByText("بزرگ"));
     await user.click(screen.getByText("شیر جو دوسر"));
     const addButton = screen.getByRole("button", { name: /افزودن به سبد/ });
-    expect(addButton).toHaveTextContent("۲۸۵٬۰۰۰");
+    expect(addButton).toHaveTextContent("۳۷۰٬۰۰۰");
     await user.click(addButton);
 
     expect(
@@ -45,6 +45,6 @@ describe("ProductConfigurator", () => {
     );
 
     expect(await screen.findByText("خلاصهٔ سفارش")).toBeInTheDocument();
-    expect(screen.getAllByText(/۲۸۵٬۰۰۰/)).toHaveLength(2);
+    expect(screen.getAllByText(/۳۷۰٬۰۰۰/)).toHaveLength(2);
   });
 });

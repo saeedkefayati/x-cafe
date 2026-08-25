@@ -1,10 +1,10 @@
-# Cafe Commerce — start here
+# X Cafe Commerce — start here
 
 This is the canonical short briefing for humans and coding agents.
 
 ## Product
 
-Cafe Commerce is a premium, warm, editorial cafe storefront and ordering experience. The customer-facing interface is Persian and right-to-left. The design emphasizes product photography, calm spacing, clear hierarchy, and accessible commerce flows.
+X Cafe Commerce is a premium, warm, editorial cafe storefront and ordering experience. The customer-facing brand is «ایکس کافه» and the interface is Persian and right-to-left. The design emphasizes product photography, calm spacing, clear hierarchy, and accessible commerce flows.
 
 The experience has two modes:
 
@@ -33,7 +33,10 @@ Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending
 - The same product image assets are used in light and dark themes. Theme-specific styling belongs to the surrounding card and surface.
 - Accessibility and reduced-motion behavior are baseline requirements.
 - Product, option, category, and cart behavior must be data-driven.
-- Prices and business information remain mock until the user supplies final values.
+- The X Cafe name and vector mark are approved.
+- Three Tehran branch records are confirmed from the user-approved VCafe reference site.
+- Directly matched products use reference prices; five unmatched products and
+  all configuration deltas remain visibly temporary.
 - Demo orders never claim real branch dispatch: contact is server-validated but
   not persisted, and success requires an expiring signed confirmation.
 - Search indexing is disabled by default and requires both a valid `SITE_URL`

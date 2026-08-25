@@ -41,8 +41,11 @@ The original planning pack under `docs/archive/pre-codex-pack` is preserved hist
 - Fifteen products: five hot coffees, five cold coffees, and five cakes.
 - Product imagery follows the approved `shared-studio-v2` style in `public/images/products`.
 - Light and dark themes share product image assets; adapt the surrounding UI, not image colors.
-- Phase 1 is complete. Phase 2 focuses on product configuration and cart behavior.
-- Prices, branding, branches, fulfillment, payment, order backend, and legal content remain mock or undecided unless the user supplies them.
+- Phases 1–11 are complete; the current brand and operational-data pass follows them.
+- The approved brand is «ایکس کافه» with a repository-native vector mark.
+- Three Tehran branch records are user-confirmed from the VCafe reference site.
+- Directly matched catalog prices use that reference; unmatched products remain visibly temporary.
+- The real order backend, inventory source, fees, production domain, and legal content remain unresolved.
 
 ## Core implementation rules
 

@@ -20,3 +20,4 @@ Current records:
 - 0006-server-confirmed-demo-orders.md
 - 0007-opt-in-search-indexing.md
 - 0008-progressive-scroll-storytelling.md
+- 0009-x-cafe-brand-and-reference-data.md
