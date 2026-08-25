@@ -18,3 +18,4 @@ Current records:
 - 0004-agent-documentation-governance.md
 - 0005-fixed-pickup-preparation.md
 - 0006-server-confirmed-demo-orders.md
+- 0007-opt-in-search-indexing.md

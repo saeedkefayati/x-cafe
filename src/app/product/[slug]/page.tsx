@@ -7,6 +7,7 @@ import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { ProductConfigurator } from "@/components/product/product-configurator";
 import { products, getProduct } from "@/data/mock";
 import { formatPrice } from "@/lib/format";
+import { createPageMetadata } from "@/lib/metadata";
 import productStyles from "@/components/product/product.module.css";
 
 export function generateStaticParams() {
@@ -18,7 +19,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = getProduct(slug);
   return product
-    ? { title: product.seoTitle, description: product.seoDescription }
+    ? createPageMetadata({
+        title: product.seoTitle,
+        description: product.seoDescription,
+        path: `/product/${product.slug}`,
+        image: product.socialImage ?? product.cardImage,
+      })
     : { title: "محصول پیدا نشد" };
 }
 export default async function ProductPage({

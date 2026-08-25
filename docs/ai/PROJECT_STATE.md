@@ -10,15 +10,16 @@ Phase 5 commit: `2c2ddf9` (`feat: add pickup checkout foundation`)
 
 Phase 6 commit: `a837807` (`feat: add guest pickup checkout`)
 Phase 7 commit: `8dea80c` (`feat: add pickup branches and timing`)
+Phase 8 commit: `bbb0f2c` (`feat: add server-confirmed demo orders`)
 
 ## Current phase
 
-Phase 8 server-confirmed demo ordering is implemented and awaiting review and
-commit. Checkout can validate a guest order through a Server Action and issue a
-signed, expiring demo confirmation. It does not persist contact data or send an
-order to a branch, POS, or external provider. Real ordering remains blocked on
-production confirmation, an order provider, authoritative availability, and fee
-decisions.
+Phase 9 SEO and publishing safety are complete. Public routes have canonical and
+social metadata, while generated robots and sitemap routes remain closed to
+indexing until a valid domain and an explicit publishing opt-in are configured.
+Phase 10 is planned as an interaction, accessibility, responsive, and
+performance polish pass. Real ordering remains blocked on production
+confirmation, an order provider, authoritative availability, and fee decisions.
 
 ## Completed
 
@@ -72,6 +73,17 @@ decisions.
   cart cleanup.
 - Explicit separation between a testable end-to-end demo and real branch/POS
   dispatch.
+- Central site-origin configuration without a committed production domain.
+- Opt-in search indexing that defaults to blocking previews and placeholder
+  deployments.
+- Canonical, Open Graph, Twitter-card, robots, sitemap, and web-manifest
+  foundations.
+- Public sitemap coverage for Home, Menu, categories, products, Journal,
+  articles, About, Locations, Contact, and FAQ.
+- Noindex coverage for cart, Checkout, search, order confirmation, and
+  provisional legal routes.
+- Accurate provisional privacy and terms explanations for local browser state
+  and demo-order data handling.
 
 ## Catalog
 
@@ -103,10 +115,11 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Confirm or replace the three sample branch records before production.
-2. Choose the order destination: custom backend, ecommerce provider, or POS.
-3. Define production availability and tax/service-fee rules.
-4. Review and replace provisional brand and operational content when real material is ready.
+1. Complete the Phase 10 interaction, accessibility, responsive, and performance audit.
+2. Confirm or replace the three sample branch records before production.
+3. Choose the order destination: custom backend, ecommerce provider, or POS.
+4. Define production availability and tax/service-fee rules.
+5. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 

@@ -7,11 +7,15 @@ import { Heading, Text } from "@/components/primitives/typography";
 import { MenuGrid } from "@/components/product/menu-grid";
 import { products } from "@/data/mock";
 import { searchProducts } from "@/lib/search";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "جست‌وجو",
-  robots: { index: false, follow: true },
-};
+  description: "جست‌وجوی محصولات منوی کافه بر اساس نام، توضیح و طعم.",
+  path: "/search",
+  index: false,
+  follow: true,
+});
 export default async function SearchPage({
   searchParams,
 }: PageProps<"/search">) {

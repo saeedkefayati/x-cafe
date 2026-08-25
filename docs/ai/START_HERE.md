@@ -18,8 +18,9 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phases 1–7 are committed. Phase 8 adds a server-confirmed demo-order flow with
-  signed success data and is awaiting review and commit.
+- Phases 1–9 are complete and committed. Phase 10 is planned as an interaction,
+  accessibility, responsive, and performance polish pass before production data
+  and a real order provider are available.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 
@@ -35,6 +36,8 @@ Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending
 - Prices and business information remain mock until the user supplies final values.
 - Demo orders never claim real branch dispatch: contact is server-validated but
   not persisted, and success requires an expiring signed confirmation.
+- Search indexing is disabled by default and requires both a valid `SITE_URL`
+  and the explicit `SITE_INDEXING_ENABLED=true` release decision.
 
 ## Before making changes
 

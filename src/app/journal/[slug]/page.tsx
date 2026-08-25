@@ -9,6 +9,7 @@ import { Heading } from "@/components/primitives/typography";
 import { MenuGrid } from "@/components/product/menu-grid";
 import { getPost, journalPosts, products } from "@/data/mock";
 import { formatDate } from "@/lib/format";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../../site.module.css";
 
 export function generateStaticParams() {
@@ -20,7 +21,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPost(slug);
   return post
-    ? { title: post.seoTitle, description: post.seoDescription }
+    ? createPageMetadata({
+        title: post.seoTitle,
+        description: post.seoDescription,
+        path: `/journal/${post.slug}`,
+        image: post.coverImage,
+        type: "article",
+        publishedTime: post.publishedAt,
+      })
     : { title: "یادداشت پیدا نشد" };
 }
 export default async function PostPage({

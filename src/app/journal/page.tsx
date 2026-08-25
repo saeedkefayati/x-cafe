@@ -3,12 +3,14 @@ import { JournalCard } from "@/components/content/journal-card";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { journalPosts } from "@/data/mock";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "ژورنال",
   description: "یادداشت‌هایی از پیشخوان، مواد و فرایند.",
-};
+  path: "/journal",
+});
 export default function JournalPage() {
   return (
     <>

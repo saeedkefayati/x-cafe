@@ -3,11 +3,13 @@ import { LinkButton } from "@/components/controls/button";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading, Text } from "@/components/primitives/typography";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "تماس",
   description: "وضعیت راه‌های ارتباطی و پشتیبانی کافه.",
-};
+  path: "/contact",
+});
 export default function ContactPage() {
   return (
     <>
@@ -45,8 +47,8 @@ export default function ContactPage() {
               <div>
                 <dt>پیگیری سفارش</dt>
                 <dd>
-                  ثبت سفارش واقعی هنوز فعال نیست؛ سفارشی برای پیگیری ایجاد
-                  نمی‌شود.
+                  کد فعلی فقط تأیید یک سفارش آزمایشی است؛ سفارش واقعی یا مسیر
+                  پشتیبانی شعبه هنوز ایجاد نمی‌شود.
                 </dd>
               </div>
               <div>

@@ -7,12 +7,16 @@ import { Text } from "@/components/primitives/typography";
 import { locations } from "@/data/locations";
 import { verifyDemoOrderConfirmation } from "@/lib/demo-order";
 import { formatPrice } from "@/lib/format";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../../site.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "ثبت سفارش",
-  robots: { index: false, follow: false },
-};
+  description: "نمایش تأییدیهٔ امن یک سفارش آزمایشی.",
+  path: "/order/success",
+  index: false,
+  follow: false,
+});
 
 function formatReadyAt(value: string) {
   return new Intl.DateTimeFormat("fa-IR", {

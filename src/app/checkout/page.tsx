@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { CheckoutContent } from "@/components/checkout/checkout-content";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
-export const metadata: Metadata = {
+import { createPageMetadata } from "@/lib/metadata";
+export const metadata: Metadata = createPageMetadata({
   title: "تسویه حساب",
-  robots: { index: false, follow: false },
-};
+  description: "تکمیل اطلاعات سفارش آزمایشی و انتخاب شعبهٔ تحویل حضوری.",
+  path: "/checkout",
+  index: false,
+  follow: false,
+});
 export default function CheckoutPage() {
   return (
     <>

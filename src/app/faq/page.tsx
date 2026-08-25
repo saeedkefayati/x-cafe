@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { faqs } from "@/data/mock";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
-export const metadata: Metadata = { title: "پرسش‌های رایج" };
+export const metadata: Metadata = createPageMetadata({
+  title: "پرسش‌های رایج",
+  description: "پاسخ پرسش‌های رایج دربارهٔ منو، سفارش آزمایشی و تحویل حضوری.",
+  path: "/faq",
+});
 export default function FAQPage() {
   return (
     <>

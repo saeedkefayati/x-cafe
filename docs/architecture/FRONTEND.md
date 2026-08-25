@@ -28,8 +28,10 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/data/products.ts`: current fifteen-product catalog.
 - `src/data/locations.ts`: three sample pickup branches and structured operating schedules.
 - `src/config/commerce.ts`: explicit guest, pickup, and pay-at-pickup decisions plus remaining commerce blockers.
+- `src/config/site.ts`: public origin, publishing state, locale, and site-level metadata values.
 - `src/app/checkout/actions.ts`: Server Action boundary for the demo order flow.
 - `src/lib/demo-order.ts`: server-side demo validation and signed confirmation logic.
+- `src/lib/metadata.ts`: canonical and social metadata factory for public and utility routes.
 - `src/data/mock.ts`: categories and remaining mock content sources.
 - `src/types/domain.ts`: domain contracts.
 - `src/types/commerce.ts`: provider-neutral pickup order request and result contracts.
@@ -81,6 +83,19 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Preserve intrinsic dimensions and meaningful Persian alt text.
 - Avoid using CSS filters to adapt product media to dark mode.
 - Do not overwrite approved assets when generating a variant; use versioned filenames and update the manifest.
+
+## Publishing and discovery
+
+- `SITE_URL` is the only source for the public metadata origin; committed code
+  must not contain a guessed production domain.
+- Search indexing requires a valid non-placeholder origin and
+  `SITE_INDEXING_ENABLED=true`.
+- Preview, local, and incompletely configured builds default to `noindex` and a
+  fully disallowing robots policy.
+- Cart, Checkout, search results, order confirmation, and provisional legal
+  pages remain outside the sitemap.
+- Canonical, Open Graph, and social-card values should be created through the
+  shared metadata helper so route titles, descriptions, URLs, and images agree.
 
 ## Testing
 

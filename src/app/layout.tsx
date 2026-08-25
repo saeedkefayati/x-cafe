@@ -4,6 +4,8 @@ import { CartProvider } from "@/components/cart/cart-provider";
 import { Footer } from "@/components/shell/footer";
 import { Header } from "@/components/shell/header";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { siteConfig } from "@/config/site";
+import { defaultSocialImage } from "@/lib/metadata";
 import "@/styles/globals.css";
 
 const vazirmatn = Vazirmatn({
@@ -28,9 +30,46 @@ const themeScript = `(() => {
 })();`;
 
 export const metadata: Metadata = {
-  title: { default: "کافه — ساخته‌شده برای مکث", template: "%s | کافه" },
-  description: "تجربه‌ای آرام برای کشف منو و سفارش از یک کافهٔ مستقل.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: siteConfig.url,
+  title: { default: siteConfig.title, template: `%s | ${siteConfig.name}` },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  manifest: "/manifest.webmanifest",
+  robots: siteConfig.isIndexingEnabled
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
+      }
+    : { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "/",
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    images: [
+      {
+        url: defaultSocialImage.src,
+        width: defaultSocialImage.width,
+        height: defaultSocialImage.height,
+        alt: defaultSocialImage.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [{ url: defaultSocialImage.src, alt: defaultSocialImage.alt }],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

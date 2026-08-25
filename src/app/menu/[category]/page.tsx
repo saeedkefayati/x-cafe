@@ -5,6 +5,7 @@ import { Container, Section, Stack } from "@/components/primitives/layout";
 import { CategoryNav } from "@/components/product/category-nav";
 import { MenuGrid } from "@/components/product/menu-grid";
 import { categories, getCategory, products } from "@/data/mock";
+import { createPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return categories.map((category) => ({ category: category.slug }));
@@ -15,7 +16,12 @@ export async function generateMetadata({
   const { category: slug } = await params;
   const category = getCategory(slug);
   return category
-    ? { title: category.name, description: category.description }
+    ? createPageMetadata({
+        title: category.name,
+        description: category.description,
+        path: `/menu/${category.slug}`,
+        image: category.heroImage,
+      })
     : { title: "دسته‌بندی پیدا نشد" };
 }
 export default async function CategoryPage({

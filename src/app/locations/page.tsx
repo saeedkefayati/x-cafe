@@ -4,9 +4,14 @@ import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading, Text } from "@/components/primitives/typography";
 import { locations } from "@/data/locations";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 
-export const metadata: Metadata = { title: "شعبه‌ها" };
+export const metadata: Metadata = createPageMetadata({
+  title: "شعبه‌ها",
+  description: "نشانی، ساعت کاری و وضعیت سه شعبهٔ نمونهٔ تحویل حضوری کافه.",
+  path: "/locations",
+});
 export default function LocationsPage() {
   return (
     <>

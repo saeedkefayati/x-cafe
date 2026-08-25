@@ -5,12 +5,14 @@ import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { products } from "@/data/mock";
+import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "دربارهٔ ما",
   description: "روایت، اصول و رویکرد کافه به محصول و مهمان‌نوازی.",
-};
+  path: "/about",
+});
 
 const principles = [
   {

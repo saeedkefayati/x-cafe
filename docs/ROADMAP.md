@@ -112,6 +112,8 @@ Completed in commit `8dea80c` (`feat: add pickup branches and timing`).
 - Customer contact is not placed in the token or persisted in a database.
 - No order is dispatched to a real branch, POS, or external provider.
 
+Completed in commit `bbb0f2c` (`feat: add server-confirmed demo orders`).
+
 Before real order submission can replace this demo boundary:
 
 - confirm production branch data and menu prices;
@@ -119,3 +121,33 @@ Before real order submission can replace this demo boundary:
 - connect authoritative inventory/availability;
 - define taxes and service fees;
 - persist idempotent orders and expose real order status.
+
+## Phase 9 — SEO and publishing safety: complete
+
+- Central public-origin configuration with localhost-safe fallback.
+- Search indexing requires both a valid production domain and an explicit
+  publishing opt-in.
+- Canonical, Open Graph, and social-card metadata across public routes.
+- Product and journal social metadata uses the matching catalog imagery.
+- Generated robots, sitemap, and RTL web-app manifest routes.
+- Cart, Checkout, search, order confirmation, and provisional legal pages stay
+  out of indexing and the public sitemap.
+- Factual privacy and terms notes document browser persistence and the exact
+  boundaries of demo ordering without presenting provisional copy as legal
+  advice.
+
+Production indexing must remain disabled until final brand, domain, prices,
+branches, contact routes, and legal text are approved.
+
+## Phase 10 — Interaction and quality polish: planned
+
+- Refine Product Card hover so it supports the calm editorial direction without
+  lifting a large transparent panel or creating a heavy text-area shadow.
+- Limit hover-only effects to fine pointers and preserve complete touch behavior.
+- Verify equivalent keyboard focus, active, disabled, and reduced-motion states
+  across reusable links and controls.
+- Audit narrow mobile, tablet, desktop, high text zoom, and RTL/LTR mixed text.
+- Recheck product-image loading, likely LCP paths, route console output, and
+  production-build behavior.
+- Finish with a cross-route visual and accessibility regression pass in light
+  and dark themes.

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Route } from "next";
+import type { Metadata, Route } from "next";
 import { JournalCard } from "@/components/content/journal-card";
 import { LinkButton } from "@/components/controls/button";
 import { Container, Section, Stack } from "@/components/primitives/layout";
@@ -8,6 +8,10 @@ import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { MenuGrid } from "@/components/product/menu-grid";
 import { categories, journalPosts, products } from "@/data/mock";
 import styles from "./site.module.css";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const representativeProductIds = [
   "cappuccino",

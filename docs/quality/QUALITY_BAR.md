@@ -49,6 +49,16 @@ Phase-level changes should pass every command. Smaller documentation-only change
 - Price totals must be derived and covered by tests.
 - Different customization combinations must remain distinct cart lines.
 
+## Publishing safety
+
+- Do not use a placeholder domain as `metadataBase`, canonical origin, robots
+  host, or sitemap origin in a public deployment.
+- Indexing must default off and require an explicit release-time opt-in.
+- Exclude customer-specific utility routes and provisional legal content from
+  indexing and sitemap discovery.
+- Do not enable public indexing until branding, prices, branches, contact paths,
+  and legal copy are approved.
+
 ## Git handoff
 
 - Review staged changes with `git diff --cached` before committing.
