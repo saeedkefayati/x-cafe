@@ -20,9 +20,6 @@
 # production
 /build
 
-# local planning and reference pack
-/cafe-commerce-pre-codex-pack/
-
 # misc
 .DS_Store
 *.pem

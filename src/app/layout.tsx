@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Vazirmatn } from "next/font/google";
+import { Vazirmatn } from "next/font/google";
 import { CartProvider } from "@/components/cart/cart-provider";
 import { Footer } from "@/components/shell/footer";
 import { Header } from "@/components/shell/header";
@@ -13,12 +13,6 @@ const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
   display: "swap",
 });
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
 const themeScript = `(() => {
   try {
     const stored = localStorage.getItem("cafe-theme");
@@ -79,7 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir="rtl"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${vazirmatn.variable} ${manrope.variable}`}
+      className={vazirmatn.variable}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

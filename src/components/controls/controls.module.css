@@ -43,12 +43,6 @@
   background: transparent;
   color: var(--color-text-primary);
 }
-.button:hover:not(:disabled),
-.linkButton:hover,
-.iconButton:hover:not(:disabled) {
-  border-color: var(--color-accent);
-  transform: translateY(-1px);
-}
 .button:active:not(:disabled),
 .linkButton:active,
 .iconButton:active:not(:disabled) {
@@ -161,6 +155,15 @@
 
 .quantityButton:active:not(:disabled) {
   transform: scale(0.94);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:disabled),
+  .linkButton:hover,
+  .iconButton:hover:not(:disabled) {
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

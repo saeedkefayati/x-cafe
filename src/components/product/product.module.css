@@ -6,15 +6,17 @@
   min-width: 0;
   flex-direction: column;
   border-radius: var(--radius-lg);
-  transition:
-    box-shadow var(--motion-base) var(--ease-standard),
-    transform var(--motion-base) var(--ease-emphasized);
 }
 .mediaLink {
   display: block;
   overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   background: var(--color-surface-muted);
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-base) var(--ease-standard),
+    transform var(--motion-base) var(--ease-emphasized);
 }
 .media {
   position: relative;
@@ -24,13 +26,6 @@
 .image {
   object-fit: cover;
   transition: transform var(--motion-slow) var(--ease-emphasized);
-}
-.card:hover .image {
-  transform: scale(1.025);
-}
-.card:hover {
-  box-shadow: var(--shadow-floating);
-  transform: translateY(-0.25rem);
 }
 .content {
   display: grid;
@@ -48,6 +43,9 @@
   font-family: var(--font-display);
   font-size: 1.125rem;
   line-height: 1.35;
+}
+.name a {
+  transition: color var(--motion-fast) var(--ease-standard);
 }
 .price {
   flex: none;
@@ -90,13 +88,10 @@
   padding: 0.625rem 1rem;
   font-size: var(--font-size-body-sm);
 }
-.categoryLink:hover {
-  border-color: var(--color-accent);
-}
 .heroGrid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
-  align-items: center;
+  align-items: flex-start;
   gap: clamp(2rem, 7vw, 7rem);
 }
 .heroMedia {
@@ -310,8 +305,32 @@
     flex-direction: column;
   }
 }
+@media (min-width: 58rem) {
+  .heroMedia {
+    position: sticky;
+    top: calc(var(--header-height) + var(--section-space-compact));
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .mediaLink:hover {
+    border-color: var(--color-border-default);
+    box-shadow: var(--shadow-interactive);
+    transform: translateY(-0.125rem);
+  }
+  .mediaLink:hover .image {
+    transform: scale(1.015);
+  }
+  .name a:hover,
+  .categoryLink:hover {
+    color: var(--color-accent);
+  }
+  .categoryLink:hover {
+    border-color: var(--color-accent);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  .card,
+  .mediaLink,
+  .name a,
   .image {
     transition: none;
   }
@@ -327,11 +346,11 @@
   .extraOption {
     transition: none;
   }
-  .card:hover {
+  .mediaLink:hover {
     box-shadow: none;
     transform: none;
   }
-  .card:hover .image {
+  .mediaLink:hover .image {
     transform: none;
   }
 }

@@ -1,5 +1,14 @@
 # Roadmap
 
+## Phase mapping
+
+The archived Pre-Codex pack defined five broad implementation phases:
+Foundation, Product/Cart, Content, Motion, and Commerce Integration. The current
+roadmap keeps that sequence but splits commerce, publishing safety, and quality
+work into smaller reviewable phases. Current Phase 4 delivered the safe motion
+foundation; the full signature scroll storytelling described by archived Phase
+4 is intentionally carried forward as current Phase 11 rather than dropped.
+
 ## Phase 1 — Foundation: complete
 
 - Project and route architecture.
@@ -44,7 +53,7 @@ Definition of done:
 
 Completed in commit `363765b` (`feat: complete editorial content experience`).
 
-## Phase 4 — Motion: complete
+## Phase 4 — Motion foundation: complete
 
 - Route-entry motion built on the App Router template lifecycle.
 - Scroll-linked reveals for Home, About, Product Detail, and Journal content sections.
@@ -62,6 +71,10 @@ Definition of done:
 - Desktop and mobile light/dark browser checks pass without overflow, broken images, or console issues.
 
 Completed in commit `a2abecf` (`feat: add responsive motion system`).
+
+The cinematic Home transformation and richer Product Detail ingredient
+storytelling from the original Pre-Codex Phase 4 were not part of this
+foundation commit. They are the explicit scope of current Phase 11 below.
 
 ## Phase 5 — Pickup commerce foundation: complete
 
@@ -139,15 +152,51 @@ Before real order submission can replace this demo boundary:
 Production indexing must remain disabled until final brand, domain, prices,
 branches, contact routes, and legal text are approved.
 
-## Phase 10 — Interaction and quality polish: planned
+## Phase 10 — Interaction and quality polish: complete
 
-- Refine Product Card hover so it supports the calm editorial direction without
-  lifting a large transparent panel or creating a heavy text-area shadow.
-- Limit hover-only effects to fine pointers and preserve complete touch behavior.
-- Verify equivalent keyboard focus, active, disabled, and reduced-motion states
-  across reusable links and controls.
-- Audit narrow mobile, tablet, desktop, high text zoom, and RTL/LTR mixed text.
-- Recheck product-image loading, likely LCP paths, route console output, and
-  production-build behavior.
-- Finish with a cross-route visual and accessibility regression pass in light
-  and dark themes.
+- Product cards keep their text area stationary and apply a restrained
+  two-pixel lift, light interactive shadow, and 1.015 media scale only to the
+  linked image.
+- Positional hover effects across product, category, journal, navigation, and
+  reusable controls are limited to fine pointers; touch actions stay complete.
+- Keyboard focus, active, disabled, and reduced-motion behavior remains visible
+  and non-positional where appropriate.
+- The Home hero is visually quieter, display typography uses one Vazirmatn
+  family, and Product Detail media stays visible while configuring on desktop
+  without pinning the mobile layout.
+- Home and Product Detail LCP images use the Next.js 16 preload contract, and an
+  unused second font download was removed.
+- Responsive browser checks passed at 390px, 768px, and 1440px in light and dark
+  themes with no horizontal overflow or console errors.
+- Automated interaction contracts cover fine-pointer and reduced-motion rules;
+  format, lint, typecheck, tests, and production build pass.
+
+## Phase 11 — Signature scroll storytelling: planned
+
+This phase completes the cinematic portion of Phase 4 from
+`docs/archive/pre-codex-pack` while preserving the stable functional layer.
+
+- Build one memorable Home signature sequence: Hero handoff into a three- or
+  four-state product transformation using only approved catalog products.
+- Use a controlled pinned/scrubbed desktop scene with natural page scroll,
+  followed by a functional menu gateway and a breathing section.
+- Provide a shorter, non-pinned mobile composition with native scrolling and
+  immediately readable content.
+- Add a restrained Product Detail ingredient/flavor narrative for selected
+  signature products without delaying configuration or Add to Cart.
+- Keep Menu, Cart, Checkout, Search, FAQ, Contact, and order confirmation in
+  low-motion utility mode.
+- Load cinematic motion code only on routes that use it, clean up timelines on
+  navigation, and animate transform/opacity before expensive visual properties.
+- Provide a complete reduced-motion version with no long scrub, parallax, or
+  content hidden behind animation.
+- Generate versioned isolated ingredient assets only after the exact signature
+  sequence and art direction are approved; never overwrite catalog images.
+
+Primary historical references:
+
+- `docs/archive/pre-codex-pack/08_motion_system_spec.md`
+- `docs/archive/pre-codex-pack/09_home_scroll_storyboard.md`
+- `docs/archive/pre-codex-pack/10_product_detail_storyboard.md`
+- `docs/archive/pre-codex-pack/20_home_experience_blueprint.md`
+- `docs/archive/pre-codex-pack/22_motion_transition_matrix.md`

@@ -49,8 +49,7 @@ export default async function ProductPage({
                 alt={product.heroImage.alt}
                 width={product.heroImage.width}
                 height={product.heroImage.height}
-                loading="eager"
-                fetchPriority="high"
+                preload
                 sizes="(max-width: 928px) 100vw, 50vw"
               />
             </div>

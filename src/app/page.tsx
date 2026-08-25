@@ -42,7 +42,7 @@ export default function Home() {
           <Stack className={styles.heroCopy} gap="lg">
             <Stack className={styles.heroText} gap="sm">
               <Eyebrow>Made for a pause</Eyebrow>
-              <Heading as="h1" size="displayXl">
+              <Heading as="h1" size="displayLg">
                 یک مکث خوب، از همین‌جا شروع می‌شود.
               </Heading>
               <Text size="bodyLg">
@@ -67,8 +67,7 @@ export default function Home() {
               src={signature.heroImage.src}
               alt={signature.heroImage.alt}
               fill
-              loading="eager"
-              fetchPriority="high"
+              preload
               sizes="(max-width: 928px) 100vw, 52vw"
             />
             <span className={styles.heroCaption}>

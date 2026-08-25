@@ -11,7 +11,8 @@ The visual system should create confidence through restraint: product-first imag
 - Semantic tokens live in `src/styles/tokens.css`.
 - Global theme and accessibility behavior live in `src/styles/globals.css`.
 - Component styling uses CSS Modules.
-- Vazirmatn supports Persian content; Manrope supports Latin display text.
+- Vazirmatn provides a unified Persian and Latin type system across body and
+  display text.
 - Reusable layout and typography primitives live under `src/components/primitives`.
 
 ## Palette direction
@@ -56,6 +57,13 @@ Use the same product image assets in both themes.
 - Prefer a border-color change plus a subtle state-colored shadow.
 - Never remove focus indication without an accessible replacement.
 - Controls must have meaningful hover, active, disabled, and error states.
+- Positional hover feedback belongs inside `(hover: hover) and (pointer: fine)`
+  so touch users never depend on or inherit a sticky hover state.
+- Product cards keep their text surface stationary. Pointer emphasis belongs to
+  the linked product media and uses the lighter interactive shadow, a maximum
+  two-pixel lift, and a restrained image scale.
+- Whole-card lift is reserved for a card that is itself one complete link, such
+  as a category path; editorial cards with several links remain stationary.
 
 ## Motion
 

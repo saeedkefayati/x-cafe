@@ -18,9 +18,9 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phases 1–9 are complete and committed. Phase 10 is planned as an interaction,
-  accessibility, responsive, and performance polish pass before production data
-  and a real order provider are available.
+- Phases 1–10 are complete. Phase 11 is the signature scroll-storytelling layer
+  carried forward from the archived Pre-Codex Phase 4 motion plan. Production
+  data and a real order provider are still unavailable.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 
@@ -62,3 +62,5 @@ Run checks proportionate to the change. A phase-level change should pass all fiv
 ## Historical planning pack
 
 The original pre-implementation planning package is preserved under [`../archive/pre-codex-pack`](../archive/pre-codex-pack). It is historical context, not the current source of truth.
+Its five broad phases are mapped to the finer-grained current roadmap; notably,
+its cinematic Phase 4 motion scope continues as current Phase 11.

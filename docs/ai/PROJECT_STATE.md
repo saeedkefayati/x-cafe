@@ -11,15 +11,18 @@ Phase 5 commit: `2c2ddf9` (`feat: add pickup checkout foundation`)
 Phase 6 commit: `a837807` (`feat: add guest pickup checkout`)
 Phase 7 commit: `8dea80c` (`feat: add pickup branches and timing`)
 Phase 8 commit: `bbb0f2c` (`feat: add server-confirmed demo orders`)
+Phase 9 commit: `93d80c6` (`feat: add safe publishing metadata`)
 
 ## Current phase
 
-Phase 9 SEO and publishing safety are complete. Public routes have canonical and
-social metadata, while generated robots and sitemap routes remain closed to
-indexing until a valid domain and an explicit publishing opt-in are configured.
-Phase 10 is planned as an interaction, accessibility, responsive, and
-performance polish pass. Real ordering remains blocked on production
-confirmation, an order provider, authoritative availability, and fee decisions.
+Phase 10 interaction and quality polish is complete. Product-card interaction
+is media-focused and fine-pointer-only, shared control hover behavior no longer
+leaks into touch layouts, desktop Product Detail media remains visible while
+configuring, and likely LCP images use the Next.js 16 preload contract. Phase 11
+is planned as the signature scroll-storytelling layer carried forward from the
+archived Pre-Codex Phase 4 motion plan. Real ordering remains blocked on
+production confirmation, an order provider, authoritative availability, and fee
+decisions.
 
 ## Completed
 
@@ -84,6 +87,19 @@ confirmation, an order provider, authoritative availability, and fee decisions.
   provisional legal routes.
 - Accurate provisional privacy and terms explanations for local browser state
   and demo-order data handling.
+- Product Card hover that keeps the transparent text surface stationary and
+  confines subtle lift, shadow, and scale feedback to the linked media.
+- Fine-pointer guards for positional hover feedback across reusable controls,
+  category links, product media, journal media, navigation, and cart links.
+- Unified Vazirmatn display and body typography with the unused Manrope resource
+  removed from global font loading.
+- A quieter Home display heading and sticky desktop Product Detail media with a
+  normal-flow mobile fallback.
+- Explicit preloading for the Home and Product Detail LCP images.
+- Interaction contract tests for pointer capability and reduced-motion
+  fallbacks.
+- Browser verification at 390px, 768px, and 1440px in light and dark themes,
+  with no horizontal overflow or console errors.
 
 ## Catalog
 
@@ -115,11 +131,14 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Complete the Phase 10 interaction, accessibility, responsive, and performance audit.
-2. Confirm or replace the three sample branch records before production.
-3. Choose the order destination: custom backend, ecommerce provider, or POS.
-4. Define production availability and tax/service-fee rules.
-5. Review and replace provisional brand and operational content when real material is ready.
+1. Implement Phase 11 signature scroll storytelling from the archived motion
+   specifications, beginning with the Home hero-to-product transformation.
+2. Add the selected Product Detail ingredient/flavor narrative with a static
+   mobile and reduced-motion equivalent.
+3. Confirm or replace the three sample branch records before production.
+4. Choose the order destination: custom backend, ecommerce provider, or POS.
+5. Define production availability and tax/service-fee rules.
+6. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
