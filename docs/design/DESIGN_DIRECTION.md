@@ -80,6 +80,14 @@ Use the same product image assets in both themes.
 - Keep one high-motion signature sequence on Home. Its desktop pinning is a
   progressive enhancement built with native CSS view timelines; all semantic
   states exist in the server-rendered document before animation.
+- Compose that sequence around one stable central product axis. Product scale
+  and replacement are primary; short copy, flavor notes, progress, and background
+  tone changes are secondary and must never compete simultaneously.
+- Use soft token-derived surfaces, generous rounding, small organic shapes, and
+  compact pill details to give the Home scene a playful character while keeping
+  the typography and motion calm enough for the premium direction.
+- During state changes, mask supporting text so adjacent product names do not
+  overlap visibly. Product imagery may crossfade in the shared central geometry.
 - The Home signature sequence uses existing approved product images and changes
   the surrounding surface tone rather than filtering or replacing product media.
 - Product Detail flavor storytelling is limited to selected signature products,

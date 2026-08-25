@@ -13,17 +13,19 @@ Phase 7 commit: `8dea80c` (`feat: add pickup branches and timing`)
 Phase 8 commit: `bbb0f2c` (`feat: add server-confirmed demo orders`)
 Phase 9 commit: `93d80c6` (`feat: add safe publishing metadata`)
 Phase 10 commit: `e095762` (`feat: complete interaction polish`)
+Phase 11 commit: `a57de34` (`feat: add signature scroll storytelling`)
 
 ## Current phase
 
-Phase 11 signature scroll storytelling is complete in the current working tree
-and awaiting review/commit. Home now carries one progressive three-state
-Espresso-to-Latte transformation; desktop uses a bounded native scroll timeline,
-while mobile, unsupported browsers, and reduced-motion users keep a complete
-normal-flow composition. Espresso, Café Latte, and Iced Caramel Latte Product
-Detail pages add a restrained flavor narrative only after configuration and Add
-to Cart. Real ordering remains blocked on production confirmation, an order
-provider, authoritative availability, and fee decisions.
+Phase 11 signature scroll storytelling and its product-centered visual
+refinement are complete. The desktop Home scene uses one stable central product
+axis, masked copy changes, synchronized pastel surface shifts, and quieter
+supporting flavor notes. Mobile, unsupported browsers, and reduced-motion users
+keep complete normal-flow cards; decorative product dots are omitted on phone
+layouts. Espresso, Café Latte, and Iced Caramel Latte Product Detail pages retain
+their restrained flavor narrative after configuration and Add to Cart. Real
+ordering remains blocked on production confirmation, an order provider,
+authoritative availability, and fee decisions.
 
 ## Completed
 
@@ -109,6 +111,10 @@ provider, authoritative availability, and fee decisions.
   with every state immediately available in document order.
 - A restrained, accessible flavor-profile narrative after the configurator on
   the three signature Product Detail pages, with no impact on utility routes.
+- A product-centered Apple-style refinement for the Home signature scene: one
+  stable visual axis, short supporting copy, synchronized background tones,
+  rounded playful surfaces, and masked state transitions that avoid noisy text
+  overlap.
 
 ## Catalog
 
@@ -140,11 +146,10 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 ## Next recommended work
 
-1. Review and commit the completed Phase 11 storytelling experience.
-2. Confirm or replace the three sample branch records before production.
-3. Choose the order destination: custom backend, ecommerce provider, or POS.
-4. Define production availability and tax/service-fee rules.
-5. Review and replace provisional brand and operational content when real material is ready.
+1. Confirm or replace the three sample branch records before production.
+2. Choose the order destination: custom backend, ecommerce provider, or POS.
+3. Define production availability and tax/service-fee rules.
+4. Review and replace provisional brand and operational content when real material is ready.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 

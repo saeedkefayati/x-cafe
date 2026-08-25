@@ -200,6 +200,13 @@ browsers, mobile layouts, and reduced-motion users receive the same three states
 in readable document flow. No JavaScript timeline dependency or new image asset
 was added.
 
+The current visual refinement follows a product-centered, Apple-style reveal
+model rather than a split editorial composition: all three products transform on
+one stable central axis, copy and flavor notes stay secondary, soft surface tones
+change with the product, and short masked transitions prevent distracting text
+overlap. Rounded panels and restrained decorative shapes provide the requested
+warmer, more playful personality without introducing looping motion.
+
 Selected Product Detail pages now add a restrained flavor-profile narrative
 after the complete configurator and Add to Cart action. It uses current catalog
 flavor notes and accessible intensity labels, remains static on mobile and under

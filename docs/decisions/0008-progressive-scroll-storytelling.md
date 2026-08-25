@@ -12,6 +12,13 @@ sticky desktop story built from three approved catalog products. Mobile,
 unsupported browsers, and reduced-motion users receive the same states in normal
 document flow without pinning or hidden content.
 
+The desktop composition follows a product-centered reveal model: each catalog
+image occupies the same central geometry, product replacement and scale carry
+the primary motion, supporting copy uses short masked transitions, and the
+surrounding token-derived surface tone changes with the active product. Playful
+rounding and organic static shapes may soften the scene without adding looping
+or cursor-driven effects.
+
 Product Detail flavor storytelling is limited to Espresso, Café Latte, and Iced
 Caramel Latte, and is rendered only after the complete configurator and Add to
 Cart action. Utility routes remain low-motion. Product media is reused unchanged

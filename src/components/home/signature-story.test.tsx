@@ -14,7 +14,7 @@ describe("SignatureStory", () => {
     render(<SignatureStory products={signatureProducts} />);
 
     const region = screen.getByRole("region", {
-      name: "از یک شات، تا امضای سرد.",
+      name: "یک شات کوچک، سه حس دوست‌داشتنی.",
     });
 
     expect(within(region).getByText("Espresso")).toBeInTheDocument();

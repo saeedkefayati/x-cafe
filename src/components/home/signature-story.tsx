@@ -3,7 +3,7 @@ import { LinkButton } from "@/components/controls/button";
 import type { Product } from "@/types/domain";
 import styles from "./signature-story.module.css";
 
-const beatLabels = ["پایه", "نرمی", "امضا"];
+const beatLabels = ["خالص و پرانرژی", "نرم و ابری", "خنک و کاراملی"];
 
 export function SignatureStory({ products }: { products: Product[] }) {
   if (products.length === 0) return null;
@@ -12,60 +12,77 @@ export function SignatureStory({ products }: { products: Product[] }) {
     <section className={styles.story} aria-labelledby="signature-story-title">
       <div className={styles.track}>
         <div className={styles.stage}>
+          <div className={styles.backdrop} aria-hidden="true" />
           <div className={`${styles.toneLayer} ${styles.toneLatte}`} />
           <div className={`${styles.toneLayer} ${styles.toneCaramel}`} />
+          <div className={styles.decor} aria-hidden="true">
+            <span className={styles.bubbleOne} />
+            <span className={styles.bubbleTwo} />
+            <span className={styles.bubbleThree} />
+          </div>
 
           <div className={styles.frame}>
             <header className={styles.header}>
               <div className={styles.headerCopy}>
                 <p className={styles.eyebrow}>یک شات، سه حال‌وهوا</p>
-                <h2 id="signature-story-title">از یک شات، تا امضای سرد.</h2>
+                <h2 id="signature-story-title">
+                  یک شات کوچک، سه حس دوست‌داشتنی.
+                </h2>
                 <p>
-                  پایه همان اسپرسو است؛ بافت، دما و شیرینی‌اند که مسیر فنجان را
-                  عوض می‌کنند.
+                  آرام اسکرول کن؛ اسپرسو قدم‌به‌قدم نرم‌تر، شیری‌تر و خنک‌تر
+                  می‌شود.
                 </p>
               </div>
-              <LinkButton href="/menu" variant="secondary">
-                دیدن همهٔ منو
-              </LinkButton>
+              <span className={styles.scrollCue} aria-hidden="true">
+                <span />
+                ادامه بده
+              </span>
             </header>
 
             <ol className={styles.states}>
               {products.map((product, index) => (
                 <li className={styles.state} key={product.id}>
-                  <div className={styles.media}>
-                    <Image
-                      className={styles.image}
-                      src={product.cardImage.src}
-                      alt={product.cardImage.alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 46vw"
-                    />
-                  </div>
                   <div className={styles.copy}>
                     <span className={styles.beat}>
-                      {String(index + 1).padStart(2, "0")} / {beatLabels[index]}
+                      {String(index + 1).padStart(2, "0")} · {beatLabels[index]}
                     </span>
                     <h3 className="latin">{product.name}</h3>
                     {product.shortName ? (
                       <strong>{product.shortName}</strong>
                     ) : null}
                     <p>{product.shortDescription}</p>
-                    <ul className={styles.notes} aria-label="ویژگی‌های طعمی">
-                      {product.flavorNotes.slice(0, 3).map((note) => (
-                        <li key={note.label}>{note.label}</li>
-                      ))}
-                    </ul>
                   </div>
+
+                  <div className={styles.visual}>
+                    <div className={styles.halo} aria-hidden="true" />
+                    <div className={styles.media}>
+                      <Image
+                        className={styles.image}
+                        src={product.cardImage.src}
+                        alt={product.cardImage.alt}
+                        fill
+                        sizes="(max-width: 1024px) calc(100vw - 2rem), 36vw"
+                      />
+                    </div>
+                  </div>
+
+                  <ul className={styles.notes} aria-label="ویژگی‌های طعمی">
+                    {product.flavorNotes.slice(0, 3).map((note) => (
+                      <li key={note.label}>{note.label}</li>
+                    ))}
+                  </ul>
                 </li>
               ))}
             </ol>
 
-            <div className={styles.progress} aria-hidden="true">
-              {products.map((product) => (
-                <span key={product.id} />
-              ))}
-            </div>
+            <footer className={styles.footer}>
+              <div className={styles.progress} aria-hidden="true">
+                {products.map((product) => (
+                  <span key={product.id} />
+                ))}
+              </div>
+              <LinkButton href="/menu">دیدن همهٔ منو</LinkButton>
+            </footer>
           </div>
         </div>
       </div>
