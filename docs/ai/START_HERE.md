@@ -18,11 +18,11 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phases 1–14 are implemented. The current experience includes the signature
+- Phases 1–15 are implemented. The current experience includes the signature
   scroll-storytelling layer, approved X Cafe reference data, refined Persian
   copy, frontend menu filters, branch map search links, a branded social card,
-  and clearer allergen guidance. A real order provider is intentionally still
-  unavailable.
+  clearer allergen guidance, and a fully source-matched 15-product base-price
+  catalog. A real order provider is intentionally still unavailable.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 
@@ -37,8 +37,8 @@ Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending
 - Product, option, category, and cart behavior must be data-driven.
 - The X Cafe name and vector mark are approved.
 - Three Tehran branch records are confirmed from the user-approved VCafe reference site.
-- Directly matched products use reference prices; five unmatched products and
-  all configuration deltas remain visibly temporary.
+- All fifteen launch products use directly matched reference base prices; all
+  configuration deltas remain visibly temporary.
 - Demo orders never claim real branch dispatch: contact is server-validated but
   not persisted, and success requires an expiring signed confirmation.
 - Search indexing is disabled by default and requires both a valid `SITE_URL`

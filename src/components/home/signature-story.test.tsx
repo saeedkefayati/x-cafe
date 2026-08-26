@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { products } from "@/data/mock";
 import { SignatureStory } from "./signature-story";
 
-const signatureIds = ["espresso", "cafe-latte", "iced-caramel-latte"];
+const signatureIds = ["espresso", "cafe-latte", "iced-caramel-macchiato"];
 const signatureProducts = signatureIds.flatMap((id) => {
   const product = products.find((candidate) => candidate.id === id);
   return product ? [product] : [];
@@ -19,7 +19,9 @@ describe("SignatureStory", () => {
 
     expect(within(region).getByText("Espresso")).toBeInTheDocument();
     expect(within(region).getByText("Café Latte")).toBeInTheDocument();
-    expect(within(region).getByText("Iced Caramel Latte")).toBeInTheDocument();
+    expect(
+      within(region).getByText("Iced Caramel Macchiato"),
+    ).toBeInTheDocument();
     expect(
       within(region).getByRole("link", { name: "دیدن همهٔ منو" }),
     ).toHaveAttribute("href", "/menu");

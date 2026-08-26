@@ -22,6 +22,6 @@ Fifteen products provide enough variation to validate menu navigation, product c
 
 ## Constraint
 
-This catalog started with mock prices and business details. ADR 0009 now governs
-price provenance: direct source matches may be labeled as reference prices,
-while unmatched products and configuration deltas remain temporary.
+This catalog started with mock prices and business details. ADR 0009 governs the
+reference source, and ADR 0010 records the five replacements that make every
+current base price source-matched. Configuration deltas remain temporary.

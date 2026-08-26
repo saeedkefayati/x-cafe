@@ -194,7 +194,7 @@ This phase completes the cinematic portion of Phase 4 from
   sequence and art direction are approved; never overwrite catalog images.
 
 Completed with a progressively enhanced, CSS-native Home sequence that moves
-from Espresso to Café Latte and Iced Caramel Latte. Supporting desktop browsers
+from Espresso to Café Latte and Iced Caramel Macchiato. Supporting desktop browsers
 receive one controlled sticky scene driven by the page scroll; unsupported
 browsers, mobile layouts, and reduced-motion users receive the same three states
 in readable document flow. No JavaScript timeline dependency or new image asset
@@ -230,12 +230,38 @@ Definition of done:
 - Add an original responsive vector mark and app icon.
 - Confirm the three Tehran branch records from the user-approved reference.
 - Apply current reference prices only to products with a direct source match.
-- Keep unmatched products and configuration deltas visibly temporary.
+- At this phase, keep unmatched products and configuration deltas visibly
+  temporary; Phase 15 later replaces the unmatched products.
 - Refresh Home, About, Locations, Contact, shell, metadata, FAQ, and commerce
   blockers to reflect the settled identity and branch data.
 
 Real order dispatch remains outside this phase because the provider, inventory
 source, and fee policy are still unresolved.
+
+## Phase 13 — Frontend content and discovery refinement: complete
+
+- Standardize customer-facing Persian copy across the complete route set.
+- Add low-motion frontend Menu filters with accessible selected state and live
+  result count.
+- Add branch map-search links without requesting customer location or adding a
+  routing SDK.
+
+## Phase 14 — Publishing and content-safety refinement: complete
+
+- Add a dedicated 1200×630 brand social card.
+- Add semantic active category navigation.
+- Clarify allergen-data limits and severe-sensitivity guidance on Menu and
+  Product Detail.
+
+## Phase 15 — Source-matched launch catalog: complete
+
+- Replace the five unmatched products with direct items from the approved
+  Felestin reference menu while preserving five products per category.
+- Generate five unique `shared-studio-v2` images without overwriting historical
+  assets, and publish a versioned current contact sheet.
+- Make all fifteen base prices source-matched and keep configuration deltas
+  explicitly temporary.
+- Remove the now-redundant reference-price Menu filter.
 
 Primary historical references:
 

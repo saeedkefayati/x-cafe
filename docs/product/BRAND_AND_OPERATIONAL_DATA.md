@@ -1,6 +1,6 @@
 # Brand and operational data
 
-Last verified: 2026-08-26 (1405-06-04)
+Last verified: 2026-08-27
 
 ## Brand
 
@@ -47,8 +47,8 @@ does not dispatch anything to a real branch.
   reference. The Gholhak and Pasdaran pages currently differ only for Espresso
   and Americano (240 instead of 210).
 - A product is `source-matched` only when its current catalog identity has a
-  direct reference match. Other products keep temporary values and must not be
-  presented as source-confirmed.
+  direct reference match. All fifteen current launch products now satisfy that
+  rule. Future unmatched products must keep temporary values.
 - Size and extra-option deltas remain temporary because the live menu does not
   provide a direct match for the current configuration model.
 
@@ -66,6 +66,11 @@ does not dispatch anything to a real branch.
 | Burnt Basque Cheesecake | چیزکیک سن سباستین         | ۲۹۰ هزار تومان |
 | Carrot and Walnut Cake  | هویج خامه‌ای              | ۲۷۰ هزار تومان |
 | Chocolate Fudge Cake    | کیک شکلاتی با گاناش       | ۲۹۰ هزار تومان |
+| Iced Caramel Macchiato  | ماکیاتو کارامل، سرو سرد   | ۳۵۰ هزار تومان |
+| Cold Grip               | کلدگریپ                   | ۳۲۰ هزار تومان |
+| Iced Hazelnut Mocha     | موکا فندقی، سرو سرد       | ۳۵۰ هزار تومان |
+| Brownie                 | براونی ساده               | ۲۷۰ هزار تومان |
+| Tres Leches Cake        | سه‌شیر                    | ۳۲۰ هزار تومان |
 
 ## Remaining commerce blockers
 

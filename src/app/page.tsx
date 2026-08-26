@@ -16,18 +16,18 @@ export const metadata: Metadata = {
 
 const representativeProductIds = [
   "cappuccino",
-  "iced-caramel-latte",
+  "iced-caramel-macchiato",
   "burnt-basque-cheesecake",
 ];
 const signatureStoryProductIds = [
   "espresso",
   "cafe-latte",
-  "iced-caramel-latte",
+  "iced-caramel-macchiato",
 ];
 
 export default function Home() {
   const signature =
-    products.find((product) => product.id === "iced-caramel-latte") ??
+    products.find((product) => product.id === "iced-caramel-macchiato") ??
     products[0];
   const featuredProducts = products
     .filter((product) => product.featured || product.bestSeller)

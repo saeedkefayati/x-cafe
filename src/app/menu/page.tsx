@@ -10,7 +10,7 @@ import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "منو",
   description:
-    "منوی ایکس کافه؛ قیمت‌های منطبق با مرجع و موارد موقت به‌صورت شفاف مشخص شده‌اند.",
+    "منوی ایکس کافه؛ ۱۵ محصول با قیمت پایهٔ منطبق با مرجع و جزئیات شفاف.",
   path: "/menu",
 });
 export default function MenuPage() {
@@ -25,7 +25,7 @@ export default function MenuPage() {
         <Container>
           <Stack gap="lg">
             <span className={styles.mockNotice}>
-              قیمت‌های مرجع از منوی شعبهٔ فلسطین؛ سایر قیمت‌ها موقت‌اند
+              قیمت پایه از منوی شعبهٔ فلسطین؛ اختلاف گزینه‌ها فعلاً موقت است
             </span>
             <CategoryNav categories={categories} />
             <MenuCatalog products={products} />

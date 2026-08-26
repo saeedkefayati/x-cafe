@@ -41,12 +41,31 @@ describe("catalog products", () => {
       catalogProducts.filter(
         (product) => product.pricingStatus === "source-matched",
       ),
-    ).toHaveLength(10);
+    ).toHaveLength(15);
     expect(
       catalogProducts.filter((product) => product.pricingStatus === "mock"),
-    ).toHaveLength(5);
+    ).toHaveLength(0);
     expect(catalogProducts.every((product) => product.currency === "IRR")).toBe(
       true,
     );
+  });
+
+  it("uses the approved source-matched replacements and prices", () => {
+    const expectedPrices = new Map([
+      ["iced-caramel-macchiato", 3500000],
+      ["cold-grip", 3200000],
+      ["iced-hazelnut-mocha", 3500000],
+      ["brownie", 2700000],
+      ["tres-leches-cake", 3200000],
+    ]);
+
+    for (const [id, price] of expectedPrices) {
+      const product = catalogProducts.find((candidate) => candidate.id === id);
+      expect(product?.basePrice).toBe(price);
+      expect(product?.pricingStatus).toBe("source-matched");
+      expect(product?.cardImage.src).toBe(
+        `/images/products/product-${id}-card-v1.png`,
+      );
+    }
   });
 });

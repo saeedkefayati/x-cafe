@@ -10,7 +10,7 @@ import {
 } from "./checkout";
 
 const latte = catalogProducts.find(
-  (product) => product.id === "iced-caramel-latte",
+  (product) => product.id === "iced-caramel-macchiato",
 )!;
 const cake = catalogProducts.find(
   (product) => product.id === "burnt-basque-cheesecake",

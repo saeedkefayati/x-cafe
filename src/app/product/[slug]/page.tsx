@@ -15,7 +15,7 @@ import productStyles from "@/components/product/product.module.css";
 const signatureStoryProductIds = new Set([
   "espresso",
   "cafe-latte",
-  "iced-caramel-latte",
+  "iced-caramel-macchiato",
 ]);
 
 export function generateStaticParams() {

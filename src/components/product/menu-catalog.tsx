@@ -5,7 +5,7 @@ import type { Product } from "@/types/domain";
 import { MenuGrid } from "./menu-grid";
 import styles from "./product.module.css";
 
-type FilterId = "all" | "popular" | "reference" | "no-known-allergen";
+type FilterId = "all" | "popular" | "no-known-allergen";
 
 const filters: Array<{
   id: FilterId;
@@ -17,11 +17,6 @@ const filters: Array<{
     id: "popular",
     label: "محبوب‌ها",
     matches: (product) => product.bestSeller,
-  },
-  {
-    id: "reference",
-    label: "قیمت مرجع",
-    matches: (product) => product.pricingStatus === "source-matched",
   },
   {
     id: "no-known-allergen",

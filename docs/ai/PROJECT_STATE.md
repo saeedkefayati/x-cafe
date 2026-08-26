@@ -18,12 +18,13 @@ Phase 11 commit: `a57de34` (`feat: add signature scroll storytelling`)
 Phase 12 brand and operational reference integration is complete.
 Phase 13 frontend content and discovery refinement is complete.
 Phase 14 publishing and content-safety refinement is complete.
+Phase 15 source-matched launch catalog refinement is complete.
 
 ## Current phase
 
-Phase 14 adds a dedicated brand-level Open Graph image, visible and semantic
-active category states, and clearer allergen limitations on Menu and Product
-Detail. Five unmatched products and all option deltas stay visibly temporary.
+Phase 15 replaces the five unmatched catalog products with direct Felestin-menu
+matches, gives each replacement a unique approved-style image, and makes all
+fifteen base prices source-matched. Configuration price deltas remain temporary.
 Backend and real-order work are intentionally deferred.
 
 ## Completed
@@ -103,7 +104,7 @@ Backend and real-order work are intentionally deferred.
 - Browser verification at 390px, 768px, and 1440px in light and dark themes,
   with no horizontal overflow or console errors.
 - A semantic three-state Home signature story using Espresso, Café Latte, and
-  Iced Caramel Latte from the approved catalog and image set.
+  Iced Caramel Macchiato from the approved catalog and image set.
 - Progressive desktop pinning and crossfades driven by native CSS view timelines
   without a client component, manual scroll listener, or animation dependency.
 - Complete non-pinned mobile, unsupported-browser, and reduced-motion versions
@@ -118,14 +119,14 @@ Backend and real-order work are intentionally deferred.
 - Original theme-aware vector logo combining an X intersection and coffee bean.
 - Confirmed Gholhak, Felestin, and Pasdaran branch addresses, phones, and hours
   from the user-approved VCafe reference site.
-- Toman display backed by IRR storage, with ten direct product price matches and
-  five visibly temporary catalog prices.
+- Toman display backed by IRR storage, with direct reference base-price matches
+  for all fifteen launch products.
 - Consistent Persian typography across navigation, catalog, Checkout, FAQ,
   journal, contact, legal, and confirmation copy, including standardized
   «تسویه‌حساب» and customer-friendly demo wording.
-- Accessible frontend-only Menu filters for all products, best sellers,
-  source-matched prices, and products without registered allergens, with live
-  result counts and responsive horizontal controls.
+- Accessible frontend-only Menu filters for all products, best sellers, and
+  products without registered allergens, with live result counts and responsive
+  horizontal controls.
 - External map search links for all three branches on Locations and Contact,
   derived from confirmed addresses without requesting customer location or
   adding a routing SDK.
@@ -136,6 +137,13 @@ Backend and real-order work are intentionally deferred.
   `aria-current="page"`.
 - Clear allergen limitations on Menu filtering and Product Detail, including a
   contact path for customers with severe sensitivities.
+- Five direct source-menu replacements for the former unmatched products:
+  Iced Caramel Macchiato, Cold Grip, Iced Hazelnut Mocha, Brownie, and Tres
+  Leches Cake.
+- Five new 1122×1402 `shared-studio-v2` product images plus a versioned current
+  catalog contact sheet; superseded images remain preserved.
+- All launch-product base prices now use direct Felestin menu matches, while
+  configuration deltas retain explicit temporary wording.
 
 ## Catalog
 
@@ -151,35 +159,33 @@ Backend and real-order work are intentionally deferred.
 
 - Iced Americano
 - Iced Latte
-- Iced Caramel Latte
-- Cold Brew
-- Espresso Tonic
+- Iced Caramel Macchiato
+- Cold Grip
+- Iced Hazelnut Mocha
 
 ### Cakes
 
 - Burnt Basque Cheesecake
 - Carrot & Walnut Cake
 - Chocolate Fudge Cake
-- Lemon Poppy Seed Cake
-- Red Velvet Cake
+- Brownie
+- Tres Leches Cake
 
 Catalog data lives in `src/data/products.ts`. Product assets and their manifest live in `public/images/products`.
 
 ## Next recommended work
 
-1. Decide whether to replace the five unmatched products with source-menu items;
-   generate approved-style images before exposing any replacement.
-2. Finalize legal and privacy copy before public launch.
-3. Configure the production domain and complete release-specific metadata and
+1. Finalize legal and privacy copy before public launch.
+2. Configure the production domain and complete release-specific metadata and
    social-preview validation before enabling indexing.
-4. When backend work resumes, choose the order destination and define
+3. When backend work resumes, choose the order destination and define
    availability and tax/service-fee rules.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
 ## Mock or unresolved
 
-- Five unmatched product prices and all configuration price deltas.
+- Configuration price deltas for sizes, milk, sweetness, and extras.
 - Complete production menu beyond the current fifteen-product contract.
 - Order backend, ecommerce provider, or POS integration.
 - Inventory source and availability rules.

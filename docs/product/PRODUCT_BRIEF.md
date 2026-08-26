@@ -11,9 +11,9 @@ The experience should feel warm, crafted, contemporary, calm, sensory, and disti
 - Customer-facing content is Persian.
 - The document direction is RTL.
 - Product names may retain familiar English names while descriptions and controls remain Persian.
-- Catalog amounts are stored in IRR and displayed in toman. Directly matched
-  products use the user-approved VCafe reference menu; unmatched products stay
-  visibly marked as temporary.
+- Catalog amounts are stored in IRR and displayed in toman. All fifteen current
+  products use direct matches from the user-approved VCafe reference menu.
+  Future unmatched products must stay visibly marked as temporary.
 
 ## Experience modes
 

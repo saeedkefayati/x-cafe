@@ -40,6 +40,9 @@ describe("MenuCatalog", () => {
       within(filterGroup).getByRole("button", { name: "همه" }),
     ).toHaveAttribute("aria-pressed", "true");
     expect(
+      within(filterGroup).queryByRole("button", { name: "قیمت مرجع" }),
+    ).not.toBeInTheDocument();
+    expect(
       screen.getByText(/فیلتر آلرژن فقط بر اساس اطلاعات ثبت‌شدهٔ فعلی است/),
     ).toBeInTheDocument();
   });

@@ -23,11 +23,11 @@ describe("editorial content", () => {
     }
   });
 
-  it("keeps FAQ entries unique and explicit about reference and temporary data", () => {
+  it("keeps FAQ entries unique and explicit about reference and temporary option data", () => {
     expect(faqs.length).toBeGreaterThanOrEqual(6);
     expect(new Set(faqs.map((faq) => faq.id)).size).toBe(faqs.length);
     expect(faqs.some((faq) => faq.answer.includes("قیمت مرجع"))).toBe(true);
-    expect(faqs.some((faq) => faq.answer.includes("قیمت موقت"))).toBe(true);
+    expect(faqs.some((faq) => faq.answer.includes("موقت است"))).toBe(true);
   });
 
   it("keeps three confirmed pickup branches complete and uniquely addressable", () => {

@@ -21,3 +21,4 @@ Current records:
 - 0007-opt-in-search-indexing.md
 - 0008-progressive-scroll-storytelling.md
 - 0009-x-cafe-brand-and-reference-data.md
+- 0010-source-matched-launch-catalog.md
