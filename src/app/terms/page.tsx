@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "شرایط استفاده",
-  description: "جایگاه موقت شرایط استفاده تا آماده‌شدن سیاست حقوقی نهایی.",
+  description: "جایگاه موقت شرایط استفاده تا آماده شدن سیاست حقوقی نهایی.",
   path: "/terms",
   index: false,
   follow: false,
@@ -18,7 +18,7 @@ export default function TermsPage() {
         <Container size="reading">
           <div className={styles.prose}>
             <p>
-              شرایط سفارش، لغو، بازپرداخت و تحویل پس از نهایی‌شدن مدل کسب‌وکار
+              شرایط سفارش، لغو، بازپرداخت و تحویل پس از نهایی شدن مدل کسب‌وکار
               در این صفحه درج می‌شود.
             </p>
             <h2>وضعیت نسخهٔ فعلی</h2>

@@ -37,7 +37,7 @@ export function CartPageContent() {
           type="button"
           onClick={clearCart}
         >
-          خالی‌کردن سبد
+          خالی کردن سبد
         </button>
       </div>
       <aside

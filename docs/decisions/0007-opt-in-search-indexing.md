@@ -15,6 +15,11 @@ shared helper. Robots and sitemap files are generated from the same site
 configuration. Cart, Checkout, search, order-confirmation, and provisional legal
 routes are excluded from public discovery.
 
+The default site-level social image is generated at `/opengraph-image` from the
+approved X Cafe mark and brand palette. Product and journal routes may continue
+to use their directly relevant catalog imagery when it is more specific than
+the brand-level card.
+
 ## Rationale
 
 - The current brand, domain, prices, branches, contacts, and legal copy are not

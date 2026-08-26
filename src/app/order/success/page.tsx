@@ -48,14 +48,14 @@ export default async function SuccessPage({
         <PageIntro
           eyebrow="Order"
           title="تأیید معتبری برای نمایش وجود ندارد."
-          description="صفحهٔ موفقیت فقط با تأیید آزمایشی صادرشده از سرور نمایش داده می‌شود."
+          description="صفحهٔ تأیید سفارش فقط با یک تأیید آزمایشی معتبر نمایش داده می‌شود."
         />
         <Section spacing="compact">
           <Container>
             <div className={styles.emptyState}>
               <Text>
                 برای ساخت یک سفارش آزمایشی معتبر، از منو محصول انتخاب کنید و
-                مسیر Checkout را کامل کنید.
+                مراحل تسویه‌حساب را کامل کنید.
               </Text>
               <LinkButton href="/menu">بازگشت به منو</LinkButton>
             </div>
@@ -71,7 +71,7 @@ export default async function SuccessPage({
       <PageIntro
         eyebrow="Demo order"
         title="سفارش آزمایشی تأیید شد."
-        description="سرور سبد، شعبه و زمان تحویل را دوباره بررسی کرده و یک کد پیگیری آزمایشی صادر کرده است."
+        description="سبد، شعبه و زمان تحویل بررسی شده‌اند و یک کد پیگیری آزمایشی صادر شده است."
       />
       <Section spacing="compact">
         <Container>
@@ -106,8 +106,8 @@ export default async function SuccessPage({
               </div>
             </dl>
             <Text>
-              این تأیید برای آزمایش کامل جریان سفارش است؛ اطلاعات تماس در
-              دیتابیس ذخیره نشده و سفارش به شعبه یا صندوق واقعی ارسال نشده است.
+              این تأیید فقط برای پیش‌نمایش جریان سفارش است؛ اطلاعات تماس ذخیره
+              نشده و سفارش به شعبه یا صندوق واقعی ارسال نشده است.
             </Text>
             <div className={styles.inlineActions}>
               <LinkButton href="/menu">سفارش آزمایشی جدید</LinkButton>

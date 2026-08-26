@@ -56,7 +56,7 @@ const sweetnessOptions = [
 ];
 
 const coffeeExtras = [
-  option("extra-shot", "شات اسپرسو اضافه", "extra-shot", 550000, 1),
+  option("extra-shot", "شات اضافهٔ اسپرسو", "extra-shot", 550000, 1),
 ];
 
 const flavoredCoffeeExtras = [
@@ -307,8 +307,8 @@ export const catalogProducts: Product[] = [
     categoryId: "cold-coffee",
     shortDescription: "اسپرسوی دوبل، شیر سرد، یخ و کارامل متعادل.",
     fullDescription:
-      "یک لاته سرد لایه‌ای که شیرینی کارامل را کنترل می‌کند تا طعم اسپرسو همچنان واضح بماند.",
-    story: "اولین محصول تصویری مجموعه و معیار سبک عکاسی منوی کافه.",
+      "یک لاتهٔ سرد و لایه‌ای که شیرینی کارامل را کنترل می‌کند تا طعم اسپرسو همچنان واضح بماند.",
+    story: "اولین محصول تصویری مجموعه و معیار سبک عکاسی منوی ایکس کافه.",
     ingredients: [
       { id: "double-espresso", name: "اسپرسوی دوبل" },
       { id: "cold-milk", name: "شیر سرد", allergen: "لبنیات" },
@@ -344,7 +344,7 @@ export const catalogProducts: Product[] = [
     ],
     flavorNotes: [
       { label: "شکلاتی", type: "taste", intensity: 3 },
-      { label: "میوه خشک", type: "aroma", intensity: 2 },
+      { label: "میوهٔ خشک", type: "aroma", intensity: 2 },
       { label: "صاف", type: "texture", intensity: 4 },
     ],
     basePrice: 2250000,
@@ -380,7 +380,7 @@ export const catalogProducts: Product[] = [
     name: "Burnt Basque Cheesecake",
     shortName: "چیزکیک باسک",
     categoryId: "cakes",
-    shortDescription: "رویه کاراملی تیره و مغز نرم و خامه‌ای.",
+    shortDescription: "رویهٔ کاراملی تیره و مغز نرم و خامه‌ای.",
     fullDescription:
       "برشی دست‌ساز با لبه‌های طبیعی، شیرینی کنترل‌شده و بافت متراکم اما نرم.",
     ingredients: [
@@ -481,7 +481,7 @@ export const catalogProducts: Product[] = [
     categoryId: "cakes",
     shortDescription: "کیک کاکائویی لطیف با کرم پنیر و بافت مخملی.",
     fullDescription:
-      "لایه‌های نرم رد ولوت با رایحه ملایم کاکائو و کرم پنیر سبک و کمی ترش.",
+      "لایه‌های نرم رد ولوت با رایحهٔ ملایم کاکائو و کرم پنیر سبک و کمی ترش.",
     ingredients: [
       { id: "cocoa", name: "پودر کاکائو" },
       { id: "flour", name: "آرد گندم", allergen: "گلوتن" },

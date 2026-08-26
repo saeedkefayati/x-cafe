@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
 import { Container, Section, Stack } from "@/components/primitives/layout";
@@ -98,6 +99,18 @@ export default async function ProductPage({
                 {ingredient.allergen ? ` — آلرژن: ${ingredient.allergen}` : ""}
               </Text>
             ))}
+            <div className={productStyles.allergenNotice}>
+              <strong>
+                {product.allergens.length > 0
+                  ? `آلرژن‌های ثبت‌شده: ${product.allergens.join("، ")}`
+                  : "برای این محصول آلرژنی در دادهٔ فعلی ثبت نشده است."}
+              </strong>
+              <Text size="bodySm">
+                امکان تماس متقاطع مواد وجود دارد. در صورت حساسیت شدید، پیش از
+                سفارش از طریق <Link href="/contact">صفحهٔ تماس</Link> با شعبه
+                هماهنگ کنید.
+              </Text>
+            </div>
           </Stack>
         </Container>
       </Section>

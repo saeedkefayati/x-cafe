@@ -2,7 +2,7 @@
 
 import { useActionState, useState, type FormEvent } from "react";
 import { submitDemoOrder } from "@/app/checkout/actions";
-import { commerceConfig, getCommerceBlockers } from "@/config/commerce";
+import { commerceConfig } from "@/config/commerce";
 import { useCart } from "@/components/cart/cart-provider";
 import { Button, LinkButton } from "@/components/controls/button";
 import { TextField } from "@/components/controls/text-field";
@@ -19,7 +19,6 @@ import { formatPickupReadyTime, getPickupAvailability } from "@/lib/pickup";
 import type { CheckoutActionState, CustomerContact } from "@/types/commerce";
 import styles from "./checkout.module.css";
 
-const blockers = getCommerceBlockers(commerceConfig);
 const initialActionState: CheckoutActionState = { message: "" };
 
 function updateFieldError(
@@ -98,7 +97,9 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
     return (
       <div className={styles.emptyState}>
         <Heading size="h3">برای ادامه، ابتدا محصولی انتخاب کنید.</Heading>
-        <Text>Checkout فقط برای سبدی با حداقل یک محصول نمایش داده می‌شود.</Text>
+        <Text>
+          صفحهٔ تسویه‌حساب فقط برای سبدی با حداقل یک محصول نمایش داده می‌شود.
+        </Text>
         <LinkButton href="/menu">دیدن منو</LinkButton>
       </div>
     );
@@ -134,7 +135,7 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
     <div className={styles.layout}>
       <form
         className={styles.form}
-        aria-label="اطلاعات تسویه حساب"
+        aria-label="اطلاعات تسویه‌حساب"
         aria-describedby={
           actionState.message
             ? "checkout-preview-note checkout-action-message"
@@ -152,7 +153,7 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
               <Heading as="h2" id="contact-title" size="h4">
                 اطلاعات تماس
               </Heading>
-              <Text size="bodySm">برای هماهنگی آماده‌شدن سفارش.</Text>
+              <Text size="bodySm">برای هماهنگی آماده شدن سفارش.</Text>
             </div>
           </div>
           <div className={styles.fieldGrid}>
@@ -208,7 +209,7 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
             </Button>
             {isContactValid ? (
               <p className={styles.validationSuccess} role="status">
-                اطلاعات تماس برای ادامه آماده است.
+                اطلاعات تماس تأیید شد.
               </p>
             ) : null}
           </div>
@@ -310,7 +311,7 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
             <div className={styles.pendingBox}>
               <strong>هنوز شعبه‌ای انتخاب نشده است.</strong>
               <p>
-                برای دیدن زمان تقریبی آماده‌شدن، شعبهٔ تحویل را انتخاب کنید.
+                برای دیدن زمان تقریبی آماده شدن، شعبهٔ تحویل را انتخاب کنید.
               </p>
             </div>
           )}
@@ -339,15 +340,15 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
             <span aria-hidden="true">✓</span>
             <div>
               <strong>پرداخت هنگام تحویل</strong>
-              <p>مبلغ سفارش هنگام تحویل حضوری در کافه پرداخت می‌شود.</p>
+              <p>مبلغ سفارش هنگام تحویل حضوری در شعبه پرداخت می‌شود.</p>
             </div>
           </div>
         </section>
 
         <div className={styles.submitArea}>
           <p className={styles.previewNote} id="checkout-preview-note">
-            با ثبت سفارش آزمایشی، اطلاعات تماس برای اعتبارسنجی به سرور ارسال
-            می‌شوند اما در دیتابیس ذخیره نمی‌شوند.
+            این سفارش فقط برای پیش‌نمایش تجربهٔ خرید است؛ اطلاعات تماس ذخیره
+            نمی‌شوند و سفارش به شعبه ارسال نخواهد شد.
           </p>
           {actionState.message ? (
             <p
@@ -397,14 +398,6 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
         <LinkButton href="/cart" variant="secondary">
           ویرایش سبد
         </LinkButton>
-        <div className={styles.blockers}>
-          <strong>موارد لازم برای اتصال سفارش واقعی</strong>
-          <ul>
-            {blockers.map((blocker) => (
-              <li key={blocker.id}>{blocker.label}</li>
-            ))}
-          </ul>
-        </div>
       </aside>
     </div>
   );

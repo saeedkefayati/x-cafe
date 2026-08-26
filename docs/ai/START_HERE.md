@@ -18,9 +18,11 @@ The experience has two modes:
 - Fifteen unique 4:5 product images using the approved shared studio style.
 - Static/SSG route foundation for the complete planned site map.
 - Tests with Vitest and Testing Library.
-- Phases 1–11 are implemented. Phase 11 completes the signature
-  scroll-storytelling layer carried forward from the archived Pre-Codex Phase 4
-  motion plan. Production data and a real order provider are still unavailable.
+- Phases 1–14 are implemented. The current experience includes the signature
+  scroll-storytelling layer, approved X Cafe reference data, refined Persian
+  copy, frontend menu filters, branch map search links, a branded social card,
+  and clearer allergen guidance. A real order provider is intentionally still
+  unavailable.
 
 Read [`PROJECT_STATE.md`](PROJECT_STATE.md) for exact current status and pending decisions.
 

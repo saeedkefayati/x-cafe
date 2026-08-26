@@ -11,7 +11,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "جست‌وجو",
-  description: "جست‌وجوی محصولات منوی کافه بر اساس نام، توضیح و طعم.",
+  description: "جست‌وجوی محصولات منوی ایکس کافه بر اساس نام، توضیح و طعم.",
   path: "/search",
   index: false,
   follow: true,

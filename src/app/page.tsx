@@ -136,7 +136,7 @@ export default function Home() {
               <Eyebrow>Regular favorites</Eyebrow>
               <Heading>انتخاب‌هایی که می‌شود به آن‌ها برگشت.</Heading>
               <Text size="bodyLg">
-                از یک اسپرسوی کوتاه تا لاته‌ای خنک و یک برش کیک برای کنار فنجان.
+                از یک اسپرسوی کوتاه تا لاته‌ای خنک و یک برش کیک کنار فنجان.
               </Text>
             </div>
             <LinkButton href="/menu" variant="secondary">
@@ -153,7 +153,7 @@ export default function Home() {
             <Stack gap="md">
               <Eyebrow>Our approach</Eyebrow>
               <Heading size="h2" tone="inverse">
-                ساده به نظر می‌رسد، چون جزئیاتش جدی گرفته شده.
+                ساده به نظر می‌رسد، چون جزئیاتش جدی گرفته شده‌اند.
               </Heading>
               <Text size="body" tone="inverse">
                 نسبت دقیق، مواد روشن و فضایی که اجازه می‌دهد خود محصول حرف بزند؛

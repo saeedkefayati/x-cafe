@@ -43,7 +43,7 @@ export default async function CategoryPage({
       <Section spacing="compact">
         <Container>
           <Stack gap="lg">
-            <CategoryNav categories={categories} />
+            <CategoryNav categories={categories} activeSlug={category.slug} />
             {items.length ? (
               <MenuGrid products={items} eagerCount={3} />
             ) : (

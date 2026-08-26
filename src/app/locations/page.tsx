@@ -4,6 +4,7 @@ import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading, Text } from "@/components/primitives/typography";
 import { locations } from "@/data/locations";
+import { createMapSearchUrl } from "@/lib/maps";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 
@@ -23,9 +24,7 @@ export default function LocationsPage() {
       <Section spacing="compact">
         <Container>
           <div className={styles.locationStatus}>
-            <span className={styles.mockNotice}>
-              اطلاعات شعبه‌ها به‌روز شده
-            </span>
+            <span className={styles.mockNotice}>اطلاعات به‌روز شعبه‌ها</span>
             <Heading size="h2">شعبهٔ مناسب خودتان را انتخاب کنید.</Heading>
             <Text size="bodyLg">
               زمان آماده‌سازی سفارش در هر سه شعبه ۴۵ دقیقه است و تحویل فقط از
@@ -65,13 +64,23 @@ export default function LocationsPage() {
                     </dd>
                   </div>
                 </dl>
+                <a
+                  className={styles.mapLink}
+                  href={createMapSearchUrl(location.address)}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`مسیریابی به ${location.name}`}
+                >
+                  مسیریابی روی نقشه
+                  <span aria-hidden="true">↗</span>
+                </a>
               </article>
             ))}
           </div>
           <div className={styles.inlineActions}>
             <LinkButton href="/menu">انتخاب از منو</LinkButton>
             <LinkButton href="/checkout" variant="secondary">
-              رفتن به تسویه حساب
+              رفتن به تسویه‌حساب
             </LinkButton>
           </div>
         </Container>

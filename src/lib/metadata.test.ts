@@ -2,6 +2,15 @@ import { describe, expect, it } from "vitest";
 import { createPageMetadata, defaultSocialImage } from "./metadata";
 
 describe("page metadata", () => {
+  it("uses the dedicated branded social card by default", () => {
+    expect(defaultSocialImage).toEqual({
+      src: "/opengraph-image",
+      alt: "نشان ایکس کافه؛ نقطهٔ تلاقی طعم و مکث",
+      width: 1200,
+      height: 630,
+    });
+  });
+
   it("creates canonical and social metadata from one page definition", () => {
     expect(
       createPageMetadata({

@@ -4,11 +4,12 @@ import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading, Text } from "@/components/primitives/typography";
 import { locations } from "@/data/locations";
+import { createMapSearchUrl } from "@/lib/maps";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "تماس",
-  description: "شماره تماس، نشانی و ساعت کاری شعبه‌های ایکس کافه.",
+  description: "شمارهٔ تماس، نشانی و ساعت کاری شعبه‌های ایکس کافه.",
   path: "/contact",
 });
 export default function ContactPage() {
@@ -26,8 +27,8 @@ export default function ContactPage() {
               <span className={styles.mockNotice}>سه شعبه در تهران</span>
               <Heading size="h2">برای هماهنگی، مستقیم تماس بگیرید.</Heading>
               <Text size="bodyLg">
-                برای پرسش دربارهٔ ساعت حضور، موجودی روز یا تحویل سفارش، شمارهٔ
-                همان شعبه را انتخاب کنید. فرم پیام آنلاین تا زمان اتصال به یک
+                برای پرسش دربارهٔ ساعت حضور، موجودی روز یا تحویل سفارش، مستقیماً
+                با همان شعبه تماس بگیرید. فرم پیام آنلاین تا زمان اتصال به یک
                 صندوق پاسخ‌گویی واقعی نمایش داده نمی‌شود.
               </Text>
               <div className={styles.inlineActions}>
@@ -49,6 +50,16 @@ export default function ContactPage() {
                     {location.openingHours.join("، ")}
                     <br />
                     {location.address}
+                    <span className={styles.contactLinks}>
+                      <a href={location.phoneUri}>تماس با شعبه</a>
+                      <a
+                        href={createMapSearchUrl(location.address)}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        مسیریابی روی نقشه
+                      </a>
+                    </span>
                   </dd>
                 </div>
               ))}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { CategoryNav } from "@/components/product/category-nav";
-import { MenuGrid } from "@/components/product/menu-grid";
+import { MenuCatalog } from "@/components/product/menu-catalog";
 import { categories, products } from "@/data/mock";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
@@ -28,7 +28,7 @@ export default function MenuPage() {
               قیمت‌های مرجع از منوی شعبهٔ فلسطین؛ سایر قیمت‌ها موقت‌اند
             </span>
             <CategoryNav categories={categories} />
-            <MenuGrid products={products} eagerCount={3} />
+            <MenuCatalog products={products} />
           </Stack>
         </Container>
       </Section>

@@ -29,7 +29,7 @@ describe("CheckoutContent", () => {
     );
 
     const form = await screen.findByRole("form", {
-      name: "اطلاعات تسویه حساب",
+      name: "اطلاعات تسویه‌حساب",
     });
     expect(screen.getByText("تحویل حضوری")).toBeInTheDocument();
     expect(screen.getByText("پرداخت هنگام تحویل")).toBeInTheDocument();
@@ -46,9 +46,7 @@ describe("CheckoutContent", () => {
     );
 
     expect(form).toBeInTheDocument();
-    expect(
-      screen.getByText("اطلاعات تماس برای ادامه آماده است."),
-    ).toBeInTheDocument();
+    expect(screen.getByText("اطلاعات تماس تأیید شد.")).toBeInTheDocument();
     expect(screen.getByLabelText("نام و نام خانوادگی")).toHaveValue(
       "سعید رضایی",
     );
@@ -63,7 +61,7 @@ describe("CheckoutContent", () => {
       </CartProvider>,
     );
 
-    await screen.findByRole("form", { name: "اطلاعات تسویه حساب" });
+    await screen.findByRole("form", { name: "اطلاعات تسویه‌حساب" });
     const branch = screen.getByRole("radio", { name: /شعبهٔ قلهک/ });
     await user.click(screen.getByText("شعبهٔ قلهک"));
 
@@ -85,7 +83,7 @@ describe("CheckoutContent", () => {
       </CartProvider>,
     );
 
-    await screen.findByRole("form", { name: "اطلاعات تسویه حساب" });
+    await screen.findByRole("form", { name: "اطلاعات تسویه‌حساب" });
     await user.type(screen.getByLabelText("نام و نام خانوادگی"), "سعید رضایی");
     await user.type(screen.getByLabelText("شمارهٔ تماس"), "۰۹۱۲۱۲۳۴۵۶۷");
     await user.click(
@@ -106,7 +104,7 @@ describe("CheckoutContent", () => {
       </CartProvider>,
     );
 
-    await screen.findByRole("form", { name: "اطلاعات تسویه حساب" });
+    await screen.findByRole("form", { name: "اطلاعات تسویه‌حساب" });
     await user.type(screen.getByLabelText("نام و نام خانوادگی"), "س");
     await user.type(screen.getByLabelText("شمارهٔ تماس"), "۱۲۳");
     await user.type(screen.getByLabelText("ایمیل"), "invalid");
@@ -141,7 +139,7 @@ describe("CheckoutContent", () => {
       await screen.findByText("برای ادامه، ابتدا محصولی انتخاب کنید."),
     ).toBeInTheDocument();
     expect(
-      screen.queryByRole("form", { name: "اطلاعات تسویه حساب" }),
+      screen.queryByRole("form", { name: "اطلاعات تسویه‌حساب" }),
     ).not.toBeInTheDocument();
   });
 });

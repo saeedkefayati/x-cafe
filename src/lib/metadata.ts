@@ -3,10 +3,10 @@ import { siteConfig } from "@/config/site";
 import type { MediaAsset } from "@/types/domain";
 
 export const defaultSocialImage: MediaAsset = {
-  src: "/images/products/contact-sheet-v1.png",
-  alt: "مجموعهٔ قهوه‌های گرم، نوشیدنی‌های سرد و کیک‌های منوی ایکس کافه",
-  width: 1240,
-  height: 912,
+  src: "/opengraph-image",
+  alt: "نشان ایکس کافه؛ نقطهٔ تلاقی طعم و مکث",
+  width: 1200,
+  height: 630,
 };
 
 interface PageMetadataInput {

@@ -47,7 +47,7 @@ describe("Header", () => {
     );
 
     await user.click(
-      screen.getByRole("button", { name: "فعال‌کردن حالت تیره" }),
+      screen.getByRole("button", { name: "فعال کردن حالت تیره" }),
     );
     await waitFor(() =>
       expect(document.documentElement).toHaveAttribute("data-theme", "dark"),

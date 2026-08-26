@@ -74,8 +74,8 @@ export function Header() {
             <IconButton
               label={
                 resolvedTheme === "dark"
-                  ? "فعال‌کردن حالت روشن"
-                  : "فعال‌کردن حالت تیره"
+                  ? "فعال کردن حالت روشن"
+                  : "فعال کردن حالت تیره"
               }
               onClick={toggleTheme}
             >

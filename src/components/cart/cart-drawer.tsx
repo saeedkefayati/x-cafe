@@ -99,10 +99,10 @@ export function CartDrawer() {
             </div>
             <div className={styles.drawerFooter}>
               <div className={styles.summaryRow}>
-                <span>جمع جزء</span>
+                <span>جمع سبد</span>
                 <strong>{formatPrice(subtotal)}</strong>
               </div>
-              <p>هزینه‌های نهایی پس از مشخص‌شدن روش تحویل محاسبه می‌شوند.</p>
+              <p>هزینه‌های نهایی پس از مشخص شدن روش تحویل محاسبه می‌شوند.</p>
               <LinkButton href="/cart" onClick={closeCart}>
                 مشاهدهٔ کامل سبد
               </LinkButton>

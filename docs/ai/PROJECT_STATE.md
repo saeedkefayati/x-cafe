@@ -1,6 +1,6 @@
 # Project state
 
-Last updated: 2026-08-26
+Last updated: 2026-08-27
 
 Foundation commit: `1d692fe` (`feat: build cafe commerce foundation`)
 Phase 2 commit: `567dfab` (`feat: complete product configuration and cart`)
@@ -16,14 +16,15 @@ Phase 10 commit: `e095762` (`feat: complete interaction polish`)
 Phase 11 commit: `a57de34` (`feat: add signature scroll storytelling`)
 
 Phase 12 brand and operational reference integration is complete.
+Phase 13 frontend content and discovery refinement is complete.
+Phase 14 publishing and content-safety refinement is complete.
 
 ## Current phase
 
-Phase 12 establishes «ایکس کافه», its original vector mark, user-confirmed
-Tehran branch data, and explicit price provenance. Direct catalog matches use
-the live Felestin reference price; five unmatched products and all option deltas
-stay visibly temporary. Real ordering remains blocked on an order provider,
-authoritative availability, and fee decisions.
+Phase 14 adds a dedicated brand-level Open Graph image, visible and semantic
+active category states, and clearer allergen limitations on Menu and Product
+Detail. Five unmatched products and all option deltas stay visibly temporary.
+Backend and real-order work are intentionally deferred.
 
 ## Completed
 
@@ -119,6 +120,22 @@ authoritative availability, and fee decisions.
   from the user-approved VCafe reference site.
 - Toman display backed by IRR storage, with ten direct product price matches and
   five visibly temporary catalog prices.
+- Consistent Persian typography across navigation, catalog, Checkout, FAQ,
+  journal, contact, legal, and confirmation copy, including standardized
+  «تسویه‌حساب» and customer-friendly demo wording.
+- Accessible frontend-only Menu filters for all products, best sellers,
+  source-matched prices, and products without registered allergens, with live
+  result counts and responsive horizontal controls.
+- External map search links for all three branches on Locations and Contact,
+  derived from confirmed addresses without requesting customer location or
+  adding a routing SDK.
+- A generated 1200×630 brand-level social card using the approved X mark and
+  warm visual system, replacing the generic product contact sheet for default
+  Open Graph and Twitter metadata.
+- Visible and semantic active states in Menu category navigation using
+  `aria-current="page"`.
+- Clear allergen limitations on Menu filtering and Product Detail, including a
+  contact path for customers with severe sensitivities.
 
 ## Catalog
 
@@ -152,8 +169,11 @@ Catalog data lives in `src/data/products.ts`. Product assets and their manifest 
 
 1. Decide whether to replace the five unmatched products with source-menu items;
    generate approved-style images before exposing any replacement.
-2. Choose the order destination: custom backend, ecommerce provider, or POS.
-3. Define production availability and tax/service-fee rules.
+2. Finalize legal and privacy copy before public launch.
+3. Configure the production domain and complete release-specific metadata and
+   social-preview validation before enabling indexing.
+4. When backend work resumes, choose the order destination and define
+   availability and tax/service-fee rules.
 
 See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets.
 
@@ -164,7 +184,7 @@ See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets
 - Order backend, ecommerce provider, or POS integration.
 - Inventory source and availability rules.
 - Tax and service-fee rules.
-- Real branches, contact information, legal copy, and privacy details.
+- Final legal copy and production privacy details.
 
 Customer accounts and online payment are intentionally outside version one,
 not unresolved requirements.
