@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Trash } from "iconsax-react";
 import { QuantityControl } from "@/components/controls/quantity-control";
 import { formatPrice } from "@/lib/format";
 import type { ResolvedCartLine } from "@/types/domain";
@@ -59,6 +60,7 @@ export function CartLine({
             type="button"
             onClick={() => removeItem(line.id)}
           >
+            <Trash aria-hidden="true" color="currentColor" size={17} />
             حذف
           </button>
         </div>

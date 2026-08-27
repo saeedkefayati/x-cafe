@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState, type FormEvent } from "react";
+import { TickCircle } from "iconsax-react";
 import { submitDemoOrder } from "@/app/checkout/actions";
 import { commerceConfig } from "@/config/commerce";
 import { useCart } from "@/components/cart/cart-provider";
@@ -226,7 +227,12 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
             </div>
           </div>
           <div className={styles.selectedMethod}>
-            <span aria-hidden="true">✓</span>
+            <TickCircle
+              aria-hidden="true"
+              color="currentColor"
+              size={24}
+              variant="Bold"
+            />
             <div>
               <strong>تحویل حضوری</strong>
               <p>بدون آدرس مشتری و بدون هزینهٔ ارسال.</p>
@@ -337,7 +343,12 @@ export function CheckoutContent({ now }: { now?: Date } = {}) {
             </div>
           </div>
           <div className={styles.selectedMethod}>
-            <span aria-hidden="true">✓</span>
+            <TickCircle
+              aria-hidden="true"
+              color="currentColor"
+              size={24}
+              variant="Bold"
+            />
             <div>
               <strong>پرداخت هنگام تحویل</strong>
               <p>مبلغ سفارش هنگام تحویل حضوری در شعبه پرداخت می‌شود.</p>

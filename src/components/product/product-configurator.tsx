@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Bag2 } from "iconsax-react";
 import { useCart } from "@/components/cart/cart-provider";
 import { Button } from "@/components/controls/button";
 import { QuantityControl } from "@/components/controls/quantity-control";
@@ -131,6 +132,7 @@ export function ProductConfigurator({ product }: { product: Product }) {
           type="button"
           onClick={() => addItem(product.id, selection, quantity)}
         >
+          <Bag2 aria-hidden="true" color="currentColor" size={20} />
           افزودن به سبد — {formatPrice(unitPrice * quantity, product.currency)}
         </Button>
       </div>

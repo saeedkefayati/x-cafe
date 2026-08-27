@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { FAQList } from "@/components/content/faq-list";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { faqs } from "@/data/mock";
 import { createPageMetadata } from "@/lib/metadata";
-import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "پرسش‌های رایج",
   description: "پاسخ پرسش‌های رایج دربارهٔ منو، سفارش آزمایشی و تحویل حضوری.",
@@ -19,15 +19,7 @@ export default function FAQPage() {
       />
       <Section spacing="compact">
         <Container size="reading">
-          {faqs.map((faq) => (
-            <details className={styles.faq} key={faq.id}>
-              <summary>
-                <span>{faq.question}</span>
-                <small>{faq.category}</small>
-              </summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
+          <FAQList items={faqs} />
         </Container>
       </Section>
     </>

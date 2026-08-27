@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { LinkButton } from "@/components/controls/button";
+import Link from "next/link";
+import { Call, InfoCircle, Location as LocationIcon } from "iconsax-react";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading, Text } from "@/components/primitives/typography";
-import { locations } from "@/data/locations";
-import { createMapSearchUrl } from "@/lib/maps";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "../site.module.css";
 export const metadata: Metadata = createPageMetadata({
@@ -18,52 +17,54 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contact"
         title="با نزدیک‌ترین شعبه در تماس باشید."
-        description="شمارهٔ مستقیم، نشانی و ساعت کاری هر سه شعبه در یک نگاه."
+        description="برای هر موضوع، کوتاه‌ترین مسیر ارتباطی را انتخاب کنید."
       />
       <Section spacing="compact">
         <Container>
-          <div className={styles.contactLayout}>
-            <div className={styles.contactStatus}>
-              <span className={styles.mockNotice}>سه شعبه در تهران</span>
-              <Heading size="h2">برای هماهنگی، مستقیم تماس بگیرید.</Heading>
+          <div className={styles.contactHub}>
+            <div className={styles.contactLead}>
+              <Heading size="h2">پاسخ درست، از همان شعبه شروع می‌شود.</Heading>
               <Text size="bodyLg">
-                برای پرسش دربارهٔ ساعت حضور، موجودی روز یا تحویل سفارش، مستقیماً
-                با همان شعبه تماس بگیرید. فرم پیام آنلاین تا زمان اتصال به یک
-                صندوق پاسخ‌گویی واقعی نمایش داده نمی‌شود.
+                برای موجودی روز، هماهنگی تحویل یا حساسیت غذایی، تماس مستقیم با
+                شعبهٔ انتخابی دقیق‌ترین راه است. شماره‌ها، ساعت‌ها و نقشه‌ها در
+                صفحهٔ <Link href="/locations">شعبه‌ها</Link> یک‌جا قرار دارند.
               </Text>
-              <div className={styles.inlineActions}>
-                <LinkButton href="/faq">پرسش‌های رایج</LinkButton>
-                <LinkButton href="/locations" variant="secondary">
-                  وضعیت شعبه‌ها
-                </LinkButton>
-              </div>
             </div>
-            <dl className={styles.contactChecklist}>
-              {locations.map((location) => (
-                <div key={location.id}>
-                  <dt>{location.name}</dt>
-                  <dd>
-                    <a href={location.phoneUri} dir="ltr">
-                      {location.phone}
-                    </a>
-                    <br />
-                    {location.openingHours.join("، ")}
-                    <br />
-                    {location.address}
-                    <span className={styles.contactLinks}>
-                      <a href={location.phoneUri}>تماس با شعبه</a>
-                      <a
-                        href={createMapSearchUrl(location.address)}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        مسیریابی روی نقشه
-                      </a>
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <div className={styles.contactTopics}>
+              <article>
+                <Call aria-hidden="true" color="currentColor" size={26} />
+                <Heading as="h2" size="h4">
+                  سفارش و موجودی روز
+                </Heading>
+                <Text size="bodySm">
+                  پیش از حرکت، موجودی محصول و زمان آماده‌سازی را با شعبه چک
+                  کنید.
+                </Text>
+              </article>
+              <article>
+                <InfoCircle aria-hidden="true" color="currentColor" size={26} />
+                <Heading as="h2" size="h4">
+                  حساسیت غذایی
+                </Heading>
+                <Text size="bodySm">
+                  برای حساسیت شدید، فقط به برچسب سایت اکتفا نکنید و مستقیم سؤال
+                  کنید.
+                </Text>
+              </article>
+              <article>
+                <LocationIcon
+                  aria-hidden="true"
+                  color="currentColor"
+                  size={26}
+                />
+                <Heading as="h2" size="h4">
+                  آدرس و مسیریابی
+                </Heading>
+                <Text size="bodySm">
+                  نقشهٔ تعاملی هر سه شعبه در صفحهٔ شعبه‌ها در دسترس است.
+                </Text>
+              </article>
+            </div>
           </div>
         </Container>
       </Section>

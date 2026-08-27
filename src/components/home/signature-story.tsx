@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { LinkButton } from "@/components/controls/button";
 import type { Product } from "@/types/domain";
 import styles from "./signature-story.module.css";
 
@@ -61,6 +60,7 @@ export function SignatureStory({ products }: { products: Product[] }) {
                         src={product.cardImage.src}
                         alt={product.cardImage.alt}
                         fill
+                        loading={index === 0 ? "eager" : "lazy"}
                         sizes="(max-width: 1024px) calc(100vw - 2rem), 36vw"
                       />
                     </div>
@@ -75,13 +75,12 @@ export function SignatureStory({ products }: { products: Product[] }) {
               ))}
             </ol>
 
-            <footer className={styles.footer}>
+            <footer className={styles.footer} aria-label="پیشرفت روایت">
               <div className={styles.progress} aria-hidden="true">
                 {products.map((product) => (
                   <span key={product.id} />
                 ))}
               </div>
-              <LinkButton href="/menu">دیدن همهٔ منو</LinkButton>
             </footer>
           </div>
         </div>

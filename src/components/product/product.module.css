@@ -58,7 +58,11 @@
   color: var(--color-text-secondary);
   font-size: var(--font-size-body-sm);
 }
-.meta {
+.mediaBadges {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-start: var(--space-3);
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -68,10 +72,18 @@
   width: fit-content;
   align-items: center;
   border-radius: var(--radius-pill);
-  background: var(--color-surface-muted);
-  color: var(--color-text-secondary);
+  border: 1px solid
+    color-mix(in srgb, var(--color-border-subtle) 70%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--color-surface-elevated) 88%,
+    transparent
+  );
+  color: var(--color-text-primary);
   padding: 0.25rem 0.625rem;
   font-size: var(--font-size-caption);
+  font-weight: 700;
+  backdrop-filter: blur(10px);
 }
 .categoryNav {
   display: flex;
@@ -83,7 +95,7 @@
 .categoryLink {
   flex: none;
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   padding: 0.625rem 1rem;
   font-size: var(--font-size-body-sm);
@@ -95,22 +107,43 @@
 }
 .catalog {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-6);
 }
-.filterPanel {
+.catalogToolbar {
+  display: grid;
+  gap: var(--space-6);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+.toolbarGroup {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-3);
+}
+.toolbarLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-caption);
+  font-weight: 700;
+}
+.toolbarControls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.32fr);
+  align-items: end;
+  gap: var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+  padding-block-start: var(--space-5);
+}
+.catalogSummary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-5);
-  border-block: 1px solid var(--color-border-subtle);
-  padding-block: var(--space-4);
+  gap: var(--space-4);
 }
-.filterPanel > div:first-child {
-  display: grid;
-  flex: none;
-  gap: var(--space-1);
-}
-.filterPanel p,
 .filterSummary {
   margin: 0;
   color: var(--color-text-muted);
@@ -125,13 +158,12 @@
 .filterList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   gap: var(--space-2);
 }
 .filterButton {
   min-height: 2.75rem;
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   color: var(--color-text-primary);
   padding: 0.625rem 1rem;
@@ -142,6 +174,36 @@
     background-color var(--motion-fast) var(--ease-standard),
     border-color var(--motion-fast) var(--ease-standard),
     color var(--motion-fast) var(--ease-standard);
+}
+.sortControl {
+  display: grid;
+  gap: var(--space-3);
+}
+.sortControl select {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  padding-inline: var(--space-3);
+  cursor: pointer;
+}
+.resetFilters {
+  border: 0;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--font-size-body-sm);
+  font-weight: 650;
+}
+.catalogEmpty {
+  border: 1px dashed var(--color-border-default);
+  border-radius: var(--radius-lg);
+  margin: 0;
+  padding: var(--space-10);
+  color: var(--color-text-secondary);
+  text-align: center;
 }
 .filterButton[data-active="true"] {
   border-color: var(--color-brand-primary);
@@ -217,7 +279,7 @@
   align-items: center;
   gap: var(--space-3);
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   padding: var(--space-3) var(--space-4);
   cursor: pointer;
@@ -250,9 +312,59 @@
   gap: var(--space-2);
   margin-block-start: var(--space-4);
   border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   background: var(--color-surface-muted);
   padding: var(--space-4);
+}
+.ingredientSection {
+  display: grid;
+  gap: var(--space-8);
+}
+.ingredientHeader {
+  display: grid;
+  max-width: 36rem;
+  gap: var(--space-3);
+}
+.ingredientGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ingredientItem {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  padding: var(--space-4);
+}
+.ingredientNumber {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 750;
+}
+.ingredientCopy {
+  display: grid;
+  gap: var(--space-1);
+}
+.ingredientCopy small {
+  color: var(--color-text-secondary);
+}
+.allergenTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 .allergenNotice a {
   color: var(--color-accent);
@@ -379,9 +491,8 @@
     align-items: stretch;
     flex-direction: column;
   }
-  .filterPanel {
-    align-items: stretch;
-    flex-direction: column;
+  .toolbarControls {
+    grid-template-columns: 1fr;
   }
   .filterList {
     flex-wrap: nowrap;
@@ -391,6 +502,9 @@
   }
   .filterButton {
     flex: none;
+  }
+  .ingredientGrid {
+    grid-template-columns: 1fr;
   }
 }
 @media (min-width: 58rem) {

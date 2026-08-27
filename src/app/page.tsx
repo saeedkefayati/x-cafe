@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata, Route } from "next";
+import { ArrowLeft } from "iconsax-react";
 import { JournalCard } from "@/components/content/journal-card";
 import { LinkButton } from "@/components/controls/button";
 import { SignatureStory } from "@/components/home/signature-story";
@@ -121,7 +122,16 @@ export default function Home() {
                     {category.name}
                   </Heading>
                   <Text size="bodySm">{category.description}</Text>
-                  <span className={styles.textLink}>دیدن انتخاب‌ها ←</span>
+                  <span className={styles.textLink}>
+                    دیدن انتخاب‌ها
+                    <span className={styles.textLinkIcon}>
+                      <ArrowLeft
+                        aria-hidden="true"
+                        color="currentColor"
+                        size={17}
+                      />
+                    </span>
+                  </span>
                 </div>
               </Link>
             ))}
@@ -134,14 +144,8 @@ export default function Home() {
           <div className={styles.sectionHeader}>
             <div className={styles.sectionHeaderText}>
               <Eyebrow>Regular favorites</Eyebrow>
-              <Heading>انتخاب‌هایی که می‌شود به آن‌ها برگشت.</Heading>
-              <Text size="bodyLg">
-                از یک اسپرسوی کوتاه تا لاته‌ای خنک و یک برش کیک کنار فنجان.
-              </Text>
+              <Heading>انتخاب‌های همیشگی.</Heading>
             </div>
-            <LinkButton href="/menu" variant="secondary">
-              همهٔ منو
-            </LinkButton>
           </div>
           <MenuGrid products={featuredProducts} />
         </Container>
@@ -186,11 +190,14 @@ export default function Home() {
           <div className={styles.sectionHeader}>
             <div className={styles.sectionHeaderText}>
               <Eyebrow>From the counter</Eyebrow>
-              <Heading>یادداشت‌های کوتاه از طعم و فرایند.</Heading>
+              <Heading>از طعم و فرایند.</Heading>
             </div>
-            <LinkButton href="/journal" variant="secondary">
+            <Link className={styles.sectionAllLink} href="/journal">
               همهٔ یادداشت‌ها
-            </LinkButton>
+              <span>
+                <ArrowLeft aria-hidden="true" color="currentColor" size={17} />
+              </span>
+            </Link>
           </div>
           <div className={`${styles.journalGrid} ${styles.journalGridHome}`}>
             {journalPosts.slice(0, 3).map((post) => (

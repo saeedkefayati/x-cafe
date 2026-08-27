@@ -41,6 +41,18 @@ export function ProductCard({
               loading={eager ? "eager" : "lazy"}
               sizes="(max-width: 576px) 100vw, (max-width: 928px) 50vw, 33vw"
             />
+            {product.status !== "available" || product.bestSeller ? (
+              <div className={styles.mediaBadges}>
+                {product.status !== "available" ? (
+                  <span className={styles.status}>
+                    {statusLabel[product.status]}
+                  </span>
+                ) : null}
+                {product.bestSeller ? (
+                  <span className={styles.status}>محبوب</span>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         </ViewTransition>
       </Link>
@@ -54,19 +66,6 @@ export function ProductCard({
           </span>
         </div>
         <p className={styles.description}>{product.shortDescription}</p>
-        <div className={styles.meta}>
-          {product.status !== "available" ? (
-            <span className={styles.status}>{statusLabel[product.status]}</span>
-          ) : null}
-          {product.bestSeller ? (
-            <span className={styles.status}>محبوب</span>
-          ) : null}
-          <span className={styles.status}>
-            {product.pricingStatus === "source-matched"
-              ? "قیمت مرجع"
-              : "قیمت موقت"}
-          </span>
-        </div>
       </div>
     </article>
   );

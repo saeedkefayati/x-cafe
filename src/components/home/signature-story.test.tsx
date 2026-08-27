@@ -23,7 +23,7 @@ describe("SignatureStory", () => {
       within(region).getByText("Iced Caramel Macchiato"),
     ).toBeInTheDocument();
     expect(
-      within(region).getByRole("link", { name: "دیدن همهٔ منو" }),
-    ).toHaveAttribute("href", "/menu");
+      within(region).queryByRole("link", { name: "دیدن همهٔ منو" }),
+    ).not.toBeInTheDocument();
   });
 });

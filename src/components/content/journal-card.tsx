@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLeft, Timer1 } from "iconsax-react";
 import { ViewTransition } from "react";
 import { Heading, Text } from "@/components/primitives/typography";
 import { formatDate } from "@/lib/format";
+import { estimateReadingMinutes } from "@/lib/journal";
 import type { JournalPost } from "@/types/domain";
 import styles from "./journal-card.module.css";
 
@@ -43,10 +45,13 @@ export function JournalCard({
       ) : null}
       <div className={styles.content}>
         <div className={styles.meta}>
-          <Text size="caption">{post.tags.join("، ")}</Text>
           <time dateTime={post.publishedAt}>
             {formatDate(post.publishedAt)}
           </time>
+          <span className={styles.readingTime}>
+            <Timer1 aria-hidden="true" color="currentColor" size={15} />
+            {estimateReadingMinutes(post).toLocaleString("fa-IR")} دقیقه
+          </span>
         </div>
         <Heading as="h2" size={featured ? "h2" : "h3"}>
           <Link href={`/journal/${post.slug}`}>{post.title}</Link>
@@ -54,7 +59,9 @@ export function JournalCard({
         <Text>{post.excerpt}</Text>
         <Link className={styles.readMore} href={`/journal/${post.slug}`}>
           خواندن یادداشت
-          <span aria-hidden="true">←</span>
+          <span className={styles.readMoreIcon}>
+            <ArrowLeft aria-hidden="true" color="currentColor" size={17} />
+          </span>
         </Link>
       </div>
     </article>

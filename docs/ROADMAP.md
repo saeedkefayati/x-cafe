@@ -182,8 +182,8 @@ This phase completes the cinematic portion of Phase 4 from
   followed by a functional menu gateway and a breathing section.
 - Provide a shorter, non-pinned mobile composition with native scrolling and
   immediately readable content.
-- Add a restrained Product Detail ingredient/flavor narrative for selected
-  signature products without delaying configuration or Add to Cart.
+- Add a restrained Product Detail ingredient/flavor narrative without delaying
+  configuration or Add to Cart.
 - Keep Menu, Cart, Checkout, Search, FAQ, Contact, and order confirmation in
   low-motion utility mode.
 - Load cinematic motion code only on routes that use it, clean up timelines on
@@ -207,10 +207,10 @@ change with the product, and short masked transitions prevent distracting text
 overlap. Rounded panels and restrained decorative shapes provide the requested
 warmer, more playful personality without introducing looping motion.
 
-Selected Product Detail pages now add a restrained flavor-profile narrative
-after the complete configurator and Add to Cart action. It uses current catalog
-flavor notes and accessible intensity labels, remains static on mobile and under
-reduced motion, and does not appear on non-signature products.
+Every Product Detail page now adds a restrained flavor-profile narrative after
+the complete configurator and Add to Cart action. It uses current catalog flavor
+notes and accessible intensity labels and remains static on mobile and under
+reduced motion.
 
 Definition of done:
 
@@ -262,6 +262,35 @@ source, and fee policy are still unresolved.
 - Make all fifteen base prices source-matched and keep configuration deltas
   explicitly temporary.
 - Remove the now-redundant reference-price Menu filter.
+
+## Phase 16 — Visual consistency and utility UX: complete
+
+- Remove redundant Home, Contact, and Locations calls to action and all
+  customer-facing pricing-status badges.
+- Establish one control radius for interactive UI and reserve pills for compact
+  status badges.
+- Standardize interface icons on Iconsax and enlarge key numeric markers.
+- Replace the duplicate Menu controls with one category, filter, and sort
+  toolbar shared by all Menu routes.
+- Rebuild Search, branch maps, Contact information architecture, FAQ motion,
+  Journal metadata, Product ingredients, cart clearing, Checkout steps, and the
+  order-failure state.
+- Keep branch-map display runtime-independent by committing versioned light and
+  dark SVGs generated from branch coordinates and OpenStreetMap geometry; use
+  coordinate links for Google Maps, Apple Maps, Neshan, and Balad routing.
+- Present Journal topics as tags on editorial pages rather than repeating them
+  in preview cards, and expose catalog flavor profiles on every Product Detail.
+- Keep `/product/[slug]` as the unambiguous product route while
+  `/menu/[category]` remains the category namespace.
+
+Definition of done:
+
+- Utility pages retain low motion, accessible focus and keyboard behavior, and
+  a consistent rounded-control vocabulary.
+- Contact does not duplicate branch records; Locations is the canonical visual
+  source for addresses, phones, hours, maps, and route links.
+- All quality commands and responsive browser checks pass without overflow,
+  broken images, or console errors.
 
 Primary historical references:
 

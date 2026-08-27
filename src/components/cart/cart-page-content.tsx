@@ -1,5 +1,6 @@
 "use client";
 
+import { Trash } from "iconsax-react";
 import { LinkButton } from "@/components/controls/button";
 import { Heading, Text } from "@/components/primitives/typography";
 import { formatPrice } from "@/lib/format";
@@ -32,13 +33,16 @@ export function CartPageContent() {
             <CartLine key={line.id} line={line} />
           ))}
         </div>
-        <button
-          className={styles.clearButton}
-          type="button"
-          onClick={clearCart}
-        >
-          خالی کردن سبد
-        </button>
+        <div className={styles.cartListFooter}>
+          <button
+            className={styles.clearButton}
+            type="button"
+            onClick={clearCart}
+          >
+            <Trash aria-hidden="true" color="currentColor" size={18} />
+            حذف همهٔ محصولات
+          </button>
+        </div>
       </div>
       <aside
         className={styles.cartSummary}
@@ -52,8 +56,8 @@ export function CartPageContent() {
           <strong>{formatPrice(subtotal)}</strong>
         </div>
         <Text size="bodySm">
-          قیمت‌ها فعلاً آزمایشی‌اند. هزینه‌های نهایی پس از انتخاب روش تحویل مشخص
-          می‌شوند.
+          مالیات و هزینهٔ خدمات هنوز نهایی نشده‌اند و در این پیش‌نمایش محاسبه
+          نمی‌شوند.
         </Text>
         <LinkButton href="/checkout">ادامهٔ سفارش</LinkButton>
       </aside>

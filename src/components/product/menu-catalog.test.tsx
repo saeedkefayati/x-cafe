@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { catalogProducts } from "@/data/products";
+import { categories } from "@/data/mock";
 import { MenuCatalog } from "./menu-catalog";
 
 vi.mock("./product-card", () => ({
@@ -17,13 +18,13 @@ describe("MenuCatalog", () => {
 
   it("filters products by existing catalog facts", async () => {
     const user = userEvent.setup();
-    render(<MenuCatalog products={products} />);
+    render(<MenuCatalog products={products} categories={categories} />);
 
-    expect(screen.getByText("۴ محصول نمایش داده می‌شود.")).toBeInTheDocument();
+    expect(screen.getByText("۴ محصول")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "محبوب‌ها" }));
 
-    expect(screen.getByText("۲ محصول نمایش داده می‌شود.")).toBeInTheDocument();
+    expect(screen.getByText("۲ محصول")).toBeInTheDocument();
     expect(
       screen.queryByRole("heading", { name: "Espresso" }),
     ).not.toBeInTheDocument();
@@ -33,7 +34,7 @@ describe("MenuCatalog", () => {
   });
 
   it("exposes the selected filter state", () => {
-    render(<MenuCatalog products={products} />);
+    render(<MenuCatalog products={products} categories={categories} />);
 
     const filterGroup = screen.getByLabelText("فیلتر محصولات");
     expect(
@@ -42,8 +43,6 @@ describe("MenuCatalog", () => {
     expect(
       within(filterGroup).queryByRole("button", { name: "قیمت مرجع" }),
     ).not.toBeInTheDocument();
-    expect(
-      screen.getByText(/فیلتر آلرژن فقط بر اساس اطلاعات ثبت‌شدهٔ فعلی است/),
-    ).toBeInTheDocument();
+    expect(screen.queryByText(/حساسیت شدید/)).not.toBeInTheDocument();
   });
 });

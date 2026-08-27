@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ViewTransition } from "react";
-import { LinkButton } from "@/components/controls/button";
 import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
 import { Heading } from "@/components/primitives/typography";
 import { MenuGrid } from "@/components/product/menu-grid";
 import { getPost, journalPosts, products } from "@/data/mock";
 import { formatDate } from "@/lib/format";
+import { estimateReadingMinutes } from "@/lib/journal";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "../../site.module.css";
 
@@ -54,7 +54,10 @@ export default async function PostPage({
               <time dateTime={post.publishedAt}>
                 {formatDate(post.publishedAt)}
               </time>
-              <span>{post.tags.join("، ")}</span>
+              <span>
+                زمان مطالعه:{" "}
+                {estimateReadingMinutes(post).toLocaleString("fa-IR")} دقیقه
+              </span>
             </div>
             {post.coverImage ? (
               <ViewTransition
@@ -76,19 +79,22 @@ export default async function PostPage({
             {post.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            <div className={styles.postBack}>
-              <LinkButton href="/journal" variant="secondary">
-                بازگشت به ژورنال
-              </LinkButton>
-            </div>
+            <ul className={styles.postTags} aria-label="موضوع‌های یادداشت">
+              {post.tags.map((tag) => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
           </article>
         </Container>
       </Section>
       {relatedProducts.length > 0 ? (
         <Section>
           <Container>
-            <div className={styles.sectionHeaderText}>
+            <div
+              className={`${styles.sectionHeaderText} ${styles.relatedHeader}`}
+            >
               <Heading size="h3">محصولات مرتبط</Heading>
+              <p>انتخاب‌هایی از منو که با موضوع این یادداشت ارتباط دارند.</p>
             </div>
             <MenuGrid products={relatedProducts} />
           </Container>

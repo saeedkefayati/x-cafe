@@ -32,6 +32,8 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/app/checkout/actions.ts`: Server Action boundary for the demo order flow.
 - `src/lib/demo-order.ts`: server-side demo validation and signed confirmation logic.
 - `src/lib/metadata.ts`: canonical and social metadata factory for public and utility routes.
+- `src/lib/maps.ts`: provider-specific coordinate URL factory for external routing.
+- `scripts/generate-branch-maps.mjs`: build-time OpenStreetMap road-geometry to local SVG generator.
 - `src/data/mock.ts`: categories and remaining mock content sources.
 - `src/types/domain.ts`: domain contracts.
 - `src/types/commerce.ts`: provider-neutral pickup order request and result contracts.
@@ -40,6 +42,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/styles/motion.css`: shared progressive motion, View Transition timing, and reduced-motion fallback.
 - `public/images/products`: production-bound product-card assets and manifest.
 - `public/images/calibration`: preserved image-calibration history.
+- `public/images/locations`: versioned light/dark local branch maps.
 
 ## Component boundaries
 
@@ -82,6 +85,20 @@ This repository uses a version with APIs and conventions that may differ from ge
 - Preserve intrinsic dimensions and meaningful Persian alt text.
 - Avoid using CSS filters to adapt product media to dark mode.
 - Do not overwrite approved assets when generating a variant; use versioned filenames and update the manifest.
+
+## Branch maps
+
+- The Locations page must not embed a remote map or request map tiles at runtime.
+- `pnpm maps:generate` reads branch `lat`/`lng` values from
+  `src/data/locations.ts`, fetches nearby OpenStreetMap road geometry through
+  Overpass during development, and writes versioned light/dark SVG assets.
+- Increment that branch's `mapVersion`, then use
+  `pnpm maps:generate -- --slug=<branch-slug>` when only one branch changes.
+- The generator refuses to overwrite an existing version.
+- Commit the generated SVGs and keep visible OpenStreetMap attribution.
+- External routing buttons may open Google Maps, Apple Maps, Neshan, or Balad
+  with the stored destination coordinates; they must not request or persist the
+  customer's current location inside the site.
 
 ## Publishing and discovery
 

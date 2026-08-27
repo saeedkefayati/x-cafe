@@ -21,7 +21,7 @@ describe("catalog products", () => {
       expect(product.shortDescription).not.toBe("");
       expect(product.fullDescription).not.toBe("");
       expect(product.ingredients.length).toBeGreaterThan(0);
-      expect(product.flavorNotes.length).toBeGreaterThan(0);
+      expect(product.flavorNotes.length).toBeGreaterThanOrEqual(3);
       expect(product.basePrice).toBeGreaterThan(0);
     }
   });

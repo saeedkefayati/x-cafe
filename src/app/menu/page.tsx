@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/content/page-intro";
-import { Container, Section, Stack } from "@/components/primitives/layout";
-import { CategoryNav } from "@/components/product/category-nav";
+import { Container, Section } from "@/components/primitives/layout";
 import { MenuCatalog } from "@/components/product/menu-catalog";
 import { categories, products } from "@/data/mock";
 import { createPageMetadata } from "@/lib/metadata";
@@ -23,13 +22,7 @@ export default function MenuPage() {
       />
       <Section spacing="compact">
         <Container>
-          <Stack gap="lg">
-            <span className={styles.mockNotice}>
-              قیمت پایه از منوی شعبهٔ فلسطین؛ اختلاف گزینه‌ها فعلاً موقت است
-            </span>
-            <CategoryNav categories={categories} />
-            <MenuCatalog products={products} />
-          </Stack>
+          <MenuCatalog products={products} categories={categories} />
         </Container>
       </Section>
     </div>

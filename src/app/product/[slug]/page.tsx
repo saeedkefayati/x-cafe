@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { InfoCircle } from "iconsax-react";
+import { notFound, redirect } from "next/navigation";
 import { ViewTransition } from "react";
 import { Container, Section, Stack } from "@/components/primitives/layout";
 import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
@@ -12,11 +13,9 @@ import { formatPrice } from "@/lib/format";
 import { createPageMetadata } from "@/lib/metadata";
 import productStyles from "@/components/product/product.module.css";
 
-const signatureStoryProductIds = new Set([
-  "espresso",
-  "cafe-latte",
-  "iced-caramel-macchiato",
-]);
+const legacyProductSlugs: Record<string, string> = {
+  "iced-caramel-latte": "iced-caramel-macchiato",
+};
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -25,6 +24,8 @@ export async function generateMetadata({
   params,
 }: PageProps<"/product/[slug]">): Promise<Metadata> {
   const { slug } = await params;
+  const replacementSlug = legacyProductSlugs[slug];
+  if (replacementSlug) redirect(`/product/${replacementSlug}`);
   const product = getProduct(slug);
   return product
     ? createPageMetadata({
@@ -71,9 +72,6 @@ export default async function ProductPage({
               <Text size="bodyLg">{product.shortDescription}</Text>
               <Text size="bodySm">
                 شروع قیمت از {formatPrice(product.basePrice, product.currency)}
-                {product.pricingStatus === "source-matched"
-                  ? " — قیمت مرجع"
-                  : " — قیمت موقت"}
               </Text>
             </Stack>
             <ul className={productStyles.flavors}>
@@ -86,21 +84,41 @@ export default async function ProductPage({
           </Stack>
         </Container>
       </Section>
-      {signatureStoryProductIds.has(product.id) ? (
-        <FlavorStory product={product} />
-      ) : null}
+      <FlavorStory product={product} />
       <Section data-reveal="">
         <Container size="reading">
-          <Stack gap="md">
-            <Heading>مواد اصلی</Heading>
-            {product.ingredients.map((ingredient) => (
-              <Text key={ingredient.id}>
-                <strong>{ingredient.name}</strong>
-                {ingredient.allergen ? ` — آلرژن: ${ingredient.allergen}` : ""}
+          <div className={productStyles.ingredientSection}>
+            <div className={productStyles.ingredientHeader}>
+              <Eyebrow>Inside the cup</Eyebrow>
+              <Heading>مواد اصلی</Heading>
+              <Text>
+                ترکیب‌های اصلی این محصول، کوتاه و روشن؛ برای اینکه پیش از انتخاب
+                بدانید چه چیزی در فنجان یا بشقاب شماست.
               </Text>
-            ))}
+            </div>
+            <ul className={productStyles.ingredientGrid}>
+              {product.ingredients.map((ingredient, index) => (
+                <li
+                  className={productStyles.ingredientItem}
+                  key={ingredient.id}
+                >
+                  <span className={productStyles.ingredientNumber}>
+                    {(index + 1).toLocaleString("fa-IR", {
+                      minimumIntegerDigits: 2,
+                    })}
+                  </span>
+                  <span className={productStyles.ingredientCopy}>
+                    <strong>{ingredient.name}</strong>
+                    {ingredient.allergen ? (
+                      <small>آلرژن ثبت‌شده: {ingredient.allergen}</small>
+                    ) : null}
+                  </span>
+                </li>
+              ))}
+            </ul>
             <div className={productStyles.allergenNotice}>
-              <strong>
+              <strong className={productStyles.allergenTitle}>
+                <InfoCircle aria-hidden="true" color="currentColor" size={20} />
                 {product.allergens.length > 0
                   ? `آلرژن‌های ثبت‌شده: ${product.allergens.join("، ")}`
                   : "برای این محصول آلرژنی در دادهٔ فعلی ثبت نشده است."}
@@ -111,7 +129,7 @@ export default async function ProductPage({
                 هماهنگ کنید.
               </Text>
             </div>
-          </Stack>
+          </div>
         </Container>
       </Section>
     </>

@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import type { Route } from "next";
+import {
+  Bag2,
+  CloseCircle,
+  HambergerMenu,
+  Moon,
+  SearchNormal1,
+  Sun1,
+} from "iconsax-react";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { useCart } from "@/components/cart/cart-provider";
@@ -55,6 +63,11 @@ export function Header() {
           </nav>
           <div className={styles.utilities}>
             <Link className={styles.utilityLink} href="/search">
+              <SearchNormal1
+                aria-hidden="true"
+                color="currentColor"
+                size={18}
+              />
               جست‌وجو
             </Link>
             <button
@@ -63,6 +76,7 @@ export function Header() {
               aria-haspopup="dialog"
               onClick={openCart}
             >
+              <Bag2 aria-hidden="true" color="currentColor" size={18} />
               سبد{" "}
               <span
                 className={styles.cartCount}
@@ -79,9 +93,11 @@ export function Header() {
               }
               onClick={toggleTheme}
             >
-              <span aria-hidden="true">
-                {resolvedTheme === "dark" ? "☀" : "☾"}
-              </span>
+              {resolvedTheme === "dark" ? (
+                <Sun1 aria-hidden="true" color="currentColor" size={20} />
+              ) : (
+                <Moon aria-hidden="true" color="currentColor" size={20} />
+              )}
             </IconButton>
             <span className={styles.mobileTrigger}>
               <IconButton
@@ -91,7 +107,11 @@ export function Header() {
                 aria-controls="mobile-navigation"
                 onClick={() => setOpen(true)}
               >
-                ☰
+                <HambergerMenu
+                  aria-hidden="true"
+                  color="currentColor"
+                  size={21}
+                />
               </IconButton>
             </span>
           </div>
@@ -118,7 +138,11 @@ export function Header() {
                 label="بستن منو"
                 onClick={() => setOpen(false)}
               >
-                ×
+                <CloseCircle
+                  aria-hidden="true"
+                  color="currentColor"
+                  size={21}
+                />
               </IconButton>
             </div>
             <nav className={styles.mobileNav}>

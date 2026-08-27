@@ -119,6 +119,9 @@ export interface Location {
   slug: string;
   name: string;
   address: string;
+  lat: string;
+  lng: string;
+  mapVersion: string;
   coordinates?: { lat: number; lng: number };
   phone?: string;
   phoneUri?: string;

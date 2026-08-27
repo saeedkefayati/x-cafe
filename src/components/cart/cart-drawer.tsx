@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { CloseCircle } from "iconsax-react";
 import { IconButton, LinkButton } from "@/components/controls/button";
 import { formatPrice } from "@/lib/format";
 import { CartLine } from "./cart-line";
@@ -74,7 +75,7 @@ export function CartDrawer() {
             <p>{itemCount.toLocaleString("fa-IR")} محصول</p>
           </div>
           <IconButton ref={closeRef} label="بستن سبد" onClick={closeCart}>
-            ×
+            <CloseCircle aria-hidden="true" color="currentColor" size={21} />
           </IconButton>
         </div>
         {lines.length === 0 ? (

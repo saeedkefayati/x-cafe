@@ -90,9 +90,9 @@ Use the same product image assets in both themes.
   overlap visibly. Product imagery may crossfade in the shared central geometry.
 - The Home signature sequence uses existing approved product images and changes
   the surrounding surface tone rather than filtering or replacing product media.
-- Product Detail flavor storytelling is limited to selected signature products,
-  sits after the configurator and Add to Cart action, and uses catalog data rather
-  than invented ingredient claims.
+- Product Detail flavor storytelling appears on every catalog product, sits after
+  the configurator and Add to Cart action, and uses each product's catalog flavor
+  notes rather than invented ingredient claims.
 - Do not add a JavaScript animation runtime unless a future approved sequence
   cannot meet its interaction contract with the native progressive layer.
 

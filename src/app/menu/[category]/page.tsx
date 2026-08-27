@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageIntro } from "@/components/content/page-intro";
-import { Container, Section, Stack } from "@/components/primitives/layout";
-import { CategoryNav } from "@/components/product/category-nav";
-import { MenuGrid } from "@/components/product/menu-grid";
+import { Container, Section } from "@/components/primitives/layout";
+import { MenuCatalog } from "@/components/product/menu-catalog";
 import { categories, getCategory, products } from "@/data/mock";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -30,9 +29,6 @@ export default async function CategoryPage({
   const { category: slug } = await params;
   const category = getCategory(slug);
   if (!category) notFound();
-  const items = products.filter(
-    (product) => product.categoryId === category.id,
-  );
   return (
     <>
       <PageIntro
@@ -42,14 +38,11 @@ export default async function CategoryPage({
       />
       <Section spacing="compact">
         <Container>
-          <Stack gap="lg">
-            <CategoryNav categories={categories} activeSlug={category.slug} />
-            {items.length ? (
-              <MenuGrid products={items} eagerCount={3} />
-            ) : (
-              <p>محصولی در این دسته ثبت نشده است.</p>
-            )}
-          </Stack>
+          <MenuCatalog
+            products={products}
+            categories={categories}
+            activeSlug={category.slug}
+          />
         </Container>
       </Section>
     </>

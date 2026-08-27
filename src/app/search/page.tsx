@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { SearchNormal1 } from "iconsax-react";
 import { Button } from "@/components/controls/button";
-import { TextField } from "@/components/controls/text-field";
-import { PageIntro } from "@/components/content/page-intro";
 import { Container, Section } from "@/components/primitives/layout";
-import { Heading, Text } from "@/components/primitives/typography";
+import { Eyebrow, Heading, Text } from "@/components/primitives/typography";
 import { MenuGrid } from "@/components/product/menu-grid";
 import { products } from "@/data/mock";
 import { searchProducts } from "@/lib/search";
@@ -23,27 +23,58 @@ export default async function SearchPage({
   const query =
     (Array.isArray(rawQuery) ? rawQuery[0] : rawQuery)?.trim() ?? "";
   const results = searchProducts(products, query);
+  const popularProducts = products
+    .filter((product) => product.bestSeller)
+    .slice(0, 3);
+  const suggestions = ["لاته", "شکلات", "چیزکیک", "قهوهٔ سرد"];
 
   return (
     <>
-      <PageIntro
-        eyebrow="Search"
-        title="جست‌وجو"
-        description="نام، توضیح یا طعمی را که در ذهن دارید میان محصولات فعلی پیدا کنید."
-      />
-      <Section spacing="compact">
+      <Section className={styles.searchSection} spacing="compact">
         <Container>
-          <form className={styles.searchForm} role="search">
-            <TextField
-              id="search-query"
-              label="جست‌وجوی منو"
-              name="q"
-              type="search"
-              placeholder="مثلاً لاته، شکلات یا چیزکیک"
-              defaultValue={query}
-            />
-            <Button type="submit">جست‌وجو</Button>
-          </form>
+          <div className={styles.searchHero}>
+            <div className={styles.searchCopy}>
+              <Eyebrow>Search</Eyebrow>
+              <Heading as="h1" size="displayLg">
+                دنبال چه طعمی هستید؟
+              </Heading>
+              <Text size="bodyLg">
+                نام محصول، نوع نوشیدنی یا یک نشانهٔ طعمی را بنویسید.
+              </Text>
+            </div>
+            <form className={styles.searchForm} role="search">
+              <label className={styles.searchInput} htmlFor="search-query">
+                <SearchNormal1
+                  aria-hidden="true"
+                  color="currentColor"
+                  size={24}
+                />
+                <span>جست‌وجوی منو</span>
+                <input
+                  id="search-query"
+                  name="q"
+                  type="search"
+                  placeholder="مثلاً لاته، شکلات یا چیزکیک"
+                  defaultValue={query}
+                />
+              </label>
+              <Button type="submit">پیدا کن</Button>
+            </form>
+            <div
+              className={styles.searchSuggestions}
+              aria-label="پیشنهاد جست‌وجو"
+            >
+              <span>جست‌وجوی سریع:</span>
+              {suggestions.map((suggestion) => (
+                <Link
+                  href={`/search?q=${encodeURIComponent(suggestion)}`}
+                  key={suggestion}
+                >
+                  {suggestion}
+                </Link>
+              ))}
+            </div>
+          </div>
         </Container>
       </Section>
       {query ? (
@@ -51,7 +82,7 @@ export default async function SearchPage({
           <Container>
             {results.length > 0 ? (
               <>
-                <div className={styles.sectionHeaderText}>
+                <div className={styles.searchResultHeader}>
                   <Heading size="h3">
                     {results.length.toLocaleString("fa-IR")} نتیجه برای «{query}
                     »
@@ -72,7 +103,22 @@ export default async function SearchPage({
             )}
           </Container>
         </Section>
-      ) : null}
+      ) : (
+        <Section spacing="compact">
+          <Container>
+            <div className={styles.searchResultHeader}>
+              <Eyebrow>Start here</Eyebrow>
+              <Heading size="h3">انتخاب‌های محبوب برای شروع</Heading>
+              <Text>
+                اگر هنوز تصمیم نگرفته‌اید، این سه انتخاب نقطهٔ شروع خوبی هستند.
+              </Text>
+            </div>
+            <div className={styles.searchResults}>
+              <MenuGrid products={popularProducts} />
+            </div>
+          </Container>
+        </Section>
+      )}
     </>
   );
 }

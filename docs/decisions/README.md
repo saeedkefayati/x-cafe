@@ -22,3 +22,4 @@ Current records:
 - 0008-progressive-scroll-storytelling.md
 - 0009-x-cafe-brand-and-reference-data.md
 - 0010-source-matched-launch-catalog.md
+- 0011-local-branch-map-assets.md

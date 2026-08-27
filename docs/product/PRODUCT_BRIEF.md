@@ -45,6 +45,7 @@ Used by Menu, Search, Cart, Checkout, FAQ, Contact, and legal pages.
 - `/cart`
 - `/checkout`
 - `/order/success`
+- `/order/failed`
 - `/journal`
 - `/journal/[slug]`
 - `/about`

@@ -19,13 +19,14 @@ Phase 12 brand and operational reference integration is complete.
 Phase 13 frontend content and discovery refinement is complete.
 Phase 14 publishing and content-safety refinement is complete.
 Phase 15 source-matched launch catalog refinement is complete.
+Phase 16 visual consistency and utility UX refinement is complete.
 
 ## Current phase
 
-Phase 15 replaces the five unmatched catalog products with direct Felestin-menu
-matches, gives each replacement a unique approved-style image, and makes all
-fifteen base prices source-matched. Configuration price deltas remain temporary.
-Backend and real-order work are intentionally deferred.
+Phase 16 unifies control geometry and Iconsax iconography, removes redundant
+calls to action and pricing-status badges, and rebuilds Menu, Search, branch,
+FAQ, journal, Product Detail, cart, Checkout, and order-failure states. Backend
+and real-order work remain intentionally deferred.
 
 ## Completed
 
@@ -33,7 +34,7 @@ Backend and real-order work are intentionally deferred.
 - Persian RTL root layout and responsive application shell.
 - Semantic color, type, spacing, radius, shadow, motion, and layering tokens.
 - Layout, typography, control, navigation, and product-card primitives.
-- Routes for Home, Menu, Category, Product, Search, Cart, Checkout, Success, Journal, About, Locations, Contact, FAQ, Privacy, Terms, and custom 404.
+- Routes for Home, Menu, Category, Product, Search, Cart, Checkout, order success and failure, Journal, About, Locations, Contact, FAQ, Privacy, Terms, and custom 404.
 - Domain models for products, categories, configurable options, ingredients, flavor notes, cart items, posts, locations, and FAQ entries.
 - Fifteen catalog products: five hot coffees, five cold coffees, and five cakes.
 - Fifteen product-card images at 1122×1402 using the approved shared studio art direction.
@@ -110,7 +111,7 @@ Backend and real-order work are intentionally deferred.
 - Complete non-pinned mobile, unsupported-browser, and reduced-motion versions
   with every state immediately available in document order.
 - A restrained, accessible flavor-profile narrative after the configurator on
-  the three signature Product Detail pages, with no impact on utility routes.
+  all fifteen Product Detail pages, with no impact on utility routes.
 - A product-centered Apple-style refinement for the Home signature scene: one
   stable visual axis, short supporting copy, synchronized background tones,
   rounded playful surfaces, and masked state transitions that avoid noisy text
@@ -127,9 +128,11 @@ Backend and real-order work are intentionally deferred.
 - Accessible frontend-only Menu filters for all products, best sellers, and
   products without registered allergens, with live result counts and responsive
   horizontal controls.
-- External map search links for all three branches on Locations and Contact,
-  derived from confirmed addresses without requesting customer location or
-  adding a routing SDK.
+- Versioned light/dark local SVG maps for all three branches, generated from
+  current branch coordinates and OpenStreetMap road geometry with no iframe,
+  runtime tile request, customer-location request, or routing SDK. Locations
+  offers coordinate-based Google Maps, Apple Maps, Neshan, and Balad links;
+  Contact links to that single source instead of duplicating branch records.
 - A generated 1200×630 brand-level social card using the approved X mark and
   warm visual system, replacing the generic product contact sheet for default
   Open Graph and Twitter metadata.
@@ -144,6 +147,24 @@ Backend and real-order work are intentionally deferred.
   catalog contact sheet; superseded images remain preserved.
 - All launch-product base prices now use direct Felestin menu matches, while
   configuration deltas retain explicit temporary wording.
+- Unified non-pill control radius across buttons, inputs, product options,
+  quantity controls, filters, and destructive actions; pill geometry is
+  reserved for short status badges.
+- Iconsax iconography across shell actions, card links, quantity controls,
+  cart actions, Checkout confirmations, branch links, search, FAQ, and order
+  states, with explicit current-color rendering for React 19 compatibility.
+- One shared Menu toolbar for category, factual filters, and sorting on both the
+  all-products and category routes, with pricing-status UI removed.
+- Rebuilt Search discovery state, restrained FAQ accordion animation, richer
+  Journal metadata, clearer Product ingredients and flavor-profile guidance,
+  improved cart clearing placement, larger Checkout step markers, and a
+  dedicated order-failure route.
+- Journal topics are presented as explicit editorial tags outside preview
+  cards, and every catalog Product Detail now includes its flavor profile.
+- Locations is the complete branch and map source; Contact is a short routing
+  page for order, allergen, and navigation questions.
+- Responsive browser verification for all changed routes at 390px and 1440px,
+  with no horizontal overflow, broken images, or browser errors.
 
 ## Catalog
 

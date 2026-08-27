@@ -7,7 +7,7 @@
   justify-content: center;
   gap: var(--space-2);
   border: 1px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   cursor: pointer;
   font-weight: 650;
   line-height: 1;
@@ -66,7 +66,7 @@
   width: 100%;
   min-height: 3rem;
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   padding: 0.75rem 0.875rem;
   transition:
@@ -89,11 +89,13 @@
   grid-template-columns: 2.75rem minmax(2.75rem, auto) 2.75rem;
   align-items: center;
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
 }
 .quantityButton {
+  display: grid;
   min-height: 2.75rem;
+  place-items: center;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -131,7 +133,7 @@
   gap: var(--space-2);
   padding: 0.75rem 1rem;
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   cursor: pointer;
   transition:
