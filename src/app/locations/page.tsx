@@ -77,27 +77,20 @@ export default function LocationsPage() {
                   >
                     <Image
                       className={styles.locationMapLight}
-                      src={`/images/locations/map-${location.slug}-light-${location.mapVersion}.svg`}
+                      src={`/images/locations/map-${location.slug}-light.svg`}
                       alt=""
                       fill
                       sizes="(max-width: 928px) 100vw, 45vw"
                     />
                     <Image
                       className={styles.locationMapDark}
-                      src={`/images/locations/map-${location.slug}-dark-${location.mapVersion}.svg`}
+                      src={`/images/locations/map-${location.slug}-dark.svg`}
                       alt=""
                       fill
                       sizes="(max-width: 928px) 100vw, 45vw"
                     />
                   </div>
-                  <a
-                    className={styles.mapAttribution}
-                    href="https://www.openstreetmap.org/copyright"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    دادهٔ نقشه © مشارکت‌کنندگان OpenStreetMap
-                  </a>
+                  <span className={styles.mapBranchLabel}>{location.name}</span>
                 </div>
                 <div className={styles.locationContent}>
                   <span className={styles.locationNumber}>

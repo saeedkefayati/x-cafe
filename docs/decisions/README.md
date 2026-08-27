@@ -23,3 +23,4 @@ Current records:
 - 0009-x-cafe-brand-and-reference-data.md
 - 0010-source-matched-launch-catalog.md
 - 0011-local-branch-map-assets.md
+- 0012-stable-branch-map-assets.md

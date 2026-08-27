@@ -128,7 +128,7 @@ and real-order work remain intentionally deferred.
 - Accessible frontend-only Menu filters for all products, best sellers, and
   products without registered allergens, with live result counts and responsive
   horizontal controls.
-- Versioned light/dark local SVG maps for all three branches, generated from
+- Stable-name light/dark local SVG maps for all three branches, generated from
   current branch coordinates and OpenStreetMap road geometry with no iframe,
   runtime tile request, customer-location request, or routing SDK. Locations
   offers coordinate-based Google Maps, Apple Maps, Neshan, and Balad links;
@@ -155,10 +155,10 @@ and real-order work remain intentionally deferred.
   states, with explicit current-color rendering for React 19 compatibility.
 - One shared Menu toolbar for category, factual filters, and sorting on both the
   all-products and category routes, with pricing-status UI removed.
-- Rebuilt Search discovery state, restrained FAQ accordion animation, richer
-  Journal metadata, clearer Product ingredients and flavor-profile guidance,
-  improved cart clearing placement, larger Checkout step markers, and a
-  dedicated order-failure route.
+- Rebuilt Search discovery state with query-gated results and an in-field reset,
+  restrained FAQ accordion animation, richer Journal metadata, clearer Product
+  ingredients and flavor-profile guidance, improved cart clearing placement,
+  larger Checkout step markers, and a dedicated order-failure route.
 - Journal topics are presented as explicit editorial tags outside preview
   cards, and every catalog Product Detail now includes its flavor profile.
 - Locations is the complete branch and map source; Contact is a short routing
@@ -206,6 +206,7 @@ See [`../ROADMAP.md`](../ROADMAP.md) for phase boundaries and acceptance targets
 
 ## Mock or unresolved
 
+- Final visible OpenStreetMap attribution placement before public release.
 - Configuration price deltas for sizes, milk, sweetness, and extras.
 - Complete production menu beyond the current fifteen-product contract.
 - Order backend, ecommerce provider, or POS integration.

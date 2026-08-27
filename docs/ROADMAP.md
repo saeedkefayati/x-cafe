@@ -275,8 +275,8 @@ source, and fee policy are still unresolved.
 - Rebuild Search, branch maps, Contact information architecture, FAQ motion,
   Journal metadata, Product ingredients, cart clearing, Checkout steps, and the
   order-failure state.
-- Keep branch-map display runtime-independent by committing versioned light and
-  dark SVGs generated from branch coordinates and OpenStreetMap geometry; use
+- Keep branch-map display runtime-independent by committing stable-name light
+  and dark SVGs generated from branch coordinates and OpenStreetMap geometry; use
   coordinate links for Google Maps, Apple Maps, Neshan, and Balad routing.
 - Present Journal topics as tags on editorial pages rather than repeating them
   in preview cards, and expose catalog flavor profiles on every Product Detail.

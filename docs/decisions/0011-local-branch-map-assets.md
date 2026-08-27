@@ -1,6 +1,6 @@
 # 0011 — Local branch map assets
 
-Status: Accepted
+Status: Superseded by ADR 0012
 
 Date: 2026-08-27
 

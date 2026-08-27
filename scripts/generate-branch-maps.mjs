@@ -26,8 +26,6 @@ const palettes = {
     waterway: "#a8c8c8",
     marker: "#d86e4b",
     markerCore: "#fffaf1",
-    label: "#322d27",
-    muted: "#776d61",
   },
   dark: {
     background: "#1c1a18",
@@ -41,20 +39,16 @@ const palettes = {
     waterway: "#35575a",
     marker: "#e58a67",
     markerCore: "#1c1a18",
-    label: "#f2ebe2",
-    muted: "#aaa096",
   },
 };
 
 function readBranchCenters(source) {
   const branchPattern =
-    /slug:\s*["']([^"']+)["'][\s\S]*?name:\s*["']([^"']+)["'][\s\S]*?lat:\s*["']([^"']+)["'][\s\S]*?lng:\s*["']([^"']+)["'][\s\S]*?mapVersion:\s*["']([^"']+)["']/g;
+    /slug:\s*["']([^"']+)["'][\s\S]*?lat:\s*["']([^"']+)["'][\s\S]*?lng:\s*["']([^"']+)["']/g;
   const branches = [...source.matchAll(branchPattern)].map((match) => ({
     slug: match[1],
-    name: match[2],
-    lat: Number(match[3]),
-    lng: Number(match[4]),
-    mapVersion: match[5],
+    lat: Number(match[2]),
+    lng: Number(match[3]),
   }));
 
   if (branches.length === 0 || branches.some(({ lat, lng }) => !lat || !lng)) {
@@ -96,14 +90,6 @@ out tags geom;`;
   }
 
   throw new Error("All Overpass endpoints failed", { cause: lastError });
-}
-
-function escapeXml(value) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
 }
 
 function projectPoint(point, center) {
@@ -205,10 +191,8 @@ function renderSvg(branch, ways, theme) {
       ),
     )
     .join("");
-  const branchName = escapeXml(branch.name);
-
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${MAP_WIDTH} ${MAP_HEIGHT}" width="${MAP_WIDTH}" height="${MAP_HEIGHT}" role="img" aria-labelledby="title desc">
-  <title id="title">نقشهٔ محلی ${branchName}</title>
+  <title id="title">نقشهٔ محلی شعبه</title>
   <desc id="desc">نقشهٔ خیابان‌های اطراف شعبه بر اساس داده‌های OpenStreetMap</desc>
   <defs>
     <clipPath id="map-clip"><rect width="${MAP_WIDTH}" height="${MAP_HEIGHT}" rx="38"/></clipPath>
@@ -223,11 +207,6 @@ function renderSvg(branch, ways, theme) {
       <path d="M0-48C-27-48-48-27-48 0c0 36 48 78 48 78S48 36 48 0C48-27 27-48 0-48Z" fill="${palette.marker}"/>
       <circle cy="0" r="16" fill="${palette.markerCore}"/>
     </g>
-    <g transform="translate(52 678)">
-      <rect width="344" height="74" rx="24" fill="${palette.background}" opacity=".92"/>
-      <text x="24" y="31" fill="${palette.label}" font-family="Arial, sans-serif" font-size="19" font-weight="700">${branchName}</text>
-      <text x="24" y="56" fill="${palette.muted}" font-family="Arial, sans-serif" font-size="14">X Cafe · Tehran</text>
-    </g>
   </g>
 </svg>`;
 }
@@ -237,6 +216,7 @@ async function main() {
   const requestedSlug = process.argv
     .find((argument) => argument.startsWith("--slug="))
     ?.slice("--slug=".length);
+  const replaceExisting = process.argv.includes("--replace");
   const branches = readBranchCenters(source).filter(
     (branch) => !requestedSlug || branch.slug === requestedSlug,
   );
@@ -249,18 +229,17 @@ async function main() {
 
   for (const branch of branches) {
     const outputPaths = Object.keys(palettes).map((theme) =>
-      resolve(
-        OUTPUT_DIRECTORY,
-        `map-${branch.slug}-${theme}-${branch.mapVersion}.svg`,
-      ),
+      resolve(OUTPUT_DIRECTORY, `map-${branch.slug}-${theme}.svg`),
     );
 
     for (const outputPath of outputPaths) {
       try {
         await access(outputPath);
-        throw new Error(
-          `${outputPath} already exists. Increment mapVersion in src/data/locations.ts before generating a new approved sibling.`,
-        );
+        if (!replaceExisting) {
+          throw new Error(
+            `${outputPath} already exists. Re-run with --replace only after explicit approval to replace the current map assets.`,
+          );
+        }
       } catch (error) {
         if (error?.code !== "ENOENT") throw error;
       }
@@ -270,7 +249,7 @@ async function main() {
     const ways = await fetchMapGeometry(branch);
 
     for (const theme of Object.keys(palettes)) {
-      const filename = `map-${branch.slug}-${theme}-${branch.mapVersion}.svg`;
+      const filename = `map-${branch.slug}-${theme}.svg`;
       await writeFile(
         resolve(OUTPUT_DIRECTORY, filename),
         renderSvg(branch, ways, theme),

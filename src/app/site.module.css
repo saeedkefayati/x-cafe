@@ -297,7 +297,7 @@
 }
 .searchInput {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   grid-template-rows: auto auto;
   align-items: center;
   gap: 0 var(--space-3);
@@ -307,20 +307,50 @@
   padding: 0.65rem var(--space-4);
 }
 .searchInput > svg {
+  grid-column: 1;
   grid-row: 1 / 3;
   color: var(--color-accent);
 }
-.searchInput > span {
+.searchInputLabel {
+  grid-column: 2;
+  grid-row: 1;
   color: var(--color-text-muted);
   font-size: var(--font-size-caption);
   font-weight: 650;
 }
 .searchInput input {
+  grid-column: 2;
+  grid-row: 2;
   width: 100%;
   min-width: 0;
   border: 0;
   outline: 0;
   background: transparent;
+}
+.searchInput input:focus-visible {
+  border-color: transparent !important;
+  outline: 0;
+  box-shadow: none;
+}
+.searchInputClear {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  grid-column: 3;
+  grid-row: 1 / 3;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+.searchInputClear:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: none;
 }
 .searchInput:focus-within {
   border-color: var(--color-accent);
@@ -674,7 +704,7 @@
 :global(:root[data-theme="dark"]) .locationMapDark {
   display: block;
 }
-.mapAttribution {
+.mapBranchLabel {
   position: absolute;
   inset-inline-start: var(--space-3);
   inset-block-end: var(--space-3);
@@ -684,8 +714,15 @@
   padding: 0.35rem 0.6rem;
   background: color-mix(in srgb, var(--color-surface) 90%, transparent);
   color: var(--color-text-muted);
-  font-size: 0.68rem;
+  font-size: var(--font-size-caption);
+  font-weight: 650;
   backdrop-filter: blur(8px);
+}
+@media (min-width: 58.001rem) {
+  .locationFeature:nth-child(even) .mapBranchLabel {
+    inset-inline-start: auto;
+    inset-inline-end: var(--space-3);
+  }
 }
 .locationContent {
   display: grid;
@@ -1029,6 +1066,10 @@
   }
 }
 @media (hover: hover) and (pointer: fine) {
+  .searchInputClear:hover {
+    background: var(--color-surface-muted);
+    color: var(--color-text-primary);
+  }
   .categoryFeature:hover {
     border-color: var(--color-border-default);
     box-shadow: var(--shadow-interactive);
@@ -1066,6 +1107,9 @@
     transform: none;
   }
   .categoryFeature {
+    transition: none;
+  }
+  .searchInputClear {
     transition: none;
   }
   .sectionAllLink > span,

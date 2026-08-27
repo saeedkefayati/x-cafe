@@ -42,7 +42,7 @@ This repository uses a version with APIs and conventions that may differ from ge
 - `src/styles/motion.css`: shared progressive motion, View Transition timing, and reduced-motion fallback.
 - `public/images/products`: production-bound product-card assets and manifest.
 - `public/images/calibration`: preserved image-calibration history.
-- `public/images/locations`: versioned light/dark local branch maps.
+- `public/images/locations`: stable-name light/dark local branch maps.
 
 ## Component boundaries
 
@@ -91,11 +91,14 @@ This repository uses a version with APIs and conventions that may differ from ge
 - The Locations page must not embed a remote map or request map tiles at runtime.
 - `pnpm maps:generate` reads branch `lat`/`lng` values from
   `src/data/locations.ts`, fetches nearby OpenStreetMap road geometry through
-  Overpass during development, and writes versioned light/dark SVG assets.
-- Increment that branch's `mapVersion`, then use
-  `pnpm maps:generate -- --slug=<branch-slug>` when only one branch changes.
-- The generator refuses to overwrite an existing version.
-- Commit the generated SVGs and keep visible OpenStreetMap attribution.
+  Overpass during development, and writes `map-<slug>-light.svg` and
+  `map-<slug>-dark.svg` assets without visible text inside the SVG.
+- Use `pnpm maps:generate -- --slug=<branch-slug>` when only one branch changes.
+- The generator refuses to overwrite a current map unless `--replace` is passed
+  after explicit approval.
+- Commit the generated SVGs. Their metadata identifies OpenStreetMap as the
+  geometry source; a visible attribution placement remains required before
+  public release.
 - External routing buttons may open Google Maps, Apple Maps, Neshan, or Balad
   with the stored destination coordinates; they must not request or persist the
   customer's current location inside the site.

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="title desc">
-  <title id="title">نقشهٔ محلی شعبهٔ فلسطین</title>
+  <title id="title">نقشهٔ محلی شعبه</title>
   <desc id="desc">نقشهٔ خیابان‌های اطراف شعبه بر اساس داده‌های OpenStreetMap</desc>
   <defs>
     <clipPath id="map-clip"><rect width="1200" height="800" rx="38"/></clipPath>
@@ -13,11 +13,6 @@
     <g transform="translate(600 393)" filter="url(#marker-shadow)">
       <path d="M0-48C-27-48-48-27-48 0c0 36 48 78 48 78S48 36 48 0C48-27 27-48 0-48Z" fill="#e58a67"/>
       <circle cy="0" r="16" fill="#1c1a18"/>
-    </g>
-    <g transform="translate(52 678)">
-      <rect width="344" height="74" rx="24" fill="#1c1a18" opacity=".92"/>
-      <text x="24" y="31" fill="#f2ebe2" font-family="Arial, sans-serif" font-size="19" font-weight="700">شعبهٔ فلسطین</text>
-      <text x="24" y="56" fill="#aaa096" font-family="Arial, sans-serif" font-size="14">X Cafe · Tehran</text>
     </g>
   </g>
 </svg>
